@@ -29,29 +29,36 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuario = textBoxUsuario.Text;
-            string senha = textBoxSenha.Text;
+            string usuario = BoxAcesso.Text;
+            string senha = BoxSenha.Text;
 
 
-            if (usuario == null || senha == "")
+            if (string.IsNullOrWhiteSpace(usuario))
             {
                 LabelResultado.Text = "Usuario é obrigatório!!";
                 LabelResultado.ForeColor = Color.Red;
                 return;
             }
 
-           if (usuario == "daniela.machado" && senha == "12345")
+            if (senha == null || senha == "")
+            {
+                LabelResultado.Text = "Senha é obrigatório!!";
+                LabelResultado.ForeColor = Color.Red;
+                return;
+            }
+
+            if (usuario == "daniela.machado" && senha == "12345")
             {
                 LabelResultado.Text = "Autenticado com sucesso!";
                 LabelResultado.ForeColor = Color.Green;
             }
-           else
+
+            else 
             {
                 LabelResultado.Text = "Usuario ou Senha incorretos...";
                 LabelResultado.ForeColor = Color.Red;
             }
-
-          
+                         
 
         }
 

@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBoxUsuario = new TextBox();
-            textBoxSenha = new TextBox();
+            BoxAcesso = new TextBox();
+            BoxSenha = new TextBox();
             Textboxentrar = new Button();
-            Label1 = new Label();
-            label2 = new Label();
+            LabelEmail = new Label();
+            labelSenha = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
-            button2 = new Button();
+            labelLogin = new Label();
+            BRecupera = new Button();
             LabelResultado = new Label();
             SuspendLayout();
             // 
-            // textBoxUsuario
+            // BoxAcesso
             // 
-            textBoxUsuario.Location = new Point(175, 61);
-            textBoxUsuario.Name = "textBoxUsuario";
-            textBoxUsuario.Size = new Size(183, 23);
-            textBoxUsuario.TabIndex = 0;
-            textBoxUsuario.TextChanged += textBoxUsuario_TextChanged;
+            BoxAcesso.Location = new Point(175, 61);
+            BoxAcesso.Name = "BoxAcesso";
+            BoxAcesso.Size = new Size(183, 23);
+            BoxAcesso.TabIndex = 0;
+            BoxAcesso.TextChanged += textBoxUsuario_TextChanged;
             // 
-            // textBoxSenha
+            // BoxSenha
             // 
-            textBoxSenha.Location = new Point(174, 98);
-            textBoxSenha.Name = "textBoxSenha";
-            textBoxSenha.Size = new Size(184, 23);
-            textBoxSenha.TabIndex = 1;
+            BoxSenha.Location = new Point(174, 98);
+            BoxSenha.Name = "BoxSenha";
+            BoxSenha.Size = new Size(184, 23);
+            BoxSenha.TabIndex = 1;
             // 
             // Textboxentrar
             // 
@@ -65,24 +65,24 @@
             Textboxentrar.UseVisualStyleBackColor = true;
             Textboxentrar.Click += button1_Click;
             // 
-            // Label1
+            // LabelEmail
             // 
-            Label1.AutoSize = true;
-            Label1.Location = new Point(130, 69);
-            Label1.Name = "Label1";
-            Label1.Size = new Size(42, 15);
-            Label1.TabIndex = 6;
-            Label1.Text = "Email :";
+            LabelEmail.AutoSize = true;
+            LabelEmail.Location = new Point(130, 69);
+            LabelEmail.Name = "LabelEmail";
+            LabelEmail.Size = new Size(42, 15);
+            LabelEmail.TabIndex = 6;
+            LabelEmail.Text = "Email :";
             // 
-            // label2
+            // labelSenha
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(128, 101);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 15);
-            label2.TabIndex = 7;
-            label2.Text = "Senha :";
-            label2.Click += label2_Click;
+            labelSenha.AutoSize = true;
+            labelSenha.Location = new Point(128, 101);
+            labelSenha.Name = "labelSenha";
+            labelSenha.Size = new Size(45, 15);
+            labelSenha.TabIndex = 7;
+            labelSenha.Text = "Senha :";
+            labelSenha.Click += label2_Click;
             // 
             // label3
             // 
@@ -101,25 +101,25 @@
             label4.Size = new Size(0, 15);
             label4.TabIndex = 9;
             // 
-            // label5
+            // labelLogin
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Light", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(210, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(92, 37);
-            label5.TabIndex = 10;
-            label5.Text = "LOGIN";
-            label5.Click += label5_Click;
+            labelLogin.AutoSize = true;
+            labelLogin.Font = new Font("Segoe UI Light", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelLogin.Location = new Point(210, 9);
+            labelLogin.Name = "labelLogin";
+            labelLogin.Size = new Size(92, 37);
+            labelLogin.TabIndex = 10;
+            labelLogin.Text = "LOGIN";
+            labelLogin.Click += label5_Click;
             // 
-            // button2
+            // BRecupera
             // 
-            button2.Location = new Point(244, 128);
-            button2.Name = "button2";
-            button2.Size = new Size(104, 22);
-            button2.TabIndex = 11;
-            button2.Text = "Esqueci senha";
-            button2.UseVisualStyleBackColor = true;
+            BRecupera.Location = new Point(244, 128);
+            BRecupera.Name = "BRecupera";
+            BRecupera.Size = new Size(104, 22);
+            BRecupera.TabIndex = 11;
+            BRecupera.Text = "Esqueci senha";
+            BRecupera.UseVisualStyleBackColor = true;
             // 
             // LabelResultado
             // 
@@ -136,17 +136,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(479, 275);
+            ClientSize = new Size(489, 243);
             Controls.Add(LabelResultado);
-            Controls.Add(button2);
-            Controls.Add(label5);
+            Controls.Add(BRecupera);
+            Controls.Add(labelLogin);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(Label1);
+            Controls.Add(labelSenha);
+            Controls.Add(LabelEmail);
             Controls.Add(Textboxentrar);
-            Controls.Add(textBoxSenha);
-            Controls.Add(textBoxUsuario);
+            Controls.Add(BoxSenha);
+            Controls.Add(BoxAcesso);
             ForeColor = SystemColors.MenuHighlight;
             Name = "FormLogin";
             Text = "Login";
@@ -156,15 +156,15 @@
 
         #endregion
 
-        private TextBox textBoxUsuario;
-        private TextBox textBoxSenha;
+        private TextBox BoxAcesso;
+        private TextBox BoxSenha;
         private Button Textboxentrar;
-        private Label Label1;
-        private Label label2;
+        private Label LabelEmail;
+        private Label labelSenha;
         private Label label3;
         private Label label4;
-        private Label label5;
-        private Button button2;
+        private Label labelLogin;
+        private Button BRecupera;
         private Label LabelResultado;
     }
 }
