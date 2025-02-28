@@ -29,11 +29,12 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuario = BoxAcesso.Text;
+            List<string> listaUsuarios = new List<string>() { "joe.jonas", "chris.brown", "elisa.jesus" };
+            string usuarioBuscado = BoxAcesso.Text;
             string senha = BoxSenha.Text;
 
 
-            if (string.IsNullOrWhiteSpace(usuario))
+            if (string.IsNullOrWhiteSpace(usuarioBuscado))
             {
                 LabelResultado.Text = "Usuario é obrigatório!!";
                 LabelResultado.ForeColor = Color.Red;
@@ -46,8 +47,17 @@ namespace Login
                 LabelResultado.ForeColor = Color.Red;
                 return;
             }
+            int posicaoUsuarioEncontrato = -1;
+            for (int i = 0; i < listaUsuarios.Count; i++)
+            {
+                if (usuarioBuscado == listaUsuarios[i])
+                {
+                    posicaoUsuarioEncontrato = i;
+                }
 
-            if (usuario == "daniela.machado" && senha == "12345")
+            }
+
+            if (posicaoUsuarioEncontrato > -1 && senha == "12345")
             {
                 LabelResultado.Text = "Autenticado com sucesso!";
                 LabelResultado.ForeColor = Color.Green;

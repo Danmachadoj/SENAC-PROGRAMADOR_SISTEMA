@@ -45,7 +45,7 @@
             BoxAcesso.Location = new Point(175, 61);
             BoxAcesso.Name = "BoxAcesso";
             BoxAcesso.Size = new Size(183, 23);
-            BoxAcesso.TabIndex = 0;
+            BoxAcesso.TabIndex = 1;
             BoxAcesso.TextChanged += textBoxUsuario_TextChanged;
             // 
             // BoxSenha
@@ -53,14 +53,14 @@
             BoxSenha.Location = new Point(174, 98);
             BoxSenha.Name = "BoxSenha";
             BoxSenha.Size = new Size(184, 23);
-            BoxSenha.TabIndex = 1;
+            BoxSenha.TabIndex = 2;
             // 
             // Textboxentrar
             // 
             Textboxentrar.Location = new Point(175, 128);
             Textboxentrar.Name = "Textboxentrar";
             Textboxentrar.Size = new Size(63, 22);
-            Textboxentrar.TabIndex = 5;
+            Textboxentrar.TabIndex = 3;
             Textboxentrar.Text = "Entrar";
             Textboxentrar.UseVisualStyleBackColor = true;
             Textboxentrar.Click += button1_Click;
@@ -117,7 +117,7 @@
             BRecupera.Location = new Point(244, 128);
             BRecupera.Name = "BRecupera";
             BRecupera.Size = new Size(104, 22);
-            BRecupera.TabIndex = 11;
+            BRecupera.TabIndex = 4;
             BRecupera.Text = "Esqueci senha";
             BRecupera.UseVisualStyleBackColor = true;
             // 
