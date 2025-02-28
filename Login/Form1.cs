@@ -30,6 +30,7 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             List<string> listaUsuarios = new List<string>() { "joe.jonas", "chris.brown", "elisa.jesus" };
+            List<string> listaSenha = new List<string>() { "brothers", "residuals", "nenem" };
             string usuarioBuscado = BoxAcesso.Text;
             string senha = BoxSenha.Text;
 
@@ -57,18 +58,18 @@ namespace Login
 
             }
 
-            if (posicaoUsuarioEncontrato > -1 && senha == "12345")
+            if (posicaoUsuarioEncontrato > -1 && senha == listaSenha[posicaoUsuarioEncontrato])
             {
                 LabelResultado.Text = "Autenticado com sucesso!";
                 LabelResultado.ForeColor = Color.Green;
             }
 
-            else 
+            else
             {
                 LabelResultado.Text = "Usuario ou Senha incorretos...";
                 LabelResultado.ForeColor = Color.Red;
             }
-                         
+
 
         }
 
@@ -83,6 +84,16 @@ namespace Login
         }
 
         private void textBoxUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
 
         }

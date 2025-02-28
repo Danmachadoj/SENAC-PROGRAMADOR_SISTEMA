@@ -38,6 +38,14 @@
             labelLogin = new Label();
             BRecupera = new Button();
             LabelResultado = new Label();
+            button1 = new Button();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            label2 = new Label();
+            label5 = new Label();
+            label6 = new Label();
             SuspendLayout();
             // 
             // BoxAcesso
@@ -131,12 +139,89 @@
             LabelResultado.Text = "l";
             LabelResultado.Click += label1_Click_1;
             // 
+            // button1
+            // 
+            button1.Location = new Point(653, 167);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 14;
+            button1.Text = "Criar conta";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Light", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(597, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(148, 37);
+            label1.TabIndex = 15;
+            label1.Text = "CADASTRO";
+            label1.Click += label1_Click_2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(597, 61);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(183, 23);
+            textBox1.TabIndex = 16;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(597, 90);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(183, 23);
+            textBox2.TabIndex = 17;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(597, 119);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(183, 23);
+            textBox3.TabIndex = 18;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(491, 64);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 15);
+            label2.TabIndex = 19;
+            label2.Text = "Nome completo :";
+            label2.Click += label2_Click_1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(519, 93);
+            label5.Name = "label5";
+            label5.Size = new Size(72, 15);
+            label5.TabIndex = 20;
+            label5.Text = "Criar senha :";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(491, 122);
+            label6.Name = "label6";
+            label6.Size = new Size(101, 15);
+            label6.TabIndex = 21;
+            label6.Text = "Confirmar senha :";
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(489, 243);
+            ClientSize = new Size(998, 477);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label2);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
+            Controls.Add(button1);
             Controls.Add(LabelResultado);
             Controls.Add(BRecupera);
             Controls.Add(labelLogin);
@@ -166,5 +251,13 @@
         private Label labelLogin;
         private Button BRecupera;
         private Label LabelResultado;
+        private Button button1;
+        private Label label1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Label label2;
+        private Label label5;
+        private Label label6;
     }
 }
