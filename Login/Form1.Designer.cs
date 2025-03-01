@@ -38,14 +38,15 @@
             labelLogin = new Label();
             BRecupera = new Button();
             LabelResultado = new Label();
-            button1 = new Button();
+            BoxCriar = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            textBoxNome = new TextBox();
+            textBoxCriarS = new TextBox();
+            textBoxCSenha = new TextBox();
             label2 = new Label();
             label5 = new Label();
             label6 = new Label();
+            labelNovoUsuario = new Label();
             SuspendLayout();
             // 
             // BoxAcesso
@@ -139,14 +140,15 @@
             LabelResultado.Text = "l";
             LabelResultado.Click += label1_Click_1;
             // 
-            // button1
+            // BoxCriar
             // 
-            button1.Location = new Point(653, 167);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 14;
-            button1.Text = "Criar conta";
-            button1.UseVisualStyleBackColor = true;
+            BoxCriar.Location = new Point(653, 167);
+            BoxCriar.Name = "BoxCriar";
+            BoxCriar.Size = new Size(75, 23);
+            BoxCriar.TabIndex = 14;
+            BoxCriar.Text = "CriarConta";
+            BoxCriar.UseVisualStyleBackColor = true;
+            BoxCriar.Click += button1_Click_1;
             // 
             // label1
             // 
@@ -159,26 +161,26 @@
             label1.Text = "CADASTRO";
             label1.Click += label1_Click_2;
             // 
-            // textBox1
+            // textBoxNome
             // 
-            textBox1.Location = new Point(597, 61);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(183, 23);
-            textBox1.TabIndex = 16;
+            textBoxNome.Location = new Point(597, 61);
+            textBoxNome.Name = "textBoxNome";
+            textBoxNome.Size = new Size(183, 23);
+            textBoxNome.TabIndex = 16;
             // 
-            // textBox2
+            // textBoxCriarS
             // 
-            textBox2.Location = new Point(597, 90);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(183, 23);
-            textBox2.TabIndex = 17;
+            textBoxCriarS.Location = new Point(597, 90);
+            textBoxCriarS.Name = "textBoxCriarS";
+            textBoxCriarS.Size = new Size(183, 23);
+            textBoxCriarS.TabIndex = 17;
             // 
-            // textBox3
+            // textBoxCSenha
             // 
-            textBox3.Location = new Point(597, 119);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(183, 23);
-            textBox3.TabIndex = 18;
+            textBoxCSenha.Location = new Point(597, 119);
+            textBoxCSenha.Name = "textBoxCSenha";
+            textBoxCSenha.Size = new Size(183, 23);
+            textBoxCSenha.TabIndex = 18;
             // 
             // label2
             // 
@@ -208,20 +210,30 @@
             label6.TabIndex = 21;
             label6.Text = "Confirmar senha :";
             // 
+            // labelNovoUsuario
+            // 
+            labelNovoUsuario.AutoSize = true;
+            labelNovoUsuario.Location = new Point(592, 147);
+            labelNovoUsuario.Name = "labelNovoUsuario";
+            labelNovoUsuario.Size = new Size(0, 15);
+            labelNovoUsuario.TabIndex = 22;
+            labelNovoUsuario.Click += label7_Click;
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(998, 477);
+            Controls.Add(labelNovoUsuario);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label2);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxCSenha);
+            Controls.Add(textBoxCriarS);
+            Controls.Add(textBoxNome);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(BoxCriar);
             Controls.Add(LabelResultado);
             Controls.Add(BRecupera);
             Controls.Add(labelLogin);
@@ -251,13 +263,14 @@
         private Label labelLogin;
         private Button BRecupera;
         private Label LabelResultado;
-        private Button button1;
+        private Button BoxCriar;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox textBoxNome;
+        private TextBox textBoxCriarS;
+        private TextBox textBoxCSenha;
         private Label label2;
         private Label label5;
         private Label label6;
+        private Label labelNovoUsuario;
     }
 }

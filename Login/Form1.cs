@@ -26,11 +26,12 @@ namespace Login
         {
 
         }
+        List<string> listaUsuarios = new List<string>() { "joe.jonas", "chris.brown", "elisa.jesus" };
+        List<string> listaSenha = new List<string>() { "brothers", "residuals", "nenem" };
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> listaUsuarios = new List<string>() { "joe.jonas", "chris.brown", "elisa.jesus" };
-            List<string> listaSenha = new List<string>() { "brothers", "residuals", "nenem" };
+
             string usuarioBuscado = BoxAcesso.Text;
             string senha = BoxSenha.Text;
 
@@ -48,17 +49,17 @@ namespace Login
                 LabelResultado.ForeColor = Color.Red;
                 return;
             }
-            int posicaoUsuarioEncontrato = -1;
+            int posicaoUsuarioEncontrado = -1;
             for (int i = 0; i < listaUsuarios.Count; i++)
             {
                 if (usuarioBuscado == listaUsuarios[i])
                 {
-                    posicaoUsuarioEncontrato = i;
+                    posicaoUsuarioEncontrado = i;
                 }
 
             }
 
-            if (posicaoUsuarioEncontrato > -1 && senha == listaSenha[posicaoUsuarioEncontrato])
+            if (posicaoUsuarioEncontrado > -1 && senha == listaSenha[posicaoUsuarioEncontrado])
             {
                 LabelResultado.Text = "Autenticado com sucesso!";
                 LabelResultado.ForeColor = Color.Green;
@@ -94,6 +95,38 @@ namespace Login
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string novoUsuario = textBoxNome.Text;
+            string CriarSenha = textBoxCriarS.Text;
+
+            bool usuarioEncontrado = false;
+            for (int i = 0; i < listaUsuarios.Count; i++)
+            {
+                if (novoUsuario == listaUsuarios[i])
+                {
+                    usuarioEncontrado = true;
+                }
+            }
+
+            if (usuarioEncontrado)
+            {
+                listaUsuarios.Add (novoUsuario);
+                listaSenha.Add(novoUsuario);
+                labelNovoUsuario.Text = "Usuario cadastrado com sucesso"; 
+            }
+
+            else
+            {
+                labelNovoUsuario.Text = "Já existe um usuario cadastrado";
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
