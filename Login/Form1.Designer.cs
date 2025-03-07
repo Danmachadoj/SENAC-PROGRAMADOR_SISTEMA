@@ -47,6 +47,7 @@
             label5 = new Label();
             label6 = new Label();
             labelNovoUsuario = new Label();
+            labelConfir = new Label();
             SuspendLayout();
             // 
             // BoxAcesso
@@ -135,9 +136,8 @@
             LabelResultado.AutoSize = true;
             LabelResultado.Location = new Point(148, 158);
             LabelResultado.Name = "LabelResultado";
-            LabelResultado.Size = new Size(10, 15);
+            LabelResultado.Size = new Size(0, 15);
             LabelResultado.TabIndex = 12;
-            LabelResultado.Text = "l";
             LabelResultado.Click += label1_Click_1;
             // 
             // BoxCriar
@@ -219,12 +219,22 @@
             labelNovoUsuario.TabIndex = 22;
             labelNovoUsuario.Click += label7_Click;
             // 
+            // labelConfir
+            // 
+            labelConfir.AutoSize = true;
+            labelConfir.Location = new Point(789, 93);
+            labelConfir.Name = "labelConfir";
+            labelConfir.Size = new Size(0, 15);
+            labelConfir.TabIndex = 23;
+            labelConfir.Click += label7_Click_1;
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(998, 477);
+            Controls.Add(labelConfir);
             Controls.Add(labelNovoUsuario);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -247,6 +257,7 @@
             ForeColor = SystemColors.MenuHighlight;
             Name = "FormLogin";
             Text = "Login";
+            Load += FormLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -272,5 +283,6 @@
         private Label label5;
         private Label label6;
         private Label labelNovoUsuario;
+        private Label labelConfir;
     }
 }
