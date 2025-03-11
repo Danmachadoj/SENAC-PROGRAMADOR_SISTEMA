@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Login")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("forms1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25e6af45f7678d272f951f620ceabd94986fe6b2")]
-[assembly: System.Reflection.AssemblyProductAttribute("Login")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Login")]
+[assembly: System.Reflection.AssemblyProductAttribute("forms1")]
+[assembly: System.Reflection.AssemblyTitleAttribute("forms1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]

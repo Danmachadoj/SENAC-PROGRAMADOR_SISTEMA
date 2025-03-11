@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Login
 {
     public partial class FormLogin : Form
@@ -26,13 +28,10 @@ namespace Login
         {
 
         }
-        List<string> alfabetoMaiusculo = new List<string>() { "A", "B", "C", "D", "E" };
-        List<string> alfabetoMinusculo = new List<string>() { "a", "b", "c", "d", "e" };
-        List<char> numeros = new List<char>() { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-        List<char> especiais = new List<char>() { '!', '@', '#', '$', '%', '&', '*' };
-        List<string> listaUsuarios = new List<string>() { "joe.jonas", "chris.brown", "elisa.jesus" };
-        List<string> listaSenha = new List<string>() { "brothers", "residuals", "nenem" };
-       
+      
+        Usuario joe = new Usuario() { Email = "joe.jonas@email.com", Senha = "brothers" };
+        Usuario chris = new Usuario() { Email = "chris.brown@email.com", Senha = "residuals" };
+        Usuario elisa = new Usuario() { Email = "elisa.jesus@email.com", Senha = "nenem" };
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,33 +48,28 @@ namespace Login
                 return;
             }
 
-            if (senha == null || senha == "")
+            if (string.IsNullOrWhiteSpace(senha))
             {
                 LabelResultado.Text = "Senha é obrigatório!!";
                 LabelResultado.ForeColor = Color.Red;
                 return;
             }
-            int posicaoUsuarioEncontrado = -1;
-            for (int i = 0; i < listaUsuarios.Count; i++)
-            {
-                if (usuarioBuscado == listaUsuarios[i])
-                {
-                    posicaoUsuarioEncontrado = i;
-                }
 
-            }
+            int posicaoUsuarioEncontrado = listaUsuarios.IndexOf(usuarioBuscado);
+                          
 
-            if (posicaoUsuarioEncontrado > -1 && senha == listaSenha[posicaoUsuarioEncontrado])
-            {
-                LabelResultado.Text = "Autenticado com sucesso!";
-                LabelResultado.ForeColor = Color.Green;
-            }
-
-            else
+            if (posicaoUsuarioEncontrado ==  -1 || senha !=  listaSenha[posicaoUsuarioEncontrado])
             {
                 LabelResultado.Text = "Usuario ou Senha incorretos...";
                 LabelResultado.ForeColor = Color.Red;
+                return;
             }
+
+            LabelResultado.Text = "Autenticado com sucesso";
+            LabelResultado.ForeColor = Color.Green;
+            BoxAcesso.Clear();
+            BoxSenha.Clear();
+
 
 
         }
@@ -108,52 +102,52 @@ namespace Login
         private void button1_Click_1(object sender, EventArgs e)
         {
             string novoUsuario = textBoxNome.Text;
-            string CriarSenha = textBoxCriarS.Text;
+            string criarSenha = textBoxCriarS.Text;
 
 
             if (string.IsNullOrWhiteSpace(novoUsuario))
             {
-                labelNovoUsuario.Text = "Usuario é obrigatorio!!!";
+                labelNovoUsuario.Text = "Usuario eh obrigatorio!!!";
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CriarSenha))
+            if (string.IsNullOrWhiteSpace(criarSenha))
             {
-                labelNovoUsuario.Text = "Senha é obrigatoria!!!";
+                labelNovoUsuario.Text = "Senha eh obrigatoria!!!";
                 return;
             }
 
-            if (CriarSenha.Length < 8)
+            if (criarSenha.Length < 8)
             {
                 labelNovoUsuario.Text = "A senha deve ter pelo menos 8 caracteres";
                 return;
             }
 
-            if (!CriarSenha.Any(char.IsUpper))
+            if (!criarSenha.Any(char.IsUpper))
             {
                 labelNovoUsuario.Text = "A senha deve ter pelo menos uma letra maiuscula";
                 return;
             }
 
-            if (!CriarSenha.Any(char.IsLower))
+            if (!criarSenha.Any(char.IsLower))
             {
                 labelNovoUsuario.Text = "A senha deve ter pelo menos uma letra minuscula";
                 return;
             }
 
-            if (!CriarSenha.Any(char.IsDigit))
+            if (!criarSenha.Any(char.IsNumber))
             {
                 labelNovoUsuario.Text = "A senha deve ter pelo menos um numero";
                 return;
             }
 
-            if (!CriarSenha.Any(char.IsPunctuation))
+            if (!criarSenha.Any(char.IsPunctuation) && !criarSenha.Any(char.IsSymbol) && !criarSenha.Contains('@'))
             {
                 labelNovoUsuario.Text = "A senha deve ter pelo menos um caracter especial";
                 return;
             }
 
-            if (CriarSenha.Contains(' '))
+            if (criarSenha.Any(char.IsWhiteSpace))
             {
                 labelNovoUsuario.Text = "A senha nao deve ter espacos em branco";
                 return;
@@ -166,7 +160,7 @@ namespace Login
             }
 
             listaUsuarios.Add(novoUsuario);
-            listaSenha.Add(CriarSenha);
+            listaSenha.Add(criarSenha);
             labelNovoUsuario.Text = "Usuário cadastrado com sucesso!";
             textBoxNome.Clear();
             textBoxCriarS.Clear();
