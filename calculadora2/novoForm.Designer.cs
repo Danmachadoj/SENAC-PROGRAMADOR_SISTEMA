@@ -35,6 +35,8 @@
             textBox1 = new TextBox();
             labResultado = new Label();
             button1 = new Button();
+            textBox2 = new TextBox();
+            textResul = new TextBox();
             SuspendLayout();
             // 
             // rSoma
@@ -87,16 +89,16 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(124, 38);
+            textBox1.Location = new Point(67, 12);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(130, 23);
+            textBox1.Size = new Size(75, 23);
             textBox1.TabIndex = 4;
             // 
             // labResultado
             // 
             labResultado.AutoSize = true;
             labResultado.BackColor = Color.Tomato;
-            labResultado.Location = new Point(139, 70);
+            labResultado.Location = new Point(148, 15);
             labResultado.Name = "labResultado";
             labResultado.Size = new Size(10, 15);
             labResultado.TabIndex = 5;
@@ -110,12 +112,30 @@
             button1.TabIndex = 6;
             button1.Text = "Calcular";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(164, 12);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(67, 23);
+            textBox2.TabIndex = 7;
+            // 
+            // textResul
+            // 
+            textResul.Location = new Point(119, 41);
+            textResul.Name = "textResul";
+            textResul.Size = new Size(69, 23);
+            textResul.TabIndex = 8;
+            textResul.TextChanged += textResul_TextChanged;
             // 
             // novoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(377, 305);
+            Controls.Add(textResul);
+            Controls.Add(textBox2);
             Controls.Add(button1);
             Controls.Add(labResultado);
             Controls.Add(textBox1);
@@ -138,5 +158,7 @@
         private TextBox textBox1;
         private Label labResultado;
         private Button button1;
+        private TextBox textBox2;
+        private TextBox textResul;
     }
 }
