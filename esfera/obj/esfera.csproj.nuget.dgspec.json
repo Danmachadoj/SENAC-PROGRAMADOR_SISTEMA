@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniela.mjesus\\source\\repos\\esfera\\esfera.csproj": {}
+    "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\esfera\\esfera.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniela.mjesus\\source\\repos\\esfera\\esfera.csproj": {
+    "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\esfera\\esfera.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniela.mjesus\\source\\repos\\esfera\\esfera.csproj",
+        "projectUniqueName": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\esfera\\esfera.csproj",
         "projectName": "esfera",
-        "projectPath": "C:\\Users\\daniela.mjesus\\source\\repos\\esfera\\esfera.csproj",
+        "projectPath": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\esfera\\esfera.csproj",
         "packagesPath": "C:\\Users\\daniela.mjesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniela.mjesus\\source\\repos\\esfera\\obj\\",
+        "outputPath": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\esfera\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
