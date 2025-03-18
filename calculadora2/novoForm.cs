@@ -75,7 +75,19 @@ namespace calculadora2
 
         private void textResul_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
+
+        private void CalcularCirculo_Click(object sender, EventArgs e)
+        {
+            string raio = textResul.Text;
+
+            if (string.IsNullOrWhiteSpace(raio) || raio.All(char.IsNumber))
+            {
+                labelErro.Text = "Inserir um raio de um numero valido";
+                return;
+            }
+        } 
+
     }
 }    

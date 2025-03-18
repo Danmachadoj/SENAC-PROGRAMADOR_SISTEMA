@@ -1,0 +1,7 @@
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.Form1.resources
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.csproj.GenerateResource.cache
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.AssemblyInfoInputs.cache
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.AssemblyInfo.cs
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.csproj.CoreCompileInputs.cache
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\CadastroCliente\obj\Debug\net8.0-windows\CadastroCliente.sourcelink.json
