@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 namespace CadastroCliente
 {
     enum Etnia
-    {
+
+    {  
+        BRANCO,
+        NEGRO,
+        INDIGENA,
+        OUTROS
     }
 }

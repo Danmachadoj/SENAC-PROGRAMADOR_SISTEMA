@@ -8,7 +8,7 @@ namespace CadastroCliente
 {
     internal class Endereço
     {
-        public string Longradouro { get; set; }
+        public string Logradouro { get; set; }
 
         public string Numero { get; set; }
 

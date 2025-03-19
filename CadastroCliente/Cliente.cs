@@ -18,15 +18,19 @@ namespace CadastroCliente
 
         public string Email { get; set; }
 
-        public string Genero { get; set; }
-
         public string NomeSocial { get; set; }
 
         public bool Estrangeiro { get; set; }
 
-        public int Etnia {  get; set; }
+        public Etnia etnia {  get; set; }
 
         public TipoCliente Tipo { get; set; }
+
+        public Endereço Endereço { get; set; }
+
+        public Genero Genero { get; set; }
+
+
     }
 }
 
