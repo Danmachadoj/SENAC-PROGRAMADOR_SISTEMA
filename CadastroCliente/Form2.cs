@@ -19,6 +19,8 @@ namespace CadastroCliente
     public partial class Form2 : Form
     {
         private readonly List<Cliente> Clientes = [];
+        private int contadorId;
+
         public Form2()
         {
             InitializeComponent();
@@ -31,14 +33,13 @@ namespace CadastroCliente
             Clientes.Add(fabio);
 
             Endereço endereçoVitor = new Endereço() { Logradouro = "endereçoVitor", Numero = "304" };
-            Cliente vitor = new Cliente() { Id = 2, Nome = "Fabio Saraiva", DataNascimento = "15 / 09/ 1997", etnia = Etnia.BRANCO, Tipo = TipoCliente.PF };
+            Cliente vitor = new Cliente() { Id = 3, Nome = "Fabio Saraiva", DataNascimento = "15 / 09/ 1997", etnia = Etnia.BRANCO, Tipo = TipoCliente.PF };
             Clientes.Add(vitor);
         }
 
-        private void tbnome_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-          
-
+            
             string nome = tbnome.Text;
             string telefone = mtbtelefone.Text;
             string cep = mtbcep.Text;
@@ -56,7 +57,119 @@ namespace CadastroCliente
             bool PJ = rbpj.Checked;
             bool estrangeiro = cbestrangeiro.Checked;
 
-            return;
+            if (ValidarDados(nome, telefone, cep, datanascimento, genero, email, longradouro, bairro, numero, municipio, estado))
+            {
+                Cliente novoCliente = new Cliente(); Endereço newEndereço = new Endereço
+
+                {
+                    id = contadorId++,
+                    Nome = tbnome.Text,
+                    Telefone = mtbtelefone.Text,
+                    CEP = mtbcep.Text,
+                    DataNascimento = mtbdata.Text,
+                    Genero = cbgenero.Text,
+                    Email = tbemail.Text,
+                    Longradouro = tblogradouro.Text,
+                    Bairro = tbbairro.Text,
+                    Numero = tbnumero.Text,
+                    Municipio = tbmunicio.Text,
+                    Estado = cbestado.Text,
+                    TipoCliente = rbpf.Checked,
+                    tipoCliente = rbpj.Checked,
+                    
+                };
+
+
+                Clientes.Add(novoCliente);
+
+                MessageBox.Show("Cliente adicionado com sucesso!");
+                LimparFormulario();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, preencha todos os campos corretamente.");
+            }
+        }
+
+        private bool ValidarDados(string nome, string telefone, string cep, string datanascimento, string genero, string email, string longradouro, string bairro, string numero, string municipio, string estado)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LimparFormulario()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ValidarDados(string nome, string telefone, string cep, string datanascimento, string genero, string email, string logradouro, string complemento, string bairro, string numero, string municipio, string estado)
+        {
+            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(telefone) || string.IsNullOrWhiteSpace(cep) ||
+            string.IsNullOrWhiteSpace(datanascimento) || string.IsNullOrWhiteSpace(genero) ||
+            string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(logradouro) || string.IsNullOrWhiteSpace(bairro) ||
+            string.IsNullOrWhiteSpace(numero) || string.IsNullOrWhiteSpace(municipio) || string.IsNullOrWhiteSpace(estado))
+            {
+                MessageBox.Show("Todos os campos obrigatórios devem ser preenchidos.");
+                return false;
+            }
+            if (!nome.Contains(" "))
+            {
+                MessageBox.Show("Nome Completo por favor!");
+                return false;
+            }
+
+            if (Clientes.Any(c => c.Telefone == telefone))
+            {
+                MessageBox.Show("Telefone já cadastrado. Por favor, insira um telefone novo.");
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(cep, @"^\d{5}-\d{3}$"))
+            {
+                MessageBox.Show("CEP inválido. Por favor, insira um CEP no formato XXXXX-XXX.");
+                return false;
+            }
+            if (!DateTime.TryParse(datanascimento, out DateTime dataNascimento))
+            {
+                MessageBox.Show("Data de nascimento inválida. Por favor, insira uma data válida.");
+                return false;
+            }
+            if (dataNascimento > DateTime.Now)
+            {
+                MessageBox.Show("Data de nascimento não pode ser uma data futura.");
+                return false;
+            }
+            if (Clientes.Any(c => c.Email == email))
+            {
+                MessageBox.Show("Email já cadastrado. Por favor, insira um email único.");
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Email inválido. Por favor, insira um email no formato correto.");
+                return false;
+            }
+ 
+
+
+            void LimparFormulario()
+            {
+                tbnome.Clear();
+                mtbtelefone.Clear();
+                mtbcep.Clear();
+                mtbdata.Clear();
+                tbtnomesocial.Clear();
+                cbgenero.SelectedIndex = -1;
+                tbemail.Clear();
+                tblogradouro.Clear();
+                tbcomplemento.Clear();
+                tbbairro.Clear();
+                tbnumero.Clear();
+                tbmunicio.Clear();
+                cbestado.SelectedIndex = -1;
+                rbpf.Checked = false;
+                rbpj.Checked = false;
+                cbestrangeiro.Checked = false;
+            }
+            return true;
         }
     }
 }
