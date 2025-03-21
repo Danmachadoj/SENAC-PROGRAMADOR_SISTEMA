@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace CadastroCliente
 {
@@ -37,6 +38,9 @@ namespace CadastroCliente
             Clientes.Add(vitor);
         }
 
+        public bool PF { get; private set; }
+        public bool PJ { get; private set; }
+
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -57,119 +61,123 @@ namespace CadastroCliente
             bool PJ = rbpj.Checked;
             bool estrangeiro = cbestrangeiro.Checked;
 
-            if (ValidarDados(nome, telefone, cep, datanascimento, genero, email, longradouro, bairro, numero, municipio, estado))
-            {
-                Cliente novoCliente = new Cliente(); Endereço newEndereço = new Endereço
-
+       
+                if (ValidarFormulario())
                 {
-                    id = contadorId++,
-                    Nome = tbnome.Text,
-                    Telefone = mtbtelefone.Text,
-                    CEP = mtbcep.Text,
-                    DataNascimento = mtbdata.Text,
-                    Genero = cbgenero.Text,
-                    Email = tbemail.Text,
-                    Longradouro = tblogradouro.Text,
-                    Bairro = tbbairro.Text,
-                    Numero = tbnumero.Text,
-                    Municipio = tbmunicio.Text,
-                    Estado = cbestado.Text,
-                    TipoCliente = rbpf.Checked,
-                    tipoCliente = rbpj.Checked,
-                    
-                };
-
-
-                Clientes.Add(novoCliente);
-
-                MessageBox.Show("Cliente adicionado com sucesso!");
-                LimparFormulario();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, preencha todos os campos corretamente.");
-            }
-        }
-
-        private bool ValidarDados(string nome, string telefone, string cep, string datanascimento, string genero, string email, string longradouro, string bairro, string numero, string municipio, string estado)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void LimparFormulario()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool ValidarDados(string nome, string telefone, string cep, string datanascimento, string genero, string email, string logradouro, string complemento, string bairro, string numero, string municipio, string estado)
-        {
-            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(telefone) || string.IsNullOrWhiteSpace(cep) ||
-            string.IsNullOrWhiteSpace(datanascimento) || string.IsNullOrWhiteSpace(genero) ||
-            string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(logradouro) || string.IsNullOrWhiteSpace(bairro) ||
-            string.IsNullOrWhiteSpace(numero) || string.IsNullOrWhiteSpace(municipio) || string.IsNullOrWhiteSpace(estado))
-            {
-                MessageBox.Show("Todos os campos obrigatórios devem ser preenchidos.");
-                return false;
-            }
-            if (!nome.Contains(" "))
-            {
-                MessageBox.Show("Nome Completo por favor!");
-                return false;
+                    MessageBox.Show("Formulário enviado com sucesso!");
+                }
             }
 
-            if (Clientes.Any(c => c.Telefone == telefone))
+            // Método de validação do formulário
+            private bool ValidarFormulario()
             {
-                MessageBox.Show("Telefone já cadastrado. Por favor, insira um telefone novo.");
-                return false;
-            }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(cep, @"^\d{5}-\d{3}$"))
-            {
-                MessageBox.Show("CEP inválido. Por favor, insira um CEP no formato XXXXX-XXX.");
-                return false;
-            }
-            if (!DateTime.TryParse(datanascimento, out DateTime dataNascimento))
-            {
-                MessageBox.Show("Data de nascimento inválida. Por favor, insira uma data válida.");
-                return false;
-            }
-            if (dataNascimento > DateTime.Now)
-            {
-                MessageBox.Show("Data de nascimento não pode ser uma data futura.");
-                return false;
-            }
-            if (Clientes.Any(c => c.Email == email))
-            {
-                MessageBox.Show("Email já cadastrado. Por favor, insira um email único.");
-                return false;
-            }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Email inválido. Por favor, insira um email no formato correto.");
-                return false;
-            }
- 
+                bool valido = true;
+                string mensagemErro = "";
 
+                // Valida o Nome
+                if (string.IsNullOrEmpty(tbnome.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Nome não pode ser vazio.\n";
+                }
 
-            void LimparFormulario()
-            {
-                tbnome.Clear();
-                mtbtelefone.Clear();
-                mtbcep.Clear();
-                mtbdata.Clear();
-                tbtnomesocial.Clear();
-                cbgenero.SelectedIndex = -1;
-                tbemail.Clear();
-                tblogradouro.Clear();
-                tbcomplemento.Clear();
-                tbbairro.Clear();
-                tbnumero.Clear();
-                tbmunicio.Clear();
-                cbestado.SelectedIndex = -1;
-                rbpf.Checked = false;
-                rbpj.Checked = false;
-                cbestrangeiro.Checked = false;
+                // Valida o Telefone (considerando uma máscara como (XX) XXXXX-XXXX)
+                if (string.IsNullOrEmpty(mtbtelefone.Text) || !Regex.IsMatch(mtbtelefone.Text, @"^\(\d{2}\) \d{5}-\d{4}$"))
+                {
+                    valido = false;
+                    mensagemErro += "Telefone inválido. Formato esperado: (XX) XXXXX-XXXX.\n";
+                }
+
+                // Valida o CEP (formato 12345-678)
+                if (string.IsNullOrEmpty(mtbcep.Text) || !Regex.IsMatch(mtbcep.Text, @"^\d{5}-\d{3}$"))
+                {
+                    valido = false;
+                    mensagemErro += "CEP inválido. Formato esperado: 12345-678.\n";
+                }
+
+                // Valida a Data de Nascimento (Formato esperado: DD/MM/YYYY)
+                if (string.IsNullOrEmpty(mtbdata.Text) || !DateTime.TryParse(mtbdata.Text, out _))
+                {
+                    valido = false;
+                    mensagemErro += "Data de nascimento inválida.\n";
+                }
+
+                // Valida o Nome Social
+                if (string.IsNullOrEmpty(tbtnomesocial.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Nome social não pode ser vazio.\n";
+                }
+
+                // Valida o Gênero
+                if (string.IsNullOrEmpty(cbgenero.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Gênero deve ser selecionado.\n";
+                }
+
+                // Valida o Email
+                if (string.IsNullOrEmpty(tbemail.Text) || !Regex.IsMatch(tbemail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+                {
+                    valido = false;
+                    mensagemErro += "Email inválido.\n";
+                }
+
+                // Valida o Logradouro
+                if (string.IsNullOrEmpty(tblogradouro.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Logradouro não pode ser vazio.\n";
+                }
+
+                // Valida o Complemento (opcional, mas pode ser validado se necessário)
+                // Não estamos validando aqui, mas pode ser feito caso precise.
+
+                // Valida o Bairro
+                if (string.IsNullOrEmpty(tbbairro.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Bairro não pode ser vazio.\n";
+                }
+
+                // Valida o Número
+                if (string.IsNullOrEmpty(tbnumero.Text) || !int.TryParse(tbnumero.Text, out _))
+                {
+                    valido = false;
+                    mensagemErro += "Número deve ser um valor numérico.\n";
+                }
+
+                // Valida o Município
+                if (string.IsNullOrEmpty(tbmunicio.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Município não pode ser vazio.\n";
+                }
+
+                // Valida o Estado
+                if (string.IsNullOrEmpty(cbestado.Text))
+                {
+                    valido = false;
+                    mensagemErro += "Estado deve ser selecionado.\n";
+                }
+
+                // Valida PF ou PJ
+                if (!PF && !PJ)
+                {
+                    valido = false;
+                    mensagemErro += "Deve ser selecionado se é Pessoa Física (PF) ou Pessoa Jurídica (PJ).\n";
+                }
+
+                // Valida Estrangeiro (opcional)
+                // Se necessário, adicione validação aqui.
+
+                // Exibe as mensagens de erro, se houver
+                if (!valido)
+                {
+                    MessageBox.Show(mensagemErro, "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                return valido;
             }
-            return true;
         }
     }
-}
