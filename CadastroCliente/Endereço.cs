@@ -33,5 +33,7 @@ namespace CadastroCliente
         public bool Estrangeiro { get; internal set; }
         public bool TipoCliente { get; internal set; }
         public string Longradouro { get; internal set; }
+
+        public Endereço endereço { get; internal set; }
     }
 }

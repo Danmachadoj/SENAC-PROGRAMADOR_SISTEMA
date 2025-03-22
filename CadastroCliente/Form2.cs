@@ -43,6 +43,7 @@ namespace CadastroCliente
             string datanascimento = mtbdata.Text;
             string nomesocial = tbtnomesocial.Text;
             string genero = cbgenero.Text;
+            string etnia = cbetnia.Text;
             string email = tbemail.Text;
             string logradouro = tblogradouro.Text;
             string complemento = tbcomplemento.Text;
@@ -54,30 +55,34 @@ namespace CadastroCliente
             bool PJ = rbpj.Checked;
             bool estrangeiro = cbestrangeiro.Checked;
 
-            if (!ValidarFormulario(nome, telefone, cep, datanascimento, nomesocial, genero, email, logradouro, complemento, bairro, numero, municipio, estado, PF, PJ, estrangeiro))
+            if (!ValidarFormulario(nome, telefone, cep, datanascimento, nomesocial, genero, etnia, email, logradouro, complemento, bairro, numero, municipio, estado, PF, PJ, estrangeiro))
             {
                 return;
             }
 
-  
-        Cliente novoCliente = new Cliente()
+            Endereço endereco_Novo = new Endereço()
+            {
+                Logradouro = logradouro,
+                Complemento = complemento,
+                Bairro = bairro,
+                Numero = numero,
+                Municipio = municipio,
+                Estado = estado
+
+            };
+
+
+            Cliente novoCliente = new Cliente()
             {
                 Id = Clientes.Max(clientes => clientes.Id) + 1,
                 Nome = nome,
                 Telefone = telefone,
                 DataNascimento = datanascimento,
                 NomeSocial = nomesocial,
-                Genero = (Genero)Enum.Parse(typeof(Genero), genero, true), // Correção aqui
+                etnia = (Etnia)cbetnia.SelectedIndex,
+                Genero = (Genero)cbgenero.SelectedIndex,
                 Email = email,
-                Endereço = new Endereço()
-                {
-                    Logradouro = logradouro,
-                    Complemento = complemento,
-                    Bairro = bairro,
-                    Numero = numero,
-                    Municipio = municipio,
-                    Estado = estado
-                },
+                Endereço = endereco_Novo,
                 Tipo = PF ? TipoCliente.PF : TipoCliente.PJ,
                 Estrangeiro = estrangeiro
             };
@@ -89,7 +94,7 @@ namespace CadastroCliente
         }
 
        
-        private bool ValidarFormulario(string nome, string telefone, string cep, string datanascimento, string nomesocial, string genero, string email, string longradouro, string complemento, string bairro, string numero, string municipio, string estado, bool PF, bool PJ, bool estrangeiro)
+        private bool ValidarFormulario(string nome, string telefone, string cep, string datanascimento, string nomesocial, string genero,string etnia, string email, string longradouro, string complemento, string bairro, string numero, string municipio, string estado, bool PF, bool PJ, bool estrangeiro)
         {
             bool valido = true;
             string mensagemErro = "";
