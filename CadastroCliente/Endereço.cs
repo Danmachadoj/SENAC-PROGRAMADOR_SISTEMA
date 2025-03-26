@@ -27,11 +27,8 @@ namespace CadastroCliente
         public string Nome { get; internal set; }
         public string Telefone { get; internal set; }
         public string DataNascimento { get; internal set; }
-        public string NomeSocial { get; internal set; }
         public string Genero { get; internal set; }
         public string Email { get; internal set; }
-        public bool Estrangeiro { get; internal set; }
         public bool TipoCliente { get; internal set; }
-        public string Longradouro { get; internal set; }
     }
 }

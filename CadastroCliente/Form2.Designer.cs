@@ -430,7 +430,6 @@
             button1.TabIndex = 23;
             button1.Text = "CADASTRAR";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // Form2
             // 
