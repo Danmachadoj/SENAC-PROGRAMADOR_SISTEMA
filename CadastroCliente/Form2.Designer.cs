@@ -48,8 +48,6 @@
             tbemail = new TextBox();
             label3 = new Label();
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
-            label16 = new Label();
             groupBox2 = new GroupBox();
             mtbcep = new MaskedTextBox();
             label15 = new Label();
@@ -66,13 +64,15 @@
             tblogradouro = new TextBox();
             label9 = new Label();
             button1 = new Button();
+            dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tbnome
             // 
-            tbnome.Location = new Point(115, 46);
+            tbnome.Location = new Point(115, 28);
             tbnome.Name = "tbnome";
             tbnome.Size = new Size(100, 23);
             tbnome.TabIndex = 0;
@@ -80,7 +80,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 54);
+            label1.Location = new Point(6, 36);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 1;
@@ -89,7 +89,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 89);
+            label2.Location = new Point(6, 71);
             label2.Name = "label2";
             label2.Size = new Size(101, 15);
             label2.TabIndex = 2;
@@ -97,7 +97,7 @@
             // 
             // mtbdata
             // 
-            mtbdata.Location = new Point(115, 80);
+            mtbdata.Location = new Point(115, 62);
             mtbdata.Mask = "00/00/0000";
             mtbdata.Name = "mtbdata";
             mtbdata.Size = new Size(100, 23);
@@ -107,7 +107,7 @@
             // Telefone
             // 
             Telefone.AutoSize = true;
-            Telefone.Location = new Point(6, 126);
+            Telefone.Location = new Point(6, 108);
             Telefone.Name = "Telefone";
             Telefone.Size = new Size(54, 15);
             Telefone.TabIndex = 4;
@@ -115,7 +115,7 @@
             // 
             // mtbtelefone
             // 
-            mtbtelefone.Location = new Point(115, 118);
+            mtbtelefone.Location = new Point(115, 100);
             mtbtelefone.Mask = "(99)00000-0000";
             mtbtelefone.Name = "mtbtelefone";
             mtbtelefone.Size = new Size(100, 23);
@@ -124,7 +124,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(533, 59);
+            label4.Location = new Point(533, 41);
             label4.Name = "label4";
             label4.Size = new Size(48, 15);
             label4.TabIndex = 8;
@@ -134,7 +134,7 @@
             // 
             cbgenero.FormattingEnabled = true;
             cbgenero.Items.AddRange(new object[] { "Feminino", "Masculino", "Outros" });
-            cbgenero.Location = new Point(625, 51);
+            cbgenero.Location = new Point(625, 33);
             cbgenero.Name = "cbgenero";
             cbgenero.Size = new Size(100, 23);
             cbgenero.TabIndex = 9;
@@ -142,7 +142,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(276, 54);
+            label5.Location = new Point(276, 36);
             label5.Name = "label5";
             label5.Size = new Size(77, 15);
             label5.TabIndex = 10;
@@ -150,7 +150,7 @@
             // 
             // tbtnomesocial
             // 
-            tbtnomesocial.Location = new Point(365, 51);
+            tbtnomesocial.Location = new Point(365, 33);
             tbtnomesocial.Name = "tbtnomesocial";
             tbtnomesocial.Size = new Size(100, 23);
             tbtnomesocial.TabIndex = 11;
@@ -158,7 +158,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(276, 89);
+            label6.Location = new Point(276, 71);
             label6.Name = "label6";
             label6.Size = new Size(36, 15);
             label6.TabIndex = 12;
@@ -168,7 +168,7 @@
             // 
             cbetnia.FormattingEnabled = true;
             cbetnia.Items.AddRange(new object[] { " BRANCO", " NEGRO", " INDÍGENA", " OUTROS" });
-            cbetnia.Location = new Point(365, 86);
+            cbetnia.Location = new Point(365, 68);
             cbetnia.Name = "cbetnia";
             cbetnia.Size = new Size(100, 23);
             cbetnia.TabIndex = 13;
@@ -176,7 +176,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(533, 94);
+            label7.Location = new Point(533, 76);
             label7.Name = "label7";
             label7.Size = new Size(69, 15);
             label7.TabIndex = 14;
@@ -185,7 +185,7 @@
             // cbestrangeiro
             // 
             cbestrangeiro.AutoSize = true;
-            cbestrangeiro.Location = new Point(627, 94);
+            cbestrangeiro.Location = new Point(627, 76);
             cbestrangeiro.Name = "cbestrangeiro";
             cbestrangeiro.Size = new Size(15, 14);
             cbestrangeiro.TabIndex = 15;
@@ -194,7 +194,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(533, 123);
+            label8.Location = new Point(533, 105);
             label8.Name = "label8";
             label8.Size = new Size(33, 15);
             label8.TabIndex = 16;
@@ -203,7 +203,7 @@
             // rbpf
             // 
             rbpf.AutoSize = true;
-            rbpf.Location = new Point(628, 119);
+            rbpf.Location = new Point(628, 101);
             rbpf.Name = "rbpf";
             rbpf.Size = new Size(93, 19);
             rbpf.TabIndex = 17;
@@ -214,7 +214,7 @@
             // rbpj
             // 
             rbpj.AutoSize = true;
-            rbpj.Location = new Point(628, 144);
+            rbpj.Location = new Point(628, 126);
             rbpj.Name = "rbpj";
             rbpj.Size = new Size(104, 19);
             rbpj.TabIndex = 18;
@@ -224,7 +224,7 @@
             // 
             // tbemail
             // 
-            tbemail.Location = new Point(365, 123);
+            tbemail.Location = new Point(365, 105);
             tbemail.Name = "tbemail";
             tbemail.Size = new Size(100, 23);
             tbemail.TabIndex = 20;
@@ -232,7 +232,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(276, 126);
+            label3.Location = new Point(276, 108);
             label3.Name = "label3";
             label3.Size = new Size(39, 15);
             label3.TabIndex = 19;
@@ -240,8 +240,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(tbemail);
             groupBox1.Controls.Add(tbnome);
@@ -267,22 +265,6 @@
             groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
             groupBox1.Text = "DADOS PESSOAIS";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(115, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 22;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(10, 19);
-            label16.Name = "label16";
-            label16.Size = new Size(21, 15);
-            label16.TabIndex = 21;
-            label16.Text = "ID:";
             // 
             // groupBox2
             // 
@@ -431,11 +413,24 @@
             button1.Text = "CADASTRAR";
             button1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(544, 315);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(411, 320);
+            dataGridView1.TabIndex = 14;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1006, 665);
+            Controls.Add(dataGridView1);
             Controls.Add(button1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -445,6 +440,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -486,7 +482,6 @@
         private Label label13;
         private TextBox tbbairro;
         private Button button1;
-        private TextBox textBox1;
-        private Label label16;
+        private DataGridView dataGridView1;
     }
 }

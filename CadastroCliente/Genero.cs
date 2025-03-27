@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CadastroCliente
 {
-    internal enum Genero
+    public enum Genero
 
     {
         FEMININO,

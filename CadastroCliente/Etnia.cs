@@ -9,9 +9,9 @@ namespace CadastroCliente
     enum Etnia
 
     {  
-        BRANCO,
-        NEGRO,
-        INDIGENA,
-        OUTROS
+       BRANCO,
+       NEGRO,
+       INDIGENA,
+       OUTROS
     }
 }
