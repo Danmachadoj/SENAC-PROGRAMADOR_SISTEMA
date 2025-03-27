@@ -26,5 +26,5 @@ CREATE TABLE IF NOT EXISTS musica (
 SELECT 
     *
 FROM
-    musica;
- WHERE  id=10;
+    musica
+WHERE cantor = 'ciara';
