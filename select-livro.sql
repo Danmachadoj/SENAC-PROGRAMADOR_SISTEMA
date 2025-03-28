@@ -11,3 +11,6 @@ select count(id) from livro;
 
 select * from livro
 order by data_publicacao desc, preco desc;
+
+select* from livro
+where genero = 'terror';
