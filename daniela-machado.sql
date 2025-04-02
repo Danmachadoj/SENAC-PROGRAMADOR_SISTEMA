@@ -1,93 +1,114 @@
-create table if not exists empregado (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(100) NOT NULL,
-idade VARCHAR(50) NOT NULL,
-departamento VARCHAR (16) NOT NULL,
-salario INT NOT NULL
+CREATE TABLE IF NOT EXISTS empregado (
+	id INT AUTO_INCREMENT,
+	nome VARCHAR(30) NOT NULL,
+    idade INT NOT NULL,
+    departamentoID INT NOT NULL,
+    salario INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (DEPARTAMENTOID) REFERENCES DEPARTAMENTO(ID)
 );
+CREATE TABLE IF NOT EXISTS departamento (
+	id INT AUTO_INCREMENT,
+	nome VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
+INSERT INTO departamento (id, nome) VALUES (1, 'RH'), (2, 'Vendas'), (3, 'TI');
 
 INSERT INTO empregado (
-nome, idade, departamento, salario
+nome, idade, departamentoID, salario
 )
 VALUES (
 'João',
 '30',
-'RH',
+1,
 '50000'
 ),
 (
 'Sarah',
 28,
-'TI',
+3,
 '60000'
 ),
 (
 'Miguel',
 '35',
-'Vendas',
+2,
 '55000'),
 (
 'Ana',
 '27',
-'TI',
+3,
 '62000');
 
 SELECT* FROM empregado;-- identificar que a tabela foi criada
 
 SELECT nome, departamento FROM empregado
-WHERE departamento LIKE '%TI%'; -- localizar funcionarios do ti
+WHERE departamento = 'TI'; --  1.1 localizar funcionarios do ti
 
 SELECT nome,
 salario FROM empregado
-WHERE  salario >'55000'; -- localizar nome e salario que ganham mais de 55000
+WHERE  salario >'55000'; -- 1.2 localizar nome e salario que ganham mais de 55000
 
 SELECT * FROM empregado
-ORDER BY idade desc; -- ordenar a idade dos funcionarios
+ORDER BY idade desc; -- 1.3 ordenar a idade dos funcionarios
 
 SELECT * FROM empregado
 WHERE idade >'28'
-AND idade <'35'; -- idade entre 28 e 35
+AND idade <'35'; -- 2.1 idade entre 28 e 35
 
 SELECT * FROM empregado
-WHERE nome LIKE 'M%'; -- funcionarios que começam com M
+WHERE nome LIKE 'M%'; -- 2.2 funcionarios que começam com M
 
 SELECT nome, departamento FROM empregado
-WHERE departamento NOT LIKE "RH" ; -- não estão no RH
+WHERE departamento NOT LIKE "RH" ; -- 2.3 não estão no RH
 
 SELECT 
     departamento, count(departamento)
 FROM empregado
 GROUP BY 
-	departamento; -- numero de empregados de cada departamento
+	departamento; -- 3.1 numero de empregados de cada departamento
 
 SELECT avg(salario) FROM empregado
-WHERE departamento = 'TI'; -- media salarial
+WHERE departamento = 'TI'; -- 3.2 media salarial
 
 SELECT sum(salario) from empregado
-WHERE departamento = 'Vendas'; -- soma de salario do departamento de vendas
+WHERE departamento = 'Vendas'; -- 3.3 soma de salario do departamento de vendas
 
-
-
-
-
-
-
+SELECT * 
+FROM empregado 
+INNER JOIN departamento 
+ON empregado.departamentoID = departamentoID; -- 4.1
+ 
+SELECT * 
+FROM empregado
+LEFT JOIN departamento
+ON empregado.departamentoID = departamentoID;-- 4.2
 
 SELECT * FROM empregado
-WHERE salario >(SELECT AVG(salario) FROM empregado); -- empregados que o salario é maior que a media salarial
+WHERE salario >(SELECT AVG(salario) FROM empregado); -- 5.1 empregados que o salario é maior que a media salarial
 
 SELECT nome, departamento FROM empregado
-WHERE departamento = (SELECT departamento FROM empregados WHERE nome = 'Sarah'); -- empregados que pertencem ao mesmo departamento que Sarah
+WHERE departamento = (SELECT departamento FROM empregado WHERE nome = 'Sarah'); -- 5.2 empregados que pertencem ao mesmo departamento que Sarah
 
 
 INSERT INTO empregado (
-nome, idade, departamento, salario
+nome, idade, departamentoid, salario
 )
 VALUES (
 'Tomás',
 '45',
-'Vendas',
-'58000')
+'2',
+'58000'); -- 6.1 incluir novo funcionario
+
+UPDATE empregado
+SET salario = salario + (salario * 0.05)
+WHERE departamentoid = '3'; -- 6.2 aumento de salario de 5% funcionarios de TI
+
+DELETE FROM empregado
+WHERE idade > '40'; -- 6.3 excluir funcionario com mais de 40 anos
+
+
+
 
 
 
