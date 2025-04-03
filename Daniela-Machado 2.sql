@@ -67,5 +67,19 @@ INNER JOIN cliente ON pedido.id_cliente = cliente.id;
 SELECT cliente.nome, idade, cidade, saldo, valor, data_pedido FROM cliente
 LEFT JOIN pedido ON pedido.id_cliente = cliente.id;
 
-SELECT * FROM pedido
-WHERE valor > (SELECT AVG(valor) FROM pedido); -- xxxx ta errado
+
+SELECT nome, valor
+FROM pedido
+LEFT JOIN cliente ON pedido.id_cliente = cliente.id
+WHERE valor > 1000;
+
+INSERT INTO cliente (
+nome, idade, cidade, saldo
+) VALUES 
+( 'Rafael', '35', 'Porto Alegre','0');
+
+UPDATE cliente
+SET saldo = saldo + (saldo * 0.1);
+
+DELETE FROM pedido
+WHERE id = (SELECT id FROM pedido WHERE valor < '500');

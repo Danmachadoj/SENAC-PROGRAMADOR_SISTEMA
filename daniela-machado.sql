@@ -53,17 +53,17 @@ SELECT * FROM empregado
 ORDER BY idade desc; -- 1.3 ordenar a idade dos funcionarios
 
 SELECT * FROM empregado
-WHERE idade >'28'
-AND idade <'35'; -- 2.1 idade entre 28 e 35
+WHERE idade >='28'
+AND idade <='35'; -- 2.1 idade entre 28 e 35 (pode ser usado o between "where idade between 28 and 35"
 
 SELECT * FROM empregado
 WHERE nome LIKE 'M%'; -- 2.2 funcionarios que começam com M
 
 SELECT nome, departamento FROM empregado
-WHERE departamento NOT LIKE "RH" ; -- 2.3 não estão no RH
+WHERE departamento != 'RH' ; -- 2.3 não estão no RH  (pode ser usado o  <> no lugar no !=)
 
 SELECT 
-    departamento, count(departamento)
+    departamento, count(id)
 FROM empregado
 GROUP BY 
 	departamento; -- 3.1 numero de empregados de cada departamento
@@ -77,18 +77,18 @@ WHERE departamento = 'Vendas'; -- 3.3 soma de salario do departamento de vendas
 SELECT * 
 FROM empregado 
 INNER JOIN departamento 
-ON empregado.departamentoID = departamentoID; -- 4.1
+ON empregado.departamentoID = departamentoID; -- 4.1 olhar a correção do prof
  
 SELECT * 
 FROM empregado
 LEFT JOIN departamento
-ON empregado.departamentoID = departamentoID;-- 4.2
+ON empregado.departamentoID = departamentoID;-- 4.2  olhar a correção do prof
 
 SELECT * FROM empregado
 WHERE salario >(SELECT AVG(salario) FROM empregado); -- 5.1 empregados que o salario é maior que a media salarial
 
-SELECT nome, departamento FROM empregado
-WHERE departamento = (SELECT departamento FROM empregado WHERE nome = 'Sarah'); -- 5.2 empregados que pertencem ao mesmo departamento que Sarah
+SELECT nome, departamentoid FROM empregado
+WHERE departamentoid = (SELECT departamentoid FROM empregado WHERE nome = 'Sarah'); -- 5.2 empregados que pertencem ao mesmo departamento que Sarah -- errei olhar correção do prof
 
 
 INSERT INTO empregado (
@@ -102,7 +102,7 @@ VALUES (
 
 UPDATE empregado
 SET salario = salario + (salario * 0.05)
-WHERE departamentoid = '3'; -- 6.2 aumento de salario de 5% funcionarios de TI
+WHERE departamentoid = '3'; -- 6.2 aumento de salario de 5% funcionarios de TI - errei, olhar correção do prf
 
 DELETE FROM empregado
 WHERE idade > '40'; -- 6.3 excluir funcionario com mais de 40 anos
