@@ -98,7 +98,11 @@ WHERE
     cidade <> 'Rio de Janeiro'
         AND  nome like 'T%'; -- 2.5
         
-SELECT AVG (preco) from produto; -- 3.1
+SELECT 
+    AVG(preco) AS preco_medio
+FROM
+    produto
+GROUP BY categoria; -- 3.1
 
 SELECT
     cliente_id, COUNT(quantidade)
@@ -110,4 +114,86 @@ FROM
   categoria, sum(estoque)
 FROM
     produto
-    group by categoria; -- 3.2 
+    group by categoria; -- 3.3
+    
+    SELECT 
+    id, produto_id, quantidade
+FROM
+    pedido
+WHERE
+    quantidade = (SELECT 
+            MAX(quantidade)
+        FROM
+            pedido); -- 3.4
+    
+    SELECT cidade, count(cidade) AS total_cliente 
+    from cliente
+    group by cidade 
+    order by cidade desc; -- 3.5
+    
+    SELECT 
+    p.nome AS produto, f.nome AS fornecedor
+FROM
+    produto p
+        INNER JOIN
+    fornecedor f ON p.fornecedor_id = f.id
+ORDER BY f.nome; -- 4.1
+
+SELECT 
+    pedido.id AS pedido_id, c.nome AS cliente, p.nome AS produto
+FROM
+    pedido
+        INNER JOIN
+    cliente c ON c.id = pedido.cliente_id
+        INNER JOIN
+    produto p ON p.id = pedido.produto_id
+ORDER BY data_pedido; -- 4.2
+
+SELECT 
+   c.nome AS cliente, p.nome AS produto, f.nome as fornecedor
+FROM
+    pedido
+        INNER JOIN
+    cliente c ON c.id = pedido.cliente_id
+        INNER JOIN
+    produto p ON p.id = pedido.produto_id
+        INNER JOIN
+   fornecedor f on p.fornecedor_id = f.id; -- 4.3
+   
+SELECT c.nome AS cliente, SUM(p.quantidade) AS total_produtos_comprados
+FROM pedido p
+JOIN cliente c ON p.cliente_id = c.id
+GROUP BY c.nome; -- 4.4
+  
+SELECT *
+FROM produto p
+WHERE preco > ( SELECT AVG(preco)  FROM produto  WHERE categoria = p.categoria
+); -- 5.1
+
+UPDATE produto
+SET preco = preco * 1.10
+WHERE categoria = 'Eletrônicos'; -- 5.2
+
+DELETE FROM pedido
+WHERE cliente_id IN (
+    SELECT id
+    FROM cliente
+    WHERE cidade = 'Curitiba'
+); -- 5.3
+
+INSERT INTO cliente (nome, cidade, idade)
+VALUES ('Ricardo Lopes', 'Porto Alegre', 38); -- 5.4
+ 
+INSERT INTO pedido (produto_id, quantidade, data_pedido, cliente_id)
+VALUES (
+    (SELECT id FROM produto WHERE nome = 'Notebook Y'), 
+    2, 
+    '2024-03-25', 
+    (SELECT id FROM cliente WHERE nome = 'João Silva')
+); -- 5.5
+
+SELECT DISTINCT c.nome
+FROM cliente c
+JOIN pedido  ON c.id = pedido.cliente_id
+JOIN produto p ON pedido.produto_id = p.id
+WHERE p.categoria = 'Móveis'; -- 5.6
