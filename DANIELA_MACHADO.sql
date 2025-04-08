@@ -68,10 +68,10 @@ VALUE (1, 2, '2024-03-10', 1),
 (4, 4, '2024-03-20', 4);
  
 SELECT 
-  nome, categoria, preco
+  *
 FROM
     produto
-WHERE
+WHERE categoria = 'eletronicos' and
     preco > 3000
 ORDER BY preco DESC; -- 2.1
 
@@ -98,14 +98,14 @@ WHERE
     cidade <> 'Rio de Janeiro'
         AND  nome like 'T%'; -- 2.5
         
-SELECT 
-    AVG(preco) AS preco_medio
+SELECT categoria,
+    AVG(preco) 
 FROM
     produto
 GROUP BY categoria; -- 3.1
 
 SELECT
-    cliente_id, COUNT(quantidade)
+    cliente_id, COUNT(id) as quantidade
 FROM
     pedido
     group by cliente_id; -- 3.2
@@ -126,10 +126,12 @@ WHERE
         FROM
             pedido); -- 3.4
     
-    SELECT cidade, count(cidade) AS total_cliente 
-    from cliente
-    group by cidade 
-    order by cidade desc; -- 3.5
+   SELECT 
+    cidade, COUNT(cidade) AS total_cliente
+FROM
+    cliente
+GROUP BY cidade
+ORDER BY cidade DESC; -- 3.5
     
     SELECT 
     p.nome AS produto, f.nome AS fornecedor
@@ -140,7 +142,7 @@ FROM
 ORDER BY f.nome; -- 4.1
 
 SELECT 
-    pedido.id AS pedido_id, c.nome AS cliente, p.nome AS produto
+    pedido.id AS pedido_id, c.nome AS cliente, p.nome AS produto, pedido.data_pedido as 'data do pedido'
 FROM
     pedido
         INNER JOIN
@@ -160,19 +162,32 @@ FROM
         INNER JOIN
    fornecedor f on p.fornecedor_id = f.id; -- 4.3
    
-SELECT c.nome AS cliente, SUM(p.quantidade) AS total_produtos_comprados
-FROM pedido p
-JOIN cliente c ON p.cliente_id = c.id
+SELECT 
+    c.nome AS cliente,
+    SUM(p.quantidade) AS total_produtos_comprados
+FROM
+    pedido p
+        JOIN
+    cliente c ON p.cliente_id = c.id
 GROUP BY c.nome; -- 4.4
   
-SELECT *
-FROM produto p
-WHERE preco > ( SELECT AVG(preco)  FROM produto  WHERE categoria = p.categoria
-); -- 5.1
+SELECT 
+    *
+FROM
+    produto p
+WHERE
+    preco > (SELECT 
+            AVG(preco)
+        FROM
+            produto
+        WHERE
+            categoria = p.categoria); -- 5.1
 
-UPDATE produto
-SET preco = preco * 1.10
-WHERE categoria = 'Eletrônicos'; -- 5.2
+UPDATE produto 
+SET 
+    preco = preco * 1.10
+WHERE
+    categoria = 'Eletrônicos'; -- 5.2
 
 DELETE FROM pedido
 WHERE cliente_id IN (
