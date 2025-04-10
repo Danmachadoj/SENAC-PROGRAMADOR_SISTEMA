@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniela.mjesus\\Desktop\\up\\CadastroCliente\\CadastroCliente.csproj": {}
+    "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\CadastroCliente\\CadastroCliente.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniela.mjesus\\Desktop\\up\\CadastroCliente\\CadastroCliente.csproj": {
+    "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\CadastroCliente\\CadastroCliente.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniela.mjesus\\Desktop\\up\\CadastroCliente\\CadastroCliente.csproj",
+        "projectUniqueName": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\CadastroCliente\\CadastroCliente.csproj",
         "projectName": "CadastroCliente",
-        "projectPath": "C:\\Users\\daniela.mjesus\\Desktop\\up\\CadastroCliente\\CadastroCliente.csproj",
+        "projectPath": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\CadastroCliente\\CadastroCliente.csproj",
         "packagesPath": "C:\\Users\\daniela.mjesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniela.mjesus\\Desktop\\up\\CadastroCliente\\obj\\",
+        "outputPath": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\CadastroCliente\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

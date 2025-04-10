@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +12,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
-=======
 ﻿using System.Text.RegularExpressions;
->>>>>>> cc66c160e14543645255bfab757b0da5e0640e48
 
 namespace CadastroCliente
 {
@@ -50,8 +48,7 @@ namespace CadastroCliente
         
        
 
-<<<<<<< HEAD
-=======
+
         public bool PF { get; private set; }
         public bool PJ { get; private set; }
 
@@ -224,6 +221,6 @@ namespace CadastroCliente
 
             return true;
         }
->>>>>>> cc66c160e14543645255bfab757b0da5e0640e48
+
     }
 }

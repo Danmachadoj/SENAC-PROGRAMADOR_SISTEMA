@@ -56,7 +56,6 @@
             BoxAcesso.Name = "BoxAcesso";
             BoxAcesso.Size = new Size(183, 23);
             BoxAcesso.TabIndex = 1;
-            BoxAcesso.TextChanged += textBoxUsuario_TextChanged;
             // 
             // BoxSenha
             // 
@@ -92,7 +91,6 @@
             labelSenha.Size = new Size(45, 15);
             labelSenha.TabIndex = 7;
             labelSenha.Text = "Senha :";
-            labelSenha.Click += label2_Click;
             // 
             // label3
             // 
@@ -101,7 +99,6 @@
             label3.Name = "label3";
             label3.Size = new Size(0, 15);
             label3.TabIndex = 8;
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -120,7 +117,6 @@
             labelLogin.Size = new Size(92, 37);
             labelLogin.TabIndex = 10;
             labelLogin.Text = "LOGIN";
-            labelLogin.Click += label5_Click;
             // 
             // BRecupera
             // 
@@ -138,7 +134,6 @@
             LabelResultado.Name = "LabelResultado";
             LabelResultado.Size = new Size(0, 15);
             LabelResultado.TabIndex = 12;
-            LabelResultado.Click += label1_Click_1;
             // 
             // BoxCriar
             // 
@@ -159,7 +154,6 @@
             label1.Size = new Size(148, 37);
             label1.TabIndex = 15;
             label1.Text = "CADASTRO";
-            label1.Click += label1_Click_2;
             // 
             // textBoxNome
             // 
@@ -190,7 +184,6 @@
             label2.Size = new Size(100, 15);
             label2.TabIndex = 19;
             label2.Text = "Nome completo :";
-            label2.Click += label2_Click_1;
             // 
             // label5
             // 
@@ -217,7 +210,6 @@
             labelNovoUsuario.Name = "labelNovoUsuario";
             labelNovoUsuario.Size = new Size(0, 15);
             labelNovoUsuario.TabIndex = 22;
-            labelNovoUsuario.Click += label7_Click;
             // 
             // labelConfir
             // 
@@ -226,7 +218,6 @@
             labelConfir.Name = "labelConfir";
             labelConfir.Size = new Size(0, 15);
             labelConfir.TabIndex = 23;
-            labelConfir.Click += label7_Click_1;
             // 
             // FormLogin
             // 
@@ -257,7 +248,6 @@
             ForeColor = SystemColors.MenuHighlight;
             Name = "FormLogin";
             Text = "Login";
-            Load += FormLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
