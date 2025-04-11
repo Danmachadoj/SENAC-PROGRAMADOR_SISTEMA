@@ -1,5 +1,5 @@
 
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
+using CadastroCliente.dominio;
 
 namespace CadastroCliente
 {
@@ -45,8 +46,8 @@ namespace CadastroCliente
             dataGridView1.DataSource = bindingSource;
 
         }
-        
-       
+
+
 
 
         public bool PF { get; private set; }
@@ -110,20 +111,20 @@ namespace CadastroCliente
             MessageBox.Show("Formulário enviado com sucesso!");
         }
 
-       
-        private bool ValidarFormulario(string nome, string telefone, string cep, string datanascimento, string nomesocial, string genero,string etnia, string email, string longradouro, string complemento, string bairro, string numero, string municipio, string estado, bool PF, bool PJ, bool estrangeiro)
+
+        private bool ValidarFormulario(string nome, string telefone, string cep, string datanascimento, string nomesocial, string genero, string etnia, string email, string longradouro, string complemento, string bairro, string numero, string municipio, string estado, bool PF, bool PJ, bool estrangeiro)
         {
             bool valido = true;
             string mensagemErro = "";
 
-          
+
             if (string.IsNullOrEmpty(tbnome.Text))
             {
                 valido = false;
                 mensagemErro += "Nome não pode ser vazio.\n";
             }
 
-        
+
             if (string.IsNullOrEmpty(mtbtelefone.Text))
             {
                 valido = false;
@@ -142,7 +143,7 @@ namespace CadastroCliente
                 mensagemErro += "CEP inválido. Formato esperado: 12345-678.\n";
             }
 
-       
+
             if (string.IsNullOrEmpty(mtbdata.Text) || !DateTime.TryParse(mtbdata.Text, out _))
             {
                 valido = false;
@@ -150,29 +151,29 @@ namespace CadastroCliente
             }
 
 
-        
+
             Genero generoEnum;
             if (!Enum.TryParse(genero, true, out generoEnum))
             {
                 MessageBox.Show("Gênero inválido.");
-                
+
             }
-        
-         
+
+
             if (string.IsNullOrEmpty(tbemail.Text) || !Regex.IsMatch(tbemail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 valido = false;
                 mensagemErro += "Email inválido.\n";
             }
 
-           
+
             if (string.IsNullOrEmpty(tblogradouro.Text))
             {
                 valido = false;
                 mensagemErro += "Logradouro não pode ser vazio.\n";
             }
 
-          
+
             if (string.IsNullOrEmpty(tbbairro.Text))
             {
                 valido = false;
@@ -183,28 +184,28 @@ namespace CadastroCliente
                 valido = false;
                 mensagemErro += "Email já cadastrado.\n";
 
-              
+
                 if (string.IsNullOrEmpty(tbnumero.Text) || !int.TryParse(tbnumero.Text, out _))
                 {
                     valido = false;
                     mensagemErro += "Número deve ser um valor numérico.\n";
                 }
 
-             
+
                 if (string.IsNullOrEmpty(tbmunicio.Text))
                 {
                     valido = false;
                     mensagemErro += "Município não pode ser vazio.\n";
                 }
 
-              
+
                 if (string.IsNullOrEmpty(cbestado.Text))
                 {
                     valido = false;
                     mensagemErro += "Estado deve ser selecionado.\n";
                 }
 
-              
+
                 if (!PF && !PJ)
                 {
                     valido = false;
@@ -212,7 +213,7 @@ namespace CadastroCliente
                 }
 
 
-             
+
             }
             if (!valido)
             {
@@ -222,5 +223,9 @@ namespace CadastroCliente
             return true;
         }
 
+        private void tbnome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

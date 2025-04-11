@@ -67,15 +67,14 @@
             dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
-            // 
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();            // 
             // tbnome
             // 
             tbnome.Location = new Point(115, 28);
             tbnome.Name = "tbnome";
             tbnome.Size = new Size(100, 23);
             tbnome.TabIndex = 0;
+            tbnome.TextChanged += tbnome_TextChanged;
             // 
             // label1
             // 

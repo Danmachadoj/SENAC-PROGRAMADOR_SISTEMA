@@ -16,4 +16,8 @@ CREATE TABLE cliente (
 
 INSERT INTO cliente
 (nome, data_nascimento, email, telefone, tipo, etnia, genero, estrangeiro, id_endereco)
-VALUES ('Daniela Machado', '1995-11-23, danielamachado@email.com, 11999999999,
+VALUES ('Daniela Machado', '1995-11-23', 'danielamachado@email.com', '11999999999', 0, 1, 0, 0,(SELECT id FROM endereco WHERE logradouro = 'endereçoDaniela')),
+('Fabio Saraiva', '2013-08-30', 'fabiosaraiva@email.com', '11999999992', 0, 1, 0, 0, (SELECT id FROM endereco WHERE logradouro = 'endereçoFabio')),
+('Vitor Lima', '1997-09-15', 'vitorlima@email.com', '11999999993', 0, 1, 0, 0, (SELECT id FROM endereco WHERE logradouro = 'endereçoVitor'));
+
+select* from cliente;
