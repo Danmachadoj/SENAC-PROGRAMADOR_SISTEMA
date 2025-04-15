@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Op/3PuF5+7M=",
+  "dgSpecHash": "80srg40n/Y4=",
   "success": true,
   "projectFilePath": "C:\\Users\\daniela.mjesus\\Documents\\programação\\SENAC-PROGRAMADOR_SISTEMA\\ListaAtividades\\ListaAtividades.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\daniela.mjesus\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\daniela.mjesus\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\daniela.mjesus\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512"
+  ],
   "logs": []
 }
