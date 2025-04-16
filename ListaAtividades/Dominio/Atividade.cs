@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ListaAtividades.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,45 +11,82 @@ namespace ListaAtividades.Dominio
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
-        public Situacao Situacao{ get; set; } 
-       
+        public Situacao Situacao{ get; set; }
 
-        public void Criar ()
+        private readonly AtividadeRepositorio repositorio = new AtividadeRepositorio();
+
+        public bool Criar ()
         {
+            if (!ValidarTitulo())
+            {
+                return false;
+            }
+
+            repositorio.Criar(Titulo);
+            return true;
         
         
         }
 
 
-        public void AtualizarSituacao ()
+        public bool AtualizarSituacao ()
         {
+            if (!ValidarId())
+            {
+                return false;
+            }
 
+            if (!ValidarSituacao())
+            { 
+                return false;
+            }
+
+            Atividade atividadeEmAndamento = BuscarAtividadeEmAndamento();
+            Situacao novaSituacao = BuscarProximaSituacao();
+
+            if (atividadeEmAndamento.Id > 0 && atividadeEmAndamento.Situacao == novaSituacao)
+            {
+                return false;
+            }
+                       
+            repositorio.AtualizarSituacao(Id, (int) novaSituacao );
+            return true;
         }
 
         public Atividade BuscarAtividadeEmAndamento()
         {
-            return new Atividade();
+            return repositorio.BuscarAtividadeEmAndamento();
         
         }
 
 
         public List<Atividade> ListarAtividadesPendentes()
-            { return []; }
 
+        {
+            return repositorio.ListarAtividadesPendentes();
+        }
 
-        private bool ValidadeTitulo () 
+        private bool ValidarId() 
+        { 
+            return Id > 0; 
+        }
+
+        private bool ValidarTitulo () 
         { 
             return string.IsNullOrWhiteSpace(Titulo);
         }
 
-        private Situacao BuscarProximaSituacao() 
-        { 
-            return Situacao.Concluido;
+        private bool ValidarSituacao()
+        {
+            return Situacao != Situacao.Concluido;
         }
-    }
 
+        private Situacao BuscarProximaSituacao() 
+        {
+            return Situacao == Situacao.Pendente ? Situacao.Realizando : Situacao.Concluido;
 
-
+        }
+    } 
 
 
 }
