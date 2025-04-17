@@ -19,7 +19,7 @@ namespace ListaAtividades.Repositorio
             {
                 con.Open();
 
-                string query = "INSERT INTO atividades (titulo) VALUES (@titulo)";
+                string query = "INSERT INTO atividade (titulo) VALUES (@titulo)";
 
                 using (var cmd = new MySqlCommand(query, con))
                 {

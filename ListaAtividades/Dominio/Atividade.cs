@@ -73,7 +73,7 @@ namespace ListaAtividades.Dominio
 
         private bool ValidarTitulo () 
         { 
-            return string.IsNullOrWhiteSpace(Titulo);
+            return !string.IsNullOrWhiteSpace(Titulo);
         }
 
         private bool ValidarSituacao()
