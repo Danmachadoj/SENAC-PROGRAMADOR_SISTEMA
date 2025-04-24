@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label2 = new Label();
-            textBox2 = new TextBox();
+            textNome = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            textBoxID = new TextBox();
             groupBox1 = new GroupBox();
             label14 = new Label();
             comboBox3 = new ComboBox();
             label6 = new Label();
             comboBox1 = new ComboBox();
             label5 = new Label();
-            maskedTextBox3 = new MaskedTextBox();
+            MBDataNascimento = new MaskedTextBox();
             label4 = new Label();
-            maskedTextBox2 = new MaskedTextBox();
+            MBRG = new MaskedTextBox();
             label3 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            MBCpf = new MaskedTextBox();
             groupBox2 = new GroupBox();
             label10 = new Label();
             textBox5 = new TextBox();
@@ -73,14 +73,15 @@
             label21 = new Label();
             maskedTextBox7 = new MaskedTextBox();
             groupBox4 = new GroupBox();
-            label18 = new Label();
-            textBox9 = new TextBox();
-            label22 = new Label();
-            textBox10 = new TextBox();
+            maskedTextBox9 = new MaskedTextBox();
+            label24 = new Label();
             label23 = new Label();
             maskedTextBox8 = new MaskedTextBox();
-            label24 = new Label();
-            maskedTextBox9 = new MaskedTextBox();
+            label22 = new Label();
+            textBox10 = new TextBox();
+            label18 = new Label();
+            textBox9 = new TextBox();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -96,12 +97,12 @@
             label2.TabIndex = 11;
             label2.Text = "NOME COMPLETO:";
             // 
-            // textBox2
+            // textNome
             // 
-            textBox2.Location = new Point(47, 44);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 23);
-            textBox2.TabIndex = 10;
+            textNome.Location = new Point(47, 44);
+            textNome.Name = "textNome";
+            textNome.Size = new Size(170, 23);
+            textNome.TabIndex = 10;
             // 
             // label1
             // 
@@ -112,12 +113,12 @@
             label1.TabIndex = 9;
             label1.Text = "ID:";
             // 
-            // textBox1
+            // textBoxID
             // 
-            textBox1.Location = new Point(11, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(30, 23);
-            textBox1.TabIndex = 8;
+            textBoxID.Location = new Point(11, 44);
+            textBoxID.Name = "textBoxID";
+            textBoxID.Size = new Size(30, 23);
+            textBoxID.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -125,16 +126,16 @@
             groupBox1.Controls.Add(comboBox3);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textNome);
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(maskedTextBox3);
+            groupBox1.Controls.Add(textBoxID);
+            groupBox1.Controls.Add(MBDataNascimento);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(maskedTextBox2);
+            groupBox1.Controls.Add(MBRG);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(maskedTextBox1);
+            groupBox1.Controls.Add(MBCpf);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(766, 92);
@@ -187,14 +188,14 @@
             label5.TabIndex = 6;
             label5.Text = "DATA DE NASCIMENTO:";
             // 
-            // maskedTextBox3
+            // MBDataNascimento
             // 
-            maskedTextBox3.Location = new Point(398, 42);
-            maskedTextBox3.Mask = "00/00/0000";
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(130, 23);
-            maskedTextBox3.TabIndex = 5;
-            maskedTextBox3.ValidatingType = typeof(DateTime);
+            MBDataNascimento.Location = new Point(398, 42);
+            MBDataNascimento.Mask = "00/00/0000";
+            MBDataNascimento.Name = "MBDataNascimento";
+            MBDataNascimento.Size = new Size(130, 23);
+            MBDataNascimento.TabIndex = 5;
+            MBDataNascimento.ValidatingType = typeof(DateTime);
             // 
             // label4
             // 
@@ -205,13 +206,13 @@
             label4.TabIndex = 4;
             label4.Text = "RG:";
             // 
-            // maskedTextBox2
+            // MBRG
             // 
-            maskedTextBox2.Location = new Point(321, 42);
-            maskedTextBox2.Mask = "00.000.000-0";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(71, 23);
-            maskedTextBox2.TabIndex = 3;
+            MBRG.Location = new Point(321, 42);
+            MBRG.Mask = "00.000.000-0";
+            MBRG.Name = "MBRG";
+            MBRG.Size = new Size(71, 23);
+            MBRG.TabIndex = 3;
             // 
             // label3
             // 
@@ -221,15 +222,15 @@
             label3.Size = new Size(31, 15);
             label3.TabIndex = 2;
             label3.Text = "CPF:";
-            label3.Click += label3_Click;
             // 
-            // maskedTextBox1
+            // MBCpf
             // 
-            maskedTextBox1.Location = new Point(222, 42);
-            maskedTextBox1.Mask = "000.000.000-00";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(93, 23);
-            maskedTextBox1.TabIndex = 1;
+            MBCpf.Location = new Point(222, 42);
+            MBCpf.Mask = "000.000.000-00";
+            MBCpf.Name = "MBCpf";
+            MBCpf.Size = new Size(93, 23);
+            MBCpf.TabIndex = 1;
+            MBCpf.MaskInputRejected += MBCpf_MaskInputRejected;
             // 
             // groupBox2
             // 
@@ -253,7 +254,6 @@
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "ENDEREÇO";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // label10
             // 
@@ -390,7 +390,6 @@
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             groupBox3.Text = "DEPENDENTES";
-            groupBox3.Enter += groupBox3_Enter;
             // 
             // label15
             // 
@@ -512,39 +511,23 @@
             groupBox4.TabIndex = 15;
             groupBox4.TabStop = false;
             groupBox4.Text = "FUNÇÃO";
-            groupBox4.Enter += groupBox4_Enter;
             // 
-            // label18
+            // maskedTextBox9
             // 
-            label18.AutoSize = true;
-            label18.Location = new Point(6, 19);
-            label18.Name = "label18";
-            label18.Size = new Size(50, 15);
-            label18.TabIndex = 13;
-            label18.Text = "CARGO:";
+            maskedTextBox9.Location = new Point(134, 83);
+            maskedTextBox9.Mask = "$";
+            maskedTextBox9.Name = "maskedTextBox9";
+            maskedTextBox9.Size = new Size(93, 23);
+            maskedTextBox9.TabIndex = 20;
             // 
-            // textBox9
+            // label24
             // 
-            textBox9.Location = new Point(6, 37);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(120, 23);
-            textBox9.TabIndex = 12;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(134, 19);
-            label22.Name = "label22";
-            label22.Size = new Size(97, 15);
-            label22.TabIndex = 15;
-            label22.Text = "DEPARTAMENTO:";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(134, 37);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(120, 23);
-            textBox10.TabIndex = 14;
+            label24.AutoSize = true;
+            label24.Location = new Point(134, 67);
+            label24.Name = "label24";
+            label24.Size = new Size(57, 15);
+            label24.TabIndex = 19;
+            label24.Text = "SALARIO:";
             // 
             // label23
             // 
@@ -565,22 +548,47 @@
             maskedTextBox8.TabIndex = 16;
             maskedTextBox8.ValidatingType = typeof(DateTime);
             // 
-            // label24
+            // label22
             // 
-            label24.AutoSize = true;
-            label24.Location = new Point(134, 67);
-            label24.Name = "label24";
-            label24.Size = new Size(57, 15);
-            label24.TabIndex = 19;
-            label24.Text = "SALARIO:";
+            label22.AutoSize = true;
+            label22.Location = new Point(134, 19);
+            label22.Name = "label22";
+            label22.Size = new Size(97, 15);
+            label22.TabIndex = 15;
+            label22.Text = "DEPARTAMENTO:";
             // 
-            // maskedTextBox9
+            // textBox10
             // 
-            maskedTextBox9.Location = new Point(134, 83);
-            maskedTextBox9.Mask = "$";
-            maskedTextBox9.Name = "maskedTextBox9";
-            maskedTextBox9.Size = new Size(93, 23);
-            maskedTextBox9.TabIndex = 20;
+            textBox10.Location = new Point(134, 37);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(120, 23);
+            textBox10.TabIndex = 14;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 19);
+            label18.Name = "label18";
+            label18.Size = new Size(50, 15);
+            label18.TabIndex = 13;
+            label18.Text = "CARGO:";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(6, 37);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(120, 23);
+            textBox9.TabIndex = 12;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(33, 540);
+            button1.Name = "button1";
+            button1.Size = new Size(105, 23);
+            button1.TabIndex = 16;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
@@ -588,6 +596,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(837, 657);
+            Controls.Add(button1);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -609,17 +618,17 @@
         #endregion
 
         private Label label2;
-        private TextBox textBox2;
+        private TextBox textNome;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxID;
         private GroupBox groupBox1;
         private Label label3;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox MBCpf;
         private ComboBox comboBox1;
         private Label label5;
-        private MaskedTextBox maskedTextBox3;
+        private MaskedTextBox MBDataNascimento;
         private Label label4;
-        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox MBRG;
         private Label label6;
         private GroupBox groupBox2;
         private Label label10;
@@ -660,5 +669,6 @@
         private Label label22;
         private TextBox textBox10;
         private MaskedTextBox maskedTextBox9;
+        private Button button1;
     }
 }
