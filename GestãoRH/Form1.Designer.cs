@@ -35,9 +35,9 @@
             textBoxID = new TextBox();
             groupBox1 = new GroupBox();
             label14 = new Label();
-            comboBox3 = new ComboBox();
+            CBEstadoCivil = new ComboBox();
             label6 = new Label();
-            comboBox1 = new ComboBox();
+            CBGenero = new ComboBox();
             label5 = new Label();
             MBDataNascimento = new MaskedTextBox();
             label4 = new Label();
@@ -46,46 +46,54 @@
             MBCpf = new MaskedTextBox();
             groupBox2 = new GroupBox();
             label10 = new Label();
-            textBox5 = new TextBox();
+            TXTComplemento = new TextBox();
             label9 = new Label();
-            textBox4 = new TextBox();
+            TXTNumero = new TextBox();
             label13 = new Label();
-            comboBox2 = new ComboBox();
+            CBEstado = new ComboBox();
             label11 = new Label();
-            textBox6 = new TextBox();
+            TXTCidade = new TextBox();
             label12 = new Label();
-            textBox7 = new TextBox();
+            TXTBairro = new TextBox();
             label8 = new Label();
-            maskedTextBox4 = new MaskedTextBox();
+            MBCEP = new MaskedTextBox();
             label7 = new Label();
-            textBox3 = new TextBox();
+            TXTLogradouro = new TextBox();
             groupBox3 = new GroupBox();
             label15 = new Label();
-            comboBox4 = new ComboBox();
+            CBParentesco = new ComboBox();
             label16 = new Label();
             label17 = new Label();
-            textBox8 = new TextBox();
-            comboBox5 = new ComboBox();
+            txtNome2 = new TextBox();
+            CBGeneroDependente = new ComboBox();
             label19 = new Label();
-            maskedTextBox5 = new MaskedTextBox();
+            MBDataDependente = new MaskedTextBox();
             label20 = new Label();
-            maskedTextBox6 = new MaskedTextBox();
+            MBRgDependente = new MaskedTextBox();
             label21 = new Label();
-            maskedTextBox7 = new MaskedTextBox();
+            MBCPFDependente = new MaskedTextBox();
             groupBox4 = new GroupBox();
-            maskedTextBox9 = new MaskedTextBox();
+            MBSalario = new MaskedTextBox();
             label24 = new Label();
             label23 = new Label();
-            maskedTextBox8 = new MaskedTextBox();
+            MBDataAdimissao = new MaskedTextBox();
             label22 = new Label();
-            textBox10 = new TextBox();
+            TXTDepartamento = new TextBox();
             label18 = new Label();
-            textBox9 = new TextBox();
+            TXTCargo = new TextBox();
             button1 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -123,11 +131,11 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(label14);
-            groupBox1.Controls.Add(comboBox3);
+            groupBox1.Controls.Add(CBEstadoCivil);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(textNome);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(CBGenero);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(textBoxID);
@@ -152,14 +160,14 @@
             label14.TabIndex = 13;
             label14.Text = "ESTADO CIVIL:";
             // 
-            // comboBox3
+            // CBEstadoCivil
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "SOLTEIRO(a)", "CASADO(a)", "DIVORCIADO(a)", "VIUVO(a)" });
-            comboBox3.Location = new Point(642, 42);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(102, 23);
-            comboBox3.TabIndex = 12;
+            CBEstadoCivil.FormattingEnabled = true;
+            CBEstadoCivil.Items.AddRange(new object[] { "SOLTEIRO(a)", "CASADO(a)", "DIVORCIADO(a)", "VIUVO(a)" });
+            CBEstadoCivil.Location = new Point(642, 42);
+            CBEstadoCivil.Name = "CBEstadoCivil";
+            CBEstadoCivil.Size = new Size(102, 23);
+            CBEstadoCivil.TabIndex = 12;
             // 
             // label6
             // 
@@ -170,14 +178,14 @@
             label6.TabIndex = 8;
             label6.Text = "GENERO:";
             // 
-            // comboBox1
+            // CBGenero
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
-            comboBox1.Location = new Point(534, 42);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(102, 23);
-            comboBox1.TabIndex = 7;
+            CBGenero.FormattingEnabled = true;
+            CBGenero.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
+            CBGenero.Location = new Point(534, 42);
+            CBGenero.Name = "CBGenero";
+            CBGenero.Size = new Size(102, 23);
+            CBGenero.TabIndex = 7;
             // 
             // label5
             // 
@@ -235,19 +243,19 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label10);
-            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(TXTComplemento);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(TXTNumero);
             groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(comboBox2);
+            groupBox2.Controls.Add(CBEstado);
             groupBox2.Controls.Add(label11);
-            groupBox2.Controls.Add(textBox6);
+            groupBox2.Controls.Add(TXTCidade);
             groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(textBox7);
+            groupBox2.Controls.Add(TXTBairro);
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(maskedTextBox4);
+            groupBox2.Controls.Add(MBCEP);
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(TXTLogradouro);
             groupBox2.Location = new Point(12, 208);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(766, 147);
@@ -264,12 +272,12 @@
             label10.TabIndex = 39;
             label10.Text = "COMPLEMENTO:";
             // 
-            // textBox5
+            // TXTComplemento
             // 
-            textBox5.Location = new Point(541, 43);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(97, 23);
-            textBox5.TabIndex = 38;
+            TXTComplemento.Location = new Point(541, 43);
+            TXTComplemento.Name = "TXTComplemento";
+            TXTComplemento.Size = new Size(97, 23);
+            TXTComplemento.TabIndex = 38;
             // 
             // label9
             // 
@@ -280,12 +288,12 @@
             label9.TabIndex = 37;
             label9.Text = "NUMERO:";
             // 
-            // textBox4
+            // TXTNumero
             // 
-            textBox4.Location = new Point(464, 43);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(71, 23);
-            textBox4.TabIndex = 36;
+            TXTNumero.Location = new Point(464, 43);
+            TXTNumero.Name = "TXTNumero";
+            TXTNumero.Size = new Size(71, 23);
+            TXTNumero.TabIndex = 36;
             // 
             // label13
             // 
@@ -296,14 +304,14 @@
             label13.TabIndex = 35;
             label13.Text = "ESTADO:";
             // 
-            // comboBox2
+            // CBEstado
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" });
-            comboBox2.Location = new Point(151, 101);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(65, 23);
-            comboBox2.TabIndex = 34;
+            CBEstado.FormattingEnabled = true;
+            CBEstado.Items.AddRange(new object[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" });
+            CBEstado.Location = new Point(151, 101);
+            CBEstado.Name = "CBEstado";
+            CBEstado.Size = new Size(65, 23);
+            CBEstado.TabIndex = 34;
             // 
             // label11
             // 
@@ -314,12 +322,12 @@
             label11.TabIndex = 33;
             label11.Text = "CIDADE:";
             // 
-            // textBox6
+            // TXTCidade
             // 
-            textBox6.Location = new Point(11, 101);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(134, 23);
-            textBox6.TabIndex = 32;
+            TXTCidade.Location = new Point(11, 101);
+            TXTCidade.Name = "TXTCidade";
+            TXTCidade.Size = new Size(134, 23);
+            TXTCidade.TabIndex = 32;
             // 
             // label12
             // 
@@ -330,12 +338,12 @@
             label12.TabIndex = 31;
             label12.Text = "BAIRRO:";
             // 
-            // textBox7
+            // TXTBairro
             // 
-            textBox7.Location = new Point(644, 43);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(117, 23);
-            textBox7.TabIndex = 30;
+            TXTBairro.Location = new Point(644, 43);
+            TXTBairro.Name = "TXTBairro";
+            TXTBairro.Size = new Size(117, 23);
+            TXTBairro.TabIndex = 30;
             // 
             // label8
             // 
@@ -346,13 +354,13 @@
             label8.TabIndex = 29;
             label8.Text = "CEP:";
             // 
-            // maskedTextBox4
+            // MBCEP
             // 
-            maskedTextBox4.Location = new Point(11, 43);
-            maskedTextBox4.Mask = "00000-000";
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(93, 23);
-            maskedTextBox4.TabIndex = 28;
+            MBCEP.Location = new Point(11, 43);
+            MBCEP.Mask = "00000-000";
+            MBCEP.Name = "MBCEP";
+            MBCEP.Size = new Size(93, 23);
+            MBCEP.TabIndex = 28;
             // 
             // label7
             // 
@@ -363,27 +371,27 @@
             label7.TabIndex = 27;
             label7.Text = "LOGRADOURO:";
             // 
-            // textBox3
+            // TXTLogradouro
             // 
-            textBox3.Location = new Point(113, 43);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(345, 23);
-            textBox3.TabIndex = 26;
+            TXTLogradouro.Location = new Point(113, 43);
+            TXTLogradouro.Name = "TXTLogradouro";
+            TXTLogradouro.Size = new Size(345, 23);
+            TXTLogradouro.TabIndex = 26;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(label15);
-            groupBox3.Controls.Add(comboBox4);
+            groupBox3.Controls.Add(CBParentesco);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
-            groupBox3.Controls.Add(textBox8);
-            groupBox3.Controls.Add(comboBox5);
+            groupBox3.Controls.Add(txtNome2);
+            groupBox3.Controls.Add(CBGeneroDependente);
             groupBox3.Controls.Add(label19);
-            groupBox3.Controls.Add(maskedTextBox5);
+            groupBox3.Controls.Add(MBDataDependente);
             groupBox3.Controls.Add(label20);
-            groupBox3.Controls.Add(maskedTextBox6);
+            groupBox3.Controls.Add(MBRgDependente);
             groupBox3.Controls.Add(label21);
-            groupBox3.Controls.Add(maskedTextBox7);
+            groupBox3.Controls.Add(MBCPFDependente);
             groupBox3.Location = new Point(12, 110);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(766, 92);
@@ -400,14 +408,14 @@
             label15.TabIndex = 13;
             label15.Text = "PARENTESCO:";
             // 
-            // comboBox4
+            // CBParentesco
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "CÔNJUGE", "FILHO(A)" });
-            comboBox4.Location = new Point(601, 35);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(102, 23);
-            comboBox4.TabIndex = 12;
+            CBParentesco.FormattingEnabled = true;
+            CBParentesco.Items.AddRange(new object[] { "CÔNJUGE", "FILHO(A)" });
+            CBParentesco.Location = new Point(601, 35);
+            CBParentesco.Name = "CBParentesco";
+            CBParentesco.Size = new Size(102, 23);
+            CBParentesco.TabIndex = 12;
             // 
             // label16
             // 
@@ -427,21 +435,21 @@
             label17.TabIndex = 11;
             label17.Text = "NOME COMPLETO:";
             // 
-            // textBox8
+            // txtNome2
             // 
-            textBox8.Location = new Point(6, 37);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(170, 23);
-            textBox8.TabIndex = 10;
+            txtNome2.Location = new Point(6, 37);
+            txtNome2.Name = "txtNome2";
+            txtNome2.Size = new Size(170, 23);
+            txtNome2.TabIndex = 10;
             // 
-            // comboBox5
+            // CBGeneroDependente
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
-            comboBox5.Location = new Point(493, 35);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(102, 23);
-            comboBox5.TabIndex = 7;
+            CBGeneroDependente.FormattingEnabled = true;
+            CBGeneroDependente.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
+            CBGeneroDependente.Location = new Point(493, 35);
+            CBGeneroDependente.Name = "CBGeneroDependente";
+            CBGeneroDependente.Size = new Size(102, 23);
+            CBGeneroDependente.TabIndex = 7;
             // 
             // label19
             // 
@@ -452,14 +460,14 @@
             label19.TabIndex = 6;
             label19.Text = "DATA DE NASCIMENTO:";
             // 
-            // maskedTextBox5
+            // MBDataDependente
             // 
-            maskedTextBox5.Location = new Point(357, 35);
-            maskedTextBox5.Mask = "00/00/0000";
-            maskedTextBox5.Name = "maskedTextBox5";
-            maskedTextBox5.Size = new Size(130, 23);
-            maskedTextBox5.TabIndex = 5;
-            maskedTextBox5.ValidatingType = typeof(DateTime);
+            MBDataDependente.Location = new Point(357, 35);
+            MBDataDependente.Mask = "00/00/0000";
+            MBDataDependente.Name = "MBDataDependente";
+            MBDataDependente.Size = new Size(130, 23);
+            MBDataDependente.TabIndex = 5;
+            MBDataDependente.ValidatingType = typeof(DateTime);
             // 
             // label20
             // 
@@ -470,13 +478,13 @@
             label20.TabIndex = 4;
             label20.Text = "RG:";
             // 
-            // maskedTextBox6
+            // MBRgDependente
             // 
-            maskedTextBox6.Location = new Point(280, 35);
-            maskedTextBox6.Mask = "00.000.000-0";
-            maskedTextBox6.Name = "maskedTextBox6";
-            maskedTextBox6.Size = new Size(71, 23);
-            maskedTextBox6.TabIndex = 3;
+            MBRgDependente.Location = new Point(280, 35);
+            MBRgDependente.Mask = "00.000.000-0";
+            MBRgDependente.Name = "MBRgDependente";
+            MBRgDependente.Size = new Size(71, 23);
+            MBRgDependente.TabIndex = 3;
             // 
             // label21
             // 
@@ -487,24 +495,24 @@
             label21.TabIndex = 2;
             label21.Text = "CPF:";
             // 
-            // maskedTextBox7
+            // MBCPFDependente
             // 
-            maskedTextBox7.Location = new Point(181, 35);
-            maskedTextBox7.Mask = "000.000.000-00";
-            maskedTextBox7.Name = "maskedTextBox7";
-            maskedTextBox7.Size = new Size(93, 23);
-            maskedTextBox7.TabIndex = 1;
+            MBCPFDependente.Location = new Point(181, 35);
+            MBCPFDependente.Mask = "000.000.000-00";
+            MBCPFDependente.Name = "MBCPFDependente";
+            MBCPFDependente.Size = new Size(93, 23);
+            MBCPFDependente.TabIndex = 1;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(maskedTextBox9);
+            groupBox4.Controls.Add(MBSalario);
             groupBox4.Controls.Add(label24);
             groupBox4.Controls.Add(label23);
-            groupBox4.Controls.Add(maskedTextBox8);
+            groupBox4.Controls.Add(MBDataAdimissao);
             groupBox4.Controls.Add(label22);
-            groupBox4.Controls.Add(textBox10);
+            groupBox4.Controls.Add(TXTDepartamento);
             groupBox4.Controls.Add(label18);
-            groupBox4.Controls.Add(textBox9);
+            groupBox4.Controls.Add(TXTCargo);
             groupBox4.Location = new Point(12, 361);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(305, 112);
@@ -512,13 +520,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "FUNÇÃO";
             // 
-            // maskedTextBox9
+            // MBSalario
             // 
-            maskedTextBox9.Location = new Point(134, 83);
-            maskedTextBox9.Mask = "$";
-            maskedTextBox9.Name = "maskedTextBox9";
-            maskedTextBox9.Size = new Size(93, 23);
-            maskedTextBox9.TabIndex = 20;
+            MBSalario.Location = new Point(134, 83);
+            MBSalario.Mask = "$";
+            MBSalario.Name = "MBSalario";
+            MBSalario.Size = new Size(93, 23);
+            MBSalario.TabIndex = 20;
             // 
             // label24
             // 
@@ -539,14 +547,14 @@
             label23.TabIndex = 17;
             label23.Text = "DATA DE ADMISSÃO:";
             // 
-            // maskedTextBox8
+            // MBDataAdimissao
             // 
-            maskedTextBox8.Location = new Point(4, 83);
-            maskedTextBox8.Mask = "00/00/0000";
-            maskedTextBox8.Name = "maskedTextBox8";
-            maskedTextBox8.Size = new Size(117, 23);
-            maskedTextBox8.TabIndex = 16;
-            maskedTextBox8.ValidatingType = typeof(DateTime);
+            MBDataAdimissao.Location = new Point(4, 83);
+            MBDataAdimissao.Mask = "00/00/0000";
+            MBDataAdimissao.Name = "MBDataAdimissao";
+            MBDataAdimissao.Size = new Size(117, 23);
+            MBDataAdimissao.TabIndex = 16;
+            MBDataAdimissao.ValidatingType = typeof(DateTime);
             // 
             // label22
             // 
@@ -557,12 +565,12 @@
             label22.TabIndex = 15;
             label22.Text = "DEPARTAMENTO:";
             // 
-            // textBox10
+            // TXTDepartamento
             // 
-            textBox10.Location = new Point(134, 37);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(120, 23);
-            textBox10.TabIndex = 14;
+            TXTDepartamento.Location = new Point(134, 37);
+            TXTDepartamento.Name = "TXTDepartamento";
+            TXTDepartamento.Size = new Size(120, 23);
+            TXTDepartamento.TabIndex = 14;
             // 
             // label18
             // 
@@ -573,12 +581,12 @@
             label18.TabIndex = 13;
             label18.Text = "CARGO:";
             // 
-            // textBox9
+            // TXTCargo
             // 
-            textBox9.Location = new Point(6, 37);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(120, 23);
-            textBox9.TabIndex = 12;
+            TXTCargo.Location = new Point(6, 37);
+            TXTCargo.Name = "TXTCargo";
+            TXTCargo.Size = new Size(120, 23);
+            TXTCargo.TabIndex = 12;
             // 
             // button1
             // 
@@ -590,17 +598,61 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 586);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(840, 68);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, -2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(840, 37);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 17;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(779, 46);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(61, 534);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 17;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(610, 415);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(168, 165);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 18;
+            pictureBox4.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(837, 657);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "CADASTRO DE  COLABORADORES";
@@ -612,6 +664,10 @@
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -624,7 +680,7 @@
         private GroupBox groupBox1;
         private Label label3;
         private MaskedTextBox MBCpf;
-        private ComboBox comboBox1;
+        private ComboBox CBGenero;
         private Label label5;
         private MaskedTextBox MBDataNascimento;
         private Label label4;
@@ -632,43 +688,47 @@
         private Label label6;
         private GroupBox groupBox2;
         private Label label10;
-        private TextBox textBox5;
+        private TextBox TXTComplemento;
         private Label label9;
-        private TextBox textBox4;
+        private TextBox TXTNumero;
         private Label label13;
-        private ComboBox comboBox2;
+        private ComboBox CBEstado;
         private Label label11;
-        private TextBox textBox6;
+        private TextBox TXTCidade;
         private Label label12;
-        private TextBox textBox7;
+        private TextBox TXTBairro;
         private Label label8;
-        private MaskedTextBox maskedTextBox4;
+        private MaskedTextBox MBCEP;
         private Label label7;
-        private TextBox textBox3;
+        private TextBox TXTLogradouro;
         private Label label14;
-        private ComboBox comboBox3;
+        private ComboBox CBEstadoCivil;
         private GroupBox groupBox3;
         private Label label16;
         private Label label17;
-        private TextBox textBox8;
-        private ComboBox comboBox5;
+        private TextBox txtNome2;
+        private ComboBox CBGeneroDependente;
         private Label label19;
-        private MaskedTextBox maskedTextBox5;
+        private MaskedTextBox MBDataDependente;
         private Label label20;
-        private MaskedTextBox maskedTextBox6;
+        private MaskedTextBox MBRgDependente;
         private Label label21;
-        private MaskedTextBox maskedTextBox7;
+        private MaskedTextBox MBCPFDependente;
         private Label label15;
-        private ComboBox comboBox4;
+        private ComboBox CBParentesco;
         private GroupBox groupBox4;
         private Label label18;
-        private TextBox textBox9;
+        private TextBox TXTCargo;
         private Label label24;
         private Label label23;
-        private MaskedTextBox maskedTextBox8;
+        private MaskedTextBox MBDataAdimissao;
         private Label label22;
-        private TextBox textBox10;
-        private MaskedTextBox maskedTextBox9;
+        private TextBox TXTDepartamento;
+        private MaskedTextBox MBSalario;
         private Button button1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }
