@@ -52,9 +52,10 @@ namespace GestaoRH
         private void button6_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = !dataGridView1.Visible;
-            CarregarFuncionario();
-            
-            
+           
+            dataGridView1.DataSource = Banco.BuscarSql("SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId");
+
+
 
         }
 
