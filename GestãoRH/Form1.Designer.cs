@@ -238,7 +238,6 @@
             MBCpf.Name = "MBCpf";
             MBCpf.Size = new Size(93, 23);
             MBCpf.TabIndex = 1;
-            MBCpf.MaskInputRejected += MBCpf_MaskInputRejected;
             // 
             // groupBox2
             // 
@@ -523,7 +522,7 @@
             // MBSalario
             // 
             MBSalario.Location = new Point(134, 83);
-            MBSalario.Mask = "$";
+            MBSalario.Mask = "$000000000000000000";
             MBSalario.Name = "MBSalario";
             MBSalario.Size = new Size(93, 23);
             MBSalario.TabIndex = 20;
@@ -596,7 +595,6 @@
             button1.TabIndex = 16;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 

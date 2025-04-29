@@ -15,11 +15,10 @@ namespace GestaoRH.BancoDados.Dominio
         public DateTime DataNascimento { get; set; }
         public string Genero { get; set; }
         public string EstadoCivil { get; set; }
-
         public Endereco Endereco { get; set; }
         public Funcao Funcao { get; set; }
         public List<Dependente> Dependentes { get; set; }
-        public Funcionario funcionario { get; set; }
+        public Funcionario funcionario { get; set; } = new Funcionario();
 
         public Repositorio Repositorio { get; set; } = new Repositorio();
 

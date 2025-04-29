@@ -27,6 +27,8 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@estadoCivil", funcionario.EstadoCivil);
                     cmd.ExecuteNonQuery();
                 }
+
+                MessageBox.Show("Tudo Certo");
             }
         }
         public static List<Funcionario> ObterTodos()

@@ -1,6 +1,7 @@
 using GestaoRH;
+using GestaoRH.BancoDados.Dominio;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace GestãoRH
 {
@@ -49,7 +50,7 @@ namespace GestãoRH
 
             var DataNascimento = MBDataNascimento.Text;
 
-            if(!DateTime.TryParse(MBDataNascimento.Text, out var dataNascimento))
+            if (!DateTime.TryParse(MBDataNascimento.Text, out var dataNascimento))
             {
                 MessageBox.Show("Insira uma data valida");
                 return true;
@@ -58,7 +59,7 @@ namespace GestãoRH
 
             // validar genero 
 
-            if(CBGenero.SelectedIndex == -1)
+            if (CBGenero.SelectedIndex == -1)
             {
                 MessageBox.Show("Informe Seu Genêro");
                 return true;
@@ -136,7 +137,7 @@ namespace GestãoRH
 
 
             // Genero Dependente
-            
+
             if (CBGeneroDependente.SelectedIndex == -1)
             {
                 MessageBox.Show("Informe o Genêro do Dependente");
@@ -157,12 +158,12 @@ namespace GestãoRH
         }
         private bool ValidarEndereco()
         {
-            if(string.IsNullOrEmpty(MBCEP.Text))
+            if (string.IsNullOrEmpty(MBCEP.Text))
             {
                 MessageBox.Show("Informe O Cep");
                 return true;
             }
-            if(string.IsNullOrEmpty(TXTLogradouro.Text))
+            if (string.IsNullOrEmpty(TXTLogradouro.Text))
             {
                 MessageBox.Show("Informe O Logradoro");
                 return true;
@@ -188,7 +189,7 @@ namespace GestãoRH
                 return true;
             }
 
-            if(CBEstado.SelectedIndex == -1)
+            if (CBEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Informe O Estado");
                 return true;
@@ -198,9 +199,9 @@ namespace GestãoRH
 
             return false;
         }
-        private bool ValidarFuncao ()
+        private bool ValidarFuncao()
         {
-            if(string.IsNullOrEmpty (TXTCargo.Text))
+            if (string.IsNullOrEmpty(TXTCargo.Text))
             {
                 MessageBox.Show("Campo Cargo Obrigatorio");
                 TXTCargo.Focus();
@@ -233,27 +234,59 @@ namespace GestãoRH
 
             return false;
         }
-        
-
-
-
-
-
-
-
-
-
-
-        private void button1_Click(object sender, EventArgs e)
+        public void ÌnserirSql()
         {
-           if(!ValidaçoesDadosPessoais() || !ValidarDependentes() || !ValidarEndereco() || !ValidarFuncao() ) { return; }
+            DateTime DataNascimento = DateTime.Now;
 
-            Repositorio.Inserir(this);
+            if (DateTime.TryParse(MBDataNascimento.Text, out DataNascimento))
+            {
+                var funcionario = new Funcionario
+            {
+                    NomeCompleto = textNome.Text,
+                    CPF = MBCpf.Text,
+                    RG = MBRG.Text,
+                    DataNascimento = DataNascimento,
+                    Genero = CBGenero.Text,
+                    EstadoCivil = CBEstadoCivil.Text,
+            };
 
-           
-            
+                var dependentes = new Dependente
+                {
+                    NomeCompleto = txtNome2.Text,
+                    CPF = MBCPFDependente.Text,
+                    RG = MBRG.Text,
+                    DataNascimentoDependente = DataNascimento,
+                    GeneroDependente = CBGeneroDependente.Text,
+                    Parentesco = CBParentesco.Text,
 
-           //continua o codigo
+                };
+
+                var endereco = new Endereco
+                {
+                    CEP = MBCEP.Text,
+                    Logradouro = TXTLogradouro.Text,
+                    Numero = TXTNumero.Text,
+                    Complemento = TXTComplemento.Text,
+                    Bairro = TXTBairro.Text,
+                    Cidade = TXTCidade.Text,
+                    Estado = CBEstado.Text,
+
+                };
+
+
+
+                try
+                {
+                    // Chama o método Adicionar do repositório para salvar no banco
+                    Repositorio.Inserir(funcionario);
+                    MessageBox.Show("Usuário salvo com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    // Em caso de erro, mostra a mensagem de erro
+                    MessageBox.Show("Erro ao salvar: " + ex.Message);
+                }
+            }
         }
 
         private void MBCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -261,7 +294,17 @@ namespace GestãoRH
             MBCpf.Mask = "000.000.000-00";
 
         }
-    }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!ValidaçoesDadosPessoais() || !ValidarDependentes() || !ValidarEndereco() || !ValidarFuncao()) { return; }
+
+
+
+
+
+            //continua o codigo
+        }
 
 
 
@@ -272,4 +315,5 @@ namespace GestãoRH
 
 
 
+    } 
 }
