@@ -9,7 +9,8 @@ namespace GestaoRH
         public static string _conexao = "server=localhost;database=gestaorh;uid=root;pwd=;";
 
 
-        public static void Inserir(Funcionario funcionario)
+
+        public static void InserirFuncionario(Funcionario funcionario)
         {
             using (var con = new MySqlConnection(_conexao))
             {
@@ -30,15 +31,87 @@ namespace GestaoRH
 
                 MessageBox.Show("Tudo Certo");
             }
+
         }
-        public static List<Funcionario> ObterTodos()
+
+        public static void InserirDependente(Dependente dependente)
+
 
         {
-            
-            
+            using (var con = new MySqlConnection(_conexao))
+            {
+                con.Open();
+                string sql = @"INSERT INTO dependentes (NomeCompleto, Cpf, Rg, DataNascimento, Genero, Parentesco)
+                        VALUES (@nome, @cpf, @rg, @dataNascimento, @genero, @Parentesco)";
 
-            
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@nome", dependente.NomeCompleto);
+                    cmd.Parameters.AddWithValue("@cpf", dependente.CPF);
+                    cmd.Parameters.AddWithValue("@rg", dependente.RG);
+                    cmd.Parameters.AddWithValue("@dataNascimento", dependente.DataNascimentoDependente);
+                    cmd.Parameters.AddWithValue("@genero", dependente.GeneroDependente);
+                    cmd.Parameters.AddWithValue("@Parentesco", dependente.Parentesco);
+                    cmd.ExecuteNonQuery();
+                }
 
+
+            }
+
+
+
+
+        }
+
+
+        public static void InserirEndereco(Endereco Endereco)
+        {
+            using (var con = new MySqlConnection(_conexao))
+            {
+                con.Open();
+                string sql = @"INSERT INTO Endereco (cep, Logradouro, Numero, Complemento, Bairro, cidade, estado)
+                        VALUES (@cep, @Logradouro, @Numero, @Complemento, @Bairro, @cidade, @estado)";
+
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@cep", Endereco.CEP);
+                    cmd.Parameters.AddWithValue("@logradouro", Endereco.Logradouro);
+                    cmd.Parameters.AddWithValue("@Numero", Endereco.Numero);
+                    cmd.Parameters.AddWithValue("@Complemento", Endereco.Complemento);
+                    cmd.Parameters.AddWithValue("@Bairro", Endereco.Bairro);
+                    cmd.Parameters.AddWithValue("@Cidade", Endereco.Cidade);
+                    cmd.Parameters.AddWithValue("@estado", Endereco.Estado);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Tudo Certo");
+            }
+
+        }
+
+        public static void InserirFuncao(Funcao funcao)
+        {
+            using (var con = new MySqlConnection(_conexao))
+
+            {
+                con.Open();
+                string sql = @"INSERT INTO funcao (cargo, departamento, DataAdmissao, Salario)
+                        VALUES (@cargo, @departamento, @DataAdmissao, @Salario)";
+
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@cargo", funcao.Cargo);
+                    cmd.Parameters.AddWithValue("@departamento", funcao.Departamento);
+                    cmd.Parameters.AddWithValue("@DataAdmissao", funcao.DataAdmissao);
+                    cmd.Parameters.AddWithValue("@Salario", funcao.Salario);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public static List<Funcionario> ObterTodos()
+        {
             var lista = new List<Funcionario>();
 
             using (var con = new MySqlConnection(_conexao))
@@ -84,8 +157,8 @@ namespace GestaoRH
                     }
 
                 }
-
             }
+
 
             return lista;
 
@@ -169,7 +242,7 @@ namespace GestaoRH
 
                         {
 
-                            Id = Convert.ToInt32(reader["Id"]),
+                            Id = Convert.ToInt32(reader["id"]),
 
                             NomeCompleto = reader["NomeCompleto"].ToString(),
 
@@ -185,7 +258,7 @@ namespace GestaoRH
 
                         };
 
-                        
+
 
                     }
 
@@ -206,5 +279,8 @@ namespace GestaoRH
         {
             throw new NotImplementedException();
         }
+
+
     }
+    
 }

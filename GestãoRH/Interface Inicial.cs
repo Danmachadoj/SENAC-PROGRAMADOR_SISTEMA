@@ -1,14 +1,7 @@
 ﻿using GestãoRH;
-using GestaoRH.BancoDados.Dominio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using MySql.Data.MySqlClient;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace GestaoRH
 {
@@ -38,11 +31,28 @@ namespace GestaoRH
 
         }
 
+        public void AtualizarDataGrid()
+        {
+            string conexaoString = "server = localhost; user = root; password =; database = GestaoRH; ";
+
+            using (var conexao = new MySqlConnection(conexaoString))
+            {
+                conexao.Open();
+                string query = "SELECT * FROM Funcionario"; 
+                var comando = new MySqlCommand(query, conexao);
+                var adaptador = new MySqlDataAdapter(comando);
+                var tabela = new DataTable();
+                adaptador.Fill(tabela);
+
+                dataGridView1.DataSource = tabela;
+            }
+        }
+
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-             
+
 
             Form1 form1 = new Form1();
             form1.Show();
@@ -52,9 +62,9 @@ namespace GestaoRH
         private void button6_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = !dataGridView1.Visible;
-           
-            dataGridView1.DataSource = Banco.BuscarSql("SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId");
 
+            dataGridView1.DataSource = Banco.BuscarSql("SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId");
+            AtualizarDataGrid();
 
 
         }
@@ -69,6 +79,9 @@ namespace GestaoRH
             dataGridView1.Visible = !dataGridView1.Visible;
         }
 
-       
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

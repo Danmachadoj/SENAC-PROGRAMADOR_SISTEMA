@@ -18,7 +18,7 @@ namespace GestaoRH.BancoDados.Dominio
         public Endereco Endereco { get; set; }
         public Funcao Funcao { get; set; }
         public List<Dependente> Dependentes { get; set; }
-        public Funcionario funcionario { get; set; } = new Funcionario();
+        public Funcionario funcionario { get; set; } 
 
         public Repositorio Repositorio { get; set; } = new Repositorio();
 

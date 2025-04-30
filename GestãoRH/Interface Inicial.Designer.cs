@@ -75,6 +75,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(507, 364);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // pictureBox3
             // 
@@ -116,11 +117,11 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(35, 266);
+            label4.Location = new Point(39, 568);
             label4.Name = "label4";
-            label4.Size = new Size(44, 16);
+            label4.Size = new Size(37, 16);
             label4.TabIndex = 3;
-            label4.Text = "Salario";
+            label4.Text = "Home";
             // 
             // label5
             // 
@@ -151,7 +152,7 @@
             button4.BackgroundImageLayout = ImageLayout.Zoom;
             button4.FlatStyle = FlatStyle.Flat;
             button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(21, 211);
+            button4.Location = new Point(22, 513);
             button4.Name = "button4";
             button4.Size = new Size(66, 52);
             button4.TabIndex = 2;

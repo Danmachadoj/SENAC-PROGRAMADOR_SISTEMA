@@ -1,5 +1,6 @@
 using GestaoRH;
 using GestaoRH.BancoDados.Dominio;
+using System;
 using System.Text.RegularExpressions;
 
 
@@ -234,59 +235,106 @@ namespace GestãoRH
 
             return false;
         }
-        public void ÌnserirSql()
+        private void InserirSql()
         {
-            DateTime DataNascimento = DateTime.Now;
+            DateTime DataNascimento;
 
             if (DateTime.TryParse(MBDataNascimento.Text, out DataNascimento))
             {
-                var funcionario = new Funcionario
+
+            }
+
+            var funcionario = new Funcionario
             {
-                    NomeCompleto = textNome.Text,
-                    CPF = MBCpf.Text,
-                    RG = MBRG.Text,
-                    DataNascimento = DataNascimento,
-                    Genero = CBGenero.Text,
-                    EstadoCivil = CBEstadoCivil.Text,
+                NomeCompleto = textNome.Text,
+                CPF = MBCpf.Text,
+                RG = MBRG.Text,
+                DataNascimento = DataNascimento,
+                Genero = CBGenero.Text,
+                EstadoCivil = CBEstadoCivil.Text,
+
+
+
             };
 
-                var dependentes = new Dependente
-                {
-                    NomeCompleto = txtNome2.Text,
-                    CPF = MBCPFDependente.Text,
-                    RG = MBRG.Text,
-                    DataNascimentoDependente = DataNascimento,
-                    GeneroDependente = CBGeneroDependente.Text,
-                    Parentesco = CBParentesco.Text,
+            DateTime DataDependente;
+            if (DateTime.TryParse(MBDataDependente.Text, out DataDependente))
+            {
 
-                };
-
-                var endereco = new Endereco
-                {
-                    CEP = MBCEP.Text,
-                    Logradouro = TXTLogradouro.Text,
-                    Numero = TXTNumero.Text,
-                    Complemento = TXTComplemento.Text,
-                    Bairro = TXTBairro.Text,
-                    Cidade = TXTCidade.Text,
-                    Estado = CBEstado.Text,
-
-                };
-
-
-
-                try
-                {
-                    // Chama o método Adicionar do repositório para salvar no banco
-                    Repositorio.Inserir(funcionario);
-                    MessageBox.Show("Usuário salvo com sucesso!");
-                }
-                catch (Exception ex)
-                {
-                    // Em caso de erro, mostra a mensagem de erro
-                    MessageBox.Show("Erro ao salvar: " + ex.Message);
-                }
             }
+
+
+
+            var dependente = new Dependente
+            {
+                NomeCompleto = txtNome2.Text,
+                CPF = MBCPFDependente.Text,
+                RG = MBRG.Text,
+                DataNascimentoDependente = DataDependente,
+                GeneroDependente = CBGeneroDependente.Text,
+                Parentesco = CBParentesco.Text,
+
+            };
+
+
+
+
+
+
+
+
+            var endereco = new Endereco
+            {
+                CEP = MBCEP.Text,
+                Logradouro = TXTLogradouro.Text,
+                Numero = TXTNumero.Text,
+                Complemento = TXTComplemento.Text,
+                Bairro = TXTBairro.Text,
+                Cidade = TXTCidade.Text,
+                Estado = CBEstado.Text,
+
+            };
+
+            DateTime DataAdimissao;
+            if (DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao))
+            {
+
+            }
+
+            var funcao = new Funcao
+            {
+                Cargo = TXTCargo.Text,
+                Departamento = TXTDepartamento.Text,
+                DataAdmissao = DataAdimissao,
+
+
+
+            };
+
+
+
+
+            try
+            {
+                Repositorio.InserirFuncionario(funcionario);
+                Repositorio.InserirDependente(dependente);
+                Repositorio.InserirEndereco(endereco);
+                Repositorio.InserirFuncao(funcao);
+
+
+
+
+                MessageBox.Show("Usuário salvo com sucesso!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao salvar: ");
+            }
+
+
+
+
         }
 
         private void MBCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -297,23 +345,22 @@ namespace GestãoRH
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!ValidaçoesDadosPessoais() || !ValidarDependentes() || !ValidarEndereco() || !ValidarFuncao()) { return; }
+           
+
+           
 
 
-
-
-
-            //continua o codigo
         }
 
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
 
+        }
 
-
-
-
-
-
-
-
-    } 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!ValidaçoesDadosPessoais() || !ValidarDependentes() || !ValidarEndereco() || !ValidarFuncao()) { return; }
+            InserirSql();
+        }
+    }
 }
