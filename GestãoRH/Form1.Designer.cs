@@ -86,6 +86,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -638,12 +639,23 @@
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(474, 533);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 19;
+            button2.Text = "Voltar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(837, 657);
+            Controls.Add(button2);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
@@ -730,5 +742,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
+        private Button button2;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GestãoRH;
 using GestaoRH.BancoDados.Dominio;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace GestaoRH
 {
@@ -10,7 +11,7 @@ namespace GestaoRH
 
 
 
-        public static void InserirFuncionario(Funcionario funcionario)
+        public static int InserirFuncionario(Funcionario funcionario)
         {
             using (var con = new MySqlConnection(_conexao))
             {
@@ -29,23 +30,41 @@ namespace GestaoRH
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Tudo Certo");
+                var selectId =  @"select id from funcionario 
+                                  where NomeCompleto = @nome 
+                                    and Cpf = @cpf 
+                                    and Rg = @rg 
+                                    and DataNascimento = @dataNascimento 
+                                    and Genero = @genero
+                                    and EstadoCivil = @estadoCivil";
+                using (var cmd = new MySqlCommand(selectId, con))
+                {
+                    cmd.Parameters.AddWithValue("@nome", funcionario.NomeCompleto);
+                    cmd.Parameters.AddWithValue("@cpf", funcionario.CPF);
+                    cmd.Parameters.AddWithValue("@rg", funcionario.RG);
+                    cmd.Parameters.AddWithValue("@dataNascimento", funcionario.DataNascimento);
+                    cmd.Parameters.AddWithValue("@genero", funcionario.Genero);
+                    cmd.Parameters.AddWithValue("@estadoCivil", funcionario.EstadoCivil);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        return reader.Read() ? reader.GetInt32("id") : 0;
+                    }
+                }
             }
 
         }
 
-        public static void InserirDependente(Dependente dependente)
-
-
+        public static void InserirDependente(Dependente dependente, int idFuncionario)
         {
             using (var con = new MySqlConnection(_conexao))
             {
                 con.Open();
-                string sql = @"INSERT INTO dependentes (NomeCompleto, Cpf, Rg, DataNascimento, Genero, Parentesco)
-                        VALUES (@nome, @cpf, @rg, @dataNascimento, @genero, @Parentesco)";
+                string sql = @"INSERT INTO dependentes (FuncionarioId, NomeCompleto, Cpf, Rg, DataNascimento, Genero, Parentesco)
+                        VALUES (@funcionarioId, @nome, @cpf, @rg, @dataNascimento, @genero, @Parentesco)";
 
                 using (var cmd = new MySqlCommand(sql, con))
                 {
+                    cmd.Parameters.AddWithValue("@funcionarioId", idFuncionario);
                     cmd.Parameters.AddWithValue("@nome", dependente.NomeCompleto);
                     cmd.Parameters.AddWithValue("@cpf", dependente.CPF);
                     cmd.Parameters.AddWithValue("@rg", dependente.RG);
@@ -54,26 +73,20 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@Parentesco", dependente.Parentesco);
                     cmd.ExecuteNonQuery();
                 }
-
-
             }
-
-
-
-
         }
 
-
-        public static void InserirEndereco(Endereco Endereco)
+        public static void InserirEndereco(Endereco Endereco, int idFuncionario)
         {
             using (var con = new MySqlConnection(_conexao))
             {
                 con.Open();
-                string sql = @"INSERT INTO Endereco (cep, Logradouro, Numero, Complemento, Bairro, cidade, estado)
-                        VALUES (@cep, @Logradouro, @Numero, @Complemento, @Bairro, @cidade, @estado)";
+                string sql = @"INSERT INTO Endereco (FuncionarioId, cep, Logradouro, Numero, Complemento, Bairro, cidade, estado)
+                        VALUES (@funcionarioId, @cep, @Logradouro, @Numero, @Complemento, @Bairro, @cidade, @estado)";
 
                 using (var cmd = new MySqlCommand(sql, con))
                 {
+                    cmd.Parameters.AddWithValue("@funcionarioId", idFuncionario);
                     cmd.Parameters.AddWithValue("@cep", Endereco.CEP);
                     cmd.Parameters.AddWithValue("@logradouro", Endereco.Logradouro);
                     cmd.Parameters.AddWithValue("@Numero", Endereco.Numero);
@@ -89,17 +102,18 @@ namespace GestaoRH
 
         }
 
-        public static void InserirFuncao(Funcao funcao)
+        public static void InserirFuncao(Funcao funcao, int idFuncionario)
         {
             using (var con = new MySqlConnection(_conexao))
 
             {
                 con.Open();
-                string sql = @"INSERT INTO funcao (cargo, departamento, DataAdmissao, Salario)
-                        VALUES (@cargo, @departamento, @DataAdmissao, @Salario)";
+                string sql = @"INSERT INTO funcao (FuncionarioId, cargo, departamento, DataAdmissao, Salario)
+                        VALUES (@funcionarioId, @cargo, @departamento, @DataAdmissao, @Salario)";
 
                 using (var cmd = new MySqlCommand(sql, con))
                 {
+                    cmd.Parameters.AddWithValue("@funcionarioId", idFuncionario);
                     cmd.Parameters.AddWithValue("@cargo", funcao.Cargo);
                     cmd.Parameters.AddWithValue("@departamento", funcao.Departamento);
                     cmd.Parameters.AddWithValue("@DataAdmissao", funcao.DataAdmissao);
@@ -107,6 +121,11 @@ namespace GestaoRH
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public static void CarregarForm()
+        {
+
         }
 
 
@@ -270,6 +289,22 @@ namespace GestaoRH
             {
 
             };
+        }
+
+        public static bool CpfExisteNoBanco(string cpf)
+        {
+            string conexao = "server=localhost;database=gestaorh;uid=root;pwd=;";
+            using (SqlConnection conn = new SqlConnection(conexao))
+            {
+                string query = "SELECT COUNT(*) FROM Clientes WHERE CPF = @cpf";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
         }
 
 

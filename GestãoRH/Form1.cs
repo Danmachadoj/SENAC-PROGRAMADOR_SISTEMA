@@ -8,13 +8,27 @@ namespace GestãoRH
 {
     public partial class Form1 : Form
     {
+        private int? funcionarioId;
         public Form1()
         {
             InitializeComponent();
+
             textBoxID.Enabled = false;
             textBoxID.ReadOnly = true;
 
+            button1.Text = "Criar";
+        }
 
+        public Form1(int funcionarioId)
+        {
+            InitializeComponent();
+            this.funcionarioId = funcionarioId;
+
+            textBoxID.Enabled = false;
+            textBoxID.ReadOnly = true;
+            textBoxID.Text = funcionarioId.ToString();
+
+            button1.Text = "Alterar";
         }
 
         private bool ValidaçoesDadosPessoais()
@@ -107,6 +121,10 @@ namespace GestãoRH
             // Cpf Dependente
             string CPFDependente = new string(MBCPFDependente.Text.Where(char.IsDigit).ToArray());
 
+            string cpfDigitado = MBCpf.Text.Trim();
+
+
+
             if (string.IsNullOrWhiteSpace(CPFDependente) || CPFDependente.Length != 11)
             {
                 MessageBox.Show("Numero do CPF Invalido");
@@ -125,11 +143,7 @@ namespace GestãoRH
             }
 
             //Data Dependente
-
-
-            var DataDependente = MBRgDependente.Text;
-
-            if (!DateTime.TryParse(MBRgDependente.Text, out var dataNascimento))
+            if (!DateTime.TryParse(MBDataDependente.Text, out var dataNascimento))
             {
                 MessageBox.Show("Insira uma data valida");
                 return true;
@@ -306,6 +320,7 @@ namespace GestãoRH
                 Cargo = TXTCargo.Text,
                 Departamento = TXTDepartamento.Text,
                 DataAdmissao = DataAdimissao,
+                Salario = decimal.Parse(MBSalario.Text.Replace("R$", ""))
 
 
 
@@ -316,10 +331,10 @@ namespace GestãoRH
 
             try
             {
-                Repositorio.InserirFuncionario(funcionario);
-                Repositorio.InserirDependente(dependente);
-                Repositorio.InserirEndereco(endereco);
-                Repositorio.InserirFuncao(funcao);
+                var idFuncionario = Repositorio.InserirFuncionario(funcionario);
+                Repositorio.InserirDependente(dependente, idFuncionario);
+                Repositorio.InserirEndereco(endereco, idFuncionario);
+                Repositorio.InserirFuncao(funcao, idFuncionario);
 
 
 
@@ -345,9 +360,9 @@ namespace GestãoRH
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
 
-           
+
+
 
 
         }
@@ -359,8 +374,15 @@ namespace GestãoRH
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (!ValidaçoesDadosPessoais() || !ValidarDependentes() || !ValidarEndereco() || !ValidarFuncao()) { return; }
+            if (ValidaçoesDadosPessoais() || ValidarDependentes() || ValidarEndereco() || ValidarFuncao()) { return; }
             InserirSql();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Interface_Inicial fomr2 = new Interface_Inicial();
+            fomr2.Show();
+            this.Close();
         }
     }
 }

@@ -11,7 +11,6 @@ namespace GestaoRH
         {
 
             InitializeComponent();
-            dataGridView1.Visible = false;
 
 
         }
@@ -38,7 +37,7 @@ namespace GestaoRH
             using (var conexao = new MySqlConnection(conexaoString))
             {
                 conexao.Open();
-                string query = "SELECT * FROM Funcionario"; 
+                string query = "SELECT * FROM Funcionario";
                 var comando = new MySqlCommand(query, conexao);
                 var adaptador = new MySqlDataAdapter(comando);
                 var tabela = new DataTable();
@@ -61,7 +60,7 @@ namespace GestaoRH
 
         private void button6_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = !dataGridView1.Visible;
+
 
             dataGridView1.DataSource = Banco.BuscarSql("SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId");
             AtualizarDataGrid();
@@ -69,19 +68,21 @@ namespace GestaoRH
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonAtualizar_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = !dataGridView1.Visible;
-        }
+            if (dataGridView1.CurrentRow != null)
+            {
+                // Pegando os valores da linha selecionada
+                var funcionarioId = (int) dataGridView1.CurrentRow.Cells["Id"].Value;
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Visible = !dataGridView1.Visible;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+                Form1 form1 = new Form1(funcionarioId);
+                form1.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma linha para editar.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
