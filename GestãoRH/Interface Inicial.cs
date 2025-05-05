@@ -11,7 +11,7 @@ namespace GestaoRH
         {
 
             InitializeComponent();
-
+           
 
         }
 
@@ -49,6 +49,9 @@ namespace GestaoRH
 
 
 
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -56,6 +59,8 @@ namespace GestaoRH
             Form1 form1 = new Form1();
             form1.Show();
             this.Hide();
+
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -72,8 +77,9 @@ namespace GestaoRH
         {
             if (dataGridView1.CurrentRow != null)
             {
-                // Pegando os valores da linha selecionada
+                
                 var funcionarioId = (int) dataGridView1.CurrentRow.Cells["Id"].Value;
+               
 
                 Form1 form1 = new Form1(funcionarioId);
                 form1.Show();

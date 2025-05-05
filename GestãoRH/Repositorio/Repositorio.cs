@@ -123,10 +123,11 @@ namespace GestaoRH
             }
         }
 
-        public static void CarregarForm()
-        {
+        
 
-        }
+        
+
+
 
 
         public static List<Funcionario> ObterTodos()

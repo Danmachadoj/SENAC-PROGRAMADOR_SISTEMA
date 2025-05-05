@@ -1,6 +1,8 @@
 using GestaoRH;
 using GestaoRH.BancoDados.Dominio;
+using MySql.Data.MySqlClient;
 using System;
+using System.DirectoryServices.ActiveDirectory;
 using System.Text.RegularExpressions;
 
 
@@ -29,6 +31,8 @@ namespace GestãoRH
             textBoxID.Text = funcionarioId.ToString();
 
             button1.Text = "Alterar";
+
+            CarregarFuncionarioPorId(funcionarioId);
         }
 
         private bool ValidaçoesDadosPessoais()
@@ -351,6 +355,75 @@ namespace GestãoRH
 
 
         }
+
+        private void CarregarFuncionarioPorId(int funcionarioId)
+        {
+            string connectionString = "server=localhost;user=root;password=;database=GestaoRH;"; 
+            string query = @"
+        SELECT 
+            f.id, f.NomeCompleto AS NomeFuncionario, f.Cpf, f.Rg, f.DataNascimento, f.Genero, f.EstadoCivil,
+            e.id AS EnderecoId, e.Cep, e.Logradouro, e.Numero, e.Complemento, e.Bairro, e.Cidade, e.Estado,
+            fn.id AS FuncaoId, fn.Cargo, fn.Departamento, fn.DataAdmissao, fn.Salario,
+            d.id AS DependenteId, d.NomeCompleto AS NomeDependente, d.Cpf AS CpfDependente, d.Rg AS RgDependente, 
+            d.DataNascimento AS NascimentoDependente, d.Genero AS GeneroDependente, d.Parentesco
+        FROM Funcionario f
+        INNER JOIN Funcao fn ON f.id = fn.FuncionarioId
+        INNER JOIN Endereco e ON f.id = e.FuncionarioId
+        INNER JOIN Dependentes d ON f.id = d.FuncionarioId
+        WHERE f.id = @id;";
+
+
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", funcionarioId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Funcionario
+
+                            textNome.Text = reader["NomeFuncionario"].ToString();
+                            MBCpf.Text = reader["Cpf"].ToString();
+                            MBRG.Text = reader["Rg"].ToString();
+                            string dataNascimentoStr = Convert.ToDateTime(reader["DataNascimento"]).ToString("dd/MM/yyyy");
+                            MBDataNascimento.Text = dataNascimentoStr;
+                            CBGenero.SelectedItem = reader["Genero"].ToString();
+                            CBEstado.SelectedItem = reader["EstadoCivil"].ToString();
+
+                            // Endereço
+
+                            MBCEP.Text = reader["Cep"].ToString();
+                            TXTLogradouro.Text = reader["Logradouro"].ToString();
+                            TXTNumero.Text = reader["Numero"].ToString();
+                            TXTComplemento.Text = reader["Complemento"].ToString();
+                            TXTBairro.Text = reader["Bairro"].ToString();
+                            TXTCidade.Text = reader["Cidade"].ToString();
+                            CBEstado.SelectedItem = reader["Estado"].ToString();
+
+                            // Função
+                            TXTCargo.Text = reader["Cargo"].ToString();
+                            TXTDepartamento.Text = reader["Departamento"].ToString();
+                            string dataAdmissão = Convert.ToDateTime(reader["DataNascimento"]).ToString("dd/MM/yyyy");
+                            MBDataAdimissao.Text = dataAdmissão;
+                            MBSalario.Text = reader["Salario"].ToString();
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Funcionário não encontrado.");
+                        }
+                    }
+                }
+            }
+        }
+
+
 
         private void MBCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
