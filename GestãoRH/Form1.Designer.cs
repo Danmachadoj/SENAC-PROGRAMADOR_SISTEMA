@@ -60,6 +60,7 @@
             label7 = new Label();
             TXTLogradouro = new TextBox();
             groupBox3 = new GroupBox();
+            checkBox1 = new CheckBox();
             label15 = new Label();
             CBParentesco = new ComboBox();
             label16 = new Label();
@@ -87,6 +88,7 @@
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             button2 = new Button();
+            Situacao = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -380,6 +382,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(checkBox1);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(CBParentesco);
             groupBox3.Controls.Add(label16);
@@ -398,6 +401,16 @@
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             groupBox3.Text = "DEPENDENTES";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(586, 67);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(147, 19);
+            checkBox1.TabIndex = 14;
+            checkBox1.Text = "adicionar Dependentes";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -631,7 +644,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(610, 415);
+            pictureBox4.Location = new Point(588, 415);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(168, 165);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -649,12 +662,25 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // Situacao
+            // 
+            Situacao.AutoSize = true;
+            Situacao.Checked = true;
+            Situacao.CheckState = CheckState.Checked;
+            Situacao.Location = new Point(212, 533);
+            Situacao.Name = "Situacao";
+            Situacao.Size = new Size(71, 19);
+            Situacao.TabIndex = 14;
+            Situacao.Text = "Situação";
+            Situacao.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(837, 657);
+            Controls.Add(Situacao);
             Controls.Add(button2);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
@@ -681,6 +707,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -743,5 +770,7 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Button button2;
+        private CheckBox checkBox1;
+        private CheckBox Situacao;
     }
 }

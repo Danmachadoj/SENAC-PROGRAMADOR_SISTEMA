@@ -16,8 +16,8 @@ namespace GestaoRH
             using (var con = new MySqlConnection(_conexao))
             {
                 con.Open();
-                string sql = @"INSERT INTO Funcionario (NomeCompleto, Cpf, Rg, DataNascimento, Genero, EstadoCivil)
-                        VALUES (@nome, @cpf, @rg, @dataNascimento, @genero, @estadoCivil)";
+                string sql = @"INSERT INTO Funcionario (NomeCompleto, Cpf, Rg, DataNascimento, Genero, EstadoCivil, Situacao)
+                        VALUES (@nome, @cpf, @rg, @dataNascimento, @genero, @estadoCivil, @Situacao)";
 
                 using (var cmd = new MySqlCommand(sql, con))
                 {
@@ -27,6 +27,7 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@dataNascimento", funcionario.DataNascimento);
                     cmd.Parameters.AddWithValue("@genero", funcionario.Genero);
                     cmd.Parameters.AddWithValue("@estadoCivil", funcionario.EstadoCivil);
+                    cmd.Parameters.AddWithValue("@Situacao", funcionario.Situacao);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -45,6 +46,7 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@dataNascimento", funcionario.DataNascimento);
                     cmd.Parameters.AddWithValue("@genero", funcionario.Genero);
                     cmd.Parameters.AddWithValue("@estadoCivil", funcionario.EstadoCivil);
+                    cmd.Parameters.AddWithValue("@Situacao", funcionario.Situacao);
                     using (var reader = cmd.ExecuteReader())
                     {
                         return reader.Read() ? reader.GetInt32("id") : 0;
@@ -121,6 +123,11 @@ namespace GestaoRH
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public static void AtualizarFuncionario(Funcionario idfuncionario)
+        {
+
         }
 
         

@@ -17,6 +17,8 @@ namespace GestaoRH
 
         private void Interface_Inicial_Load(object sender, EventArgs e)
         {
+            
+            AtualizarDataGrid();
         }
 
 
@@ -63,15 +65,7 @@ namespace GestaoRH
             
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-
-            dataGridView1.DataSource = Banco.BuscarSql("SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId");
-            AtualizarDataGrid();
-
-
-        }
+        
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {

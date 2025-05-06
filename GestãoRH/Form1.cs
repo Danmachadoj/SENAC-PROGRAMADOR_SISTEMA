@@ -1,6 +1,7 @@
 using GestaoRH;
 using GestaoRH.BancoDados.Dominio;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.DirectoryServices.ActiveDirectory;
 using System.Text.RegularExpressions;
@@ -91,6 +92,20 @@ namespace GestãoRH
                 MessageBox.Show("Informe Seu Estado Civil");
                 return true;
             }
+
+            string status;
+            if(Situacao.Checked)
+            {
+                status = "Ativo";
+            }
+            else
+            {
+                status = "Inativo";
+            }
+            
+
+            
+            
 
 
 
@@ -270,8 +285,7 @@ namespace GestãoRH
                 DataNascimento = DataNascimento,
                 Genero = CBGenero.Text,
                 EstadoCivil = CBEstadoCivil.Text,
-
-
+                Situacao = Situacao.Checked ? "Ativo" : "Inativo",
 
             };
 

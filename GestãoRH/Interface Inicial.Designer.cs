@@ -35,14 +35,10 @@
             pictureBox4 = new PictureBox();
             panel2 = new Panel();
             label4 = new Label();
-            label6 = new Label();
             button4 = new Button();
-            button6 = new Button();
             groupBox1 = new GroupBox();
-            label7 = new Label();
             label2 = new Label();
             label1 = new Label();
-            buttonRemover = new Button();
             buttonAtualizar = new Button();
             pictureBox1 = new PictureBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -104,9 +100,7 @@
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(label6);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button6);
             panel2.Controls.Add(groupBox1);
             panel2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel2.Location = new Point(0, -1);
@@ -125,17 +119,6 @@
             label4.TabIndex = 3;
             label4.Text = "Home";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(48, 67);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 16);
-            label6.TabIndex = 3;
-            label6.Text = "Funcionarios";
-            // 
             // button4
             // 
             button4.BackColor = Color.Transparent;
@@ -149,48 +132,23 @@
             button4.TabIndex = 2;
             button4.UseVisualStyleBackColor = false;
             // 
-            // button6
-            // 
-            button6.BackColor = Color.Transparent;
-            button6.BackgroundImage = (Image)resources.GetObject("button6.BackgroundImage");
-            button6.BackgroundImageLayout = ImageLayout.Zoom;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.ForeColor = Color.Transparent;
-            button6.Location = new Point(48, 12);
-            button6.Name = "button6";
-            button6.Size = new Size(77, 52);
-            button6.TabIndex = 2;
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(buttonRemover);
             groupBox1.Controls.Add(ButtonNovo);
             groupBox1.Controls.Add(buttonAtualizar);
-            groupBox1.Location = new Point(3, 114);
+            groupBox1.Location = new Point(6, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(190, 174);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Açoes";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(19, 146);
-            label7.Name = "label7";
-            label7.Size = new Size(51, 13);
-            label7.TabIndex = 6;
-            label7.Text = "Remover";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(119, 67);
+            label2.Location = new Point(114, 67);
             label2.Name = "label2";
             label2.Size = new Size(37, 13);
             label2.TabIndex = 6;
@@ -205,22 +163,6 @@
             label1.TabIndex = 6;
             label1.Text = "Novo Funcionario";
             // 
-            // buttonRemover
-            // 
-            buttonRemover.BackColor = Color.Transparent;
-            buttonRemover.BackgroundImage = (Image)resources.GetObject("buttonRemover.BackgroundImage");
-            buttonRemover.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonRemover.Cursor = Cursors.Hand;
-            buttonRemover.Enabled = false;
-            buttonRemover.FlatStyle = FlatStyle.Flat;
-            buttonRemover.ForeColor = Color.Transparent;
-            buttonRemover.Location = new Point(22, 101);
-            buttonRemover.Name = "buttonRemover";
-            buttonRemover.Size = new Size(51, 42);
-            buttonRemover.TabIndex = 0;
-            buttonRemover.UseMnemonic = false;
-            buttonRemover.UseVisualStyleBackColor = false;
-            // 
             // buttonAtualizar
             // 
             buttonAtualizar.BackColor = Color.Transparent;
@@ -229,7 +171,7 @@
             buttonAtualizar.Cursor = Cursors.Hand;
             buttonAtualizar.FlatStyle = FlatStyle.Flat;
             buttonAtualizar.ForeColor = Color.Transparent;
-            buttonAtualizar.Location = new Point(108, 25);
+            buttonAtualizar.Location = new Point(101, 20);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(62, 36);
             buttonAtualizar.TabIndex = 0;
@@ -280,16 +222,12 @@
         private PictureBox pictureBox4;
         private Panel panel2;
         private Label label4;
-        private Label label6;
         private Button button4;
-        private Button button6;
         private Button buttonAtualizar;
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Button buttonRemover;
         private Label label2;
         private Label label1;
-        private Label label7;
     }
 }
