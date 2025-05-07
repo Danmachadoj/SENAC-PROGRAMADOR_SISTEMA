@@ -370,6 +370,85 @@ namespace GestãoRH
 
         }
 
+        private void AtualizarSql()
+        {
+            DateTime DataAdimissao;
+            if (DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao))
+            {
+
+            }
+            DateTime DataNascimento;
+
+            if (DateTime.TryParse(MBDataNascimento.Text, out DataNascimento))
+            {
+
+            }
+
+            if (!string.IsNullOrWhiteSpace(textBoxID.Text))
+            {
+                {
+                    int id = int.Parse(textBoxID.Text);
+
+
+                    Funcionario funcionario = new Funcionario
+                    {
+
+                        NomeCompleto = textNome.Text,
+                        CPF = MBCpf.Text,
+                        RG = MBRG.Text,
+                        DataNascimento = DataNascimento,
+                        Genero = CBGenero.Text,
+                        EstadoCivil = CBEstadoCivil.Text,
+                        Situacao = Situacao.Checked ? "Ativo" : "Inativo",
+                    };
+
+
+
+                    Endereco Endereco = new Endereco
+                    {
+                        CEP = MBCEP.Text,
+                        Logradouro = TXTLogradouro.Text,
+                        Numero = TXTNumero.Text,
+                        Complemento = TXTComplemento.Text,
+                        Bairro = TXTBairro.Text,
+                        Cidade = TXTCidade.Text,
+                        Estado = CBEstado.Text,
+                    };
+
+
+                    Funcao Funcao = new Funcao
+                    {
+                        Cargo = TXTCargo.Text,
+                        Departamento = TXTDepartamento.Text,
+                        DataAdmissao = DataAdimissao,
+                        Salario = decimal.Parse(MBSalario.Text.Replace("R$", ""))
+                    };
+                        
+
+                           
+                        
+                    
+                    
+
+                       
+
+                    try
+                    {
+                        Repositorio.AtualizarFuncionario(funcionario,Endereco,Funcao);
+                        MessageBox.Show("Funcionário atualizado com sucesso!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao atualizar: " + ex.Message);
+                    }
+                }
+                
+            }
+               
+            
+
+        }
+
         private void CarregarFuncionarioPorId(int funcionarioId)
         {
             string connectionString = "server=localhost;user=root;password=;database=GestaoRH;"; 
@@ -461,9 +540,15 @@ namespace GestãoRH
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (ValidaçoesDadosPessoais() || ValidarDependentes() || ValidarEndereco() || ValidarFuncao()) { return; }
-            InserirSql();
+          //  if (!ValidaçoesDadosPessoais() || ValidarDependentes() || ValidarEndereco() || ValidarFuncao()) { return; }
+
+            if (!string.IsNullOrWhiteSpace(textBoxID.Text))
+                AtualizarSql(); 
+            else
+                InserirSql();
+
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

@@ -2,12 +2,13 @@
 using GestaoRH.BancoDados.Dominio;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace GestaoRH
 {
     internal class Repositorio
     {
-        public static string _conexao = "server=localhost;database=gestaorh;uid=root;pwd=;";
+        public static string _conexao = "server=localhost;user=root;password=;database=GestaoRH;";
 
 
 
@@ -125,9 +126,76 @@ namespace GestaoRH
             }
         }
 
-        public static void AtualizarFuncionario(Funcionario idfuncionario)
+        public static void AtualizarFuncionario(Funcionario  idfuncionario, Endereco endereco, Funcao funcao)
         {
+            using(var con = new MySqlConnection(_conexao))
+            {
+                con.Open();
 
+                string sqlFuncionario = @"
+    UPDATE funcionario 
+    SET 
+        Nomecompleto = @NomeCompleto,
+        Cpf = @Cpf,
+        Rg = @Rg,
+        DataNascimento = @DataNascimento,
+        Genero = @Genero,
+        EstadoCivil = @EstadoCivil,
+        Situacao = @Situacao 
+    WHERE Id = @Id";
+
+                using (var cmd = new MySqlCommand( sqlFuncionario, con))
+                {
+                    
+                    cmd.Parameters.AddWithValue("@NomeCompleto", idfuncionario.NomeCompleto);
+                    cmd.Parameters.AddWithValue("@Cpf", idfuncionario.CPF);
+                    cmd.Parameters.AddWithValue("@Rg", idfuncionario.RG);
+                    cmd.Parameters.AddWithValue("@DataNascimento", idfuncionario.DataNascimento);
+                    cmd.Parameters.AddWithValue("@Genero", idfuncionario.Genero);
+                    cmd.Parameters.AddWithValue("@EstadoCivil", idfuncionario.EstadoCivil);
+                    cmd.Parameters.AddWithValue("@Situacao", idfuncionario.Situacao);
+                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.ExecuteNonQuery();
+                }
+                string SqlEndereco = "UPDATE endereco" +
+                    " SET" +
+                    "     Cep = @Cep,   Logradouro = @Logradouro,    Numero = @Numero,    " +
+                    "Complemento = @Complemento,    Bairro = @Bairro,    Cidade = @Cidade,   " +
+                    "Estado = @Estado WHERE Id = @Id";
+
+
+                using (var cmd = new MySqlCommand(SqlEndereco, con))
+                {
+                    cmd.Parameters.AddWithValue("@cep", endereco.CEP);
+                    cmd.Parameters.AddWithValue("@logradouro", endereco.Logradouro);
+                    cmd.Parameters.AddWithValue("@Numero", endereco.Numero);
+                    cmd.Parameters.AddWithValue("@Complemento", endereco.Complemento);
+                    cmd.Parameters.AddWithValue("@Bairro", endereco.Bairro);
+                    cmd.Parameters.AddWithValue("@Cidade", endereco.Cidade);
+                    cmd.Parameters.AddWithValue("@estado", endereco.Estado);
+                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                string sqlFuncao = "UPDATE funcao" +
+                    " SET     Cargo = @Cargo,   Departamento = @Departamento,    DataAdmissao = " +
+                    "@DataAdmissao,    Salario " +
+                    "= @Salario WHERE Id = @Id";
+                using (var cmd = new MySqlCommand(sqlFuncao, con))
+                {
+                    cmd.Parameters.AddWithValue("@cargo", funcao.Cargo);
+                    cmd.Parameters.AddWithValue("@departamento", funcao.Departamento);
+                    cmd.Parameters.AddWithValue("@DataAdmissao", funcao.DataAdmissao);
+                    cmd.Parameters.AddWithValue("@Salario", funcao.Salario);
+                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            
+
+                
+            
         }
 
         
