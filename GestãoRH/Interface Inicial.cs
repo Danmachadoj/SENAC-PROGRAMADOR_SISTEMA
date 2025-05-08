@@ -11,13 +11,13 @@ namespace GestaoRH
         {
 
             InitializeComponent();
-           
+
 
         }
 
         private void Interface_Inicial_Load(object sender, EventArgs e)
         {
-            
+            Repositorio.CarregarFuncionario();
             AtualizarDataGrid();
         }
 
@@ -34,7 +34,7 @@ namespace GestaoRH
 
         public void AtualizarDataGrid()
         {
-            string conexaoString = "server = localhost; user = root; password =; database = GestaoRH; ";
+            string conexaoString = "server = localhost; user = root; password =; database = gestaorh; ";
 
             using (var conexao = new MySqlConnection(conexaoString))
             {
@@ -62,18 +62,18 @@ namespace GestaoRH
             form1.Show();
             this.Hide();
 
-            
+
         }
 
-        
+
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
             {
-                
-                var funcionarioId = (int) dataGridView1.CurrentRow.Cells["Id"].Value;
-               
+
+                var funcionarioId = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
+
 
                 Form1 form1 = new Form1(funcionarioId);
                 form1.Show();
@@ -83,6 +83,11 @@ namespace GestaoRH
             {
                 MessageBox.Show("Selecione uma linha para editar.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AtualizarDataGrid();
         }
     }
 }

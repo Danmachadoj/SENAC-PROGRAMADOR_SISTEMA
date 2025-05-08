@@ -59,8 +59,7 @@
             MBCEP = new MaskedTextBox();
             label7 = new Label();
             TXTLogradouro = new TextBox();
-            groupBox3 = new GroupBox();
-            checkBox1 = new CheckBox();
+            groupBoxDependente = new GroupBox();
             label15 = new Label();
             CBParentesco = new ComboBox();
             label16 = new Label();
@@ -73,6 +72,7 @@
             MBRgDependente = new MaskedTextBox();
             label21 = new Label();
             MBCPFDependente = new MaskedTextBox();
+            checkBoxDependente = new CheckBox();
             groupBox4 = new GroupBox();
             MBSalario = new MaskedTextBox();
             label24 = new Label();
@@ -91,7 +91,7 @@
             Situacao = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
+            groupBoxDependente.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -380,37 +380,26 @@
             TXTLogradouro.Size = new Size(345, 23);
             TXTLogradouro.TabIndex = 26;
             // 
-            // groupBox3
+            // groupBoxDependente
             // 
-            groupBox3.Controls.Add(checkBox1);
-            groupBox3.Controls.Add(label15);
-            groupBox3.Controls.Add(CBParentesco);
-            groupBox3.Controls.Add(label16);
-            groupBox3.Controls.Add(label17);
-            groupBox3.Controls.Add(txtNome2);
-            groupBox3.Controls.Add(CBGeneroDependente);
-            groupBox3.Controls.Add(label19);
-            groupBox3.Controls.Add(MBDataDependente);
-            groupBox3.Controls.Add(label20);
-            groupBox3.Controls.Add(MBRgDependente);
-            groupBox3.Controls.Add(label21);
-            groupBox3.Controls.Add(MBCPFDependente);
-            groupBox3.Location = new Point(12, 110);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(766, 92);
-            groupBox3.TabIndex = 14;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "DEPENDENTES";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(586, 67);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(147, 19);
-            checkBox1.TabIndex = 14;
-            checkBox1.Text = "adicionar Dependentes";
-            checkBox1.UseVisualStyleBackColor = true;
+            groupBoxDependente.Controls.Add(label15);
+            groupBoxDependente.Controls.Add(CBParentesco);
+            groupBoxDependente.Controls.Add(label16);
+            groupBoxDependente.Controls.Add(label17);
+            groupBoxDependente.Controls.Add(txtNome2);
+            groupBoxDependente.Controls.Add(CBGeneroDependente);
+            groupBoxDependente.Controls.Add(label19);
+            groupBoxDependente.Controls.Add(MBDataDependente);
+            groupBoxDependente.Controls.Add(label20);
+            groupBoxDependente.Controls.Add(MBRgDependente);
+            groupBoxDependente.Controls.Add(label21);
+            groupBoxDependente.Controls.Add(MBCPFDependente);
+            groupBoxDependente.Location = new Point(12, 110);
+            groupBoxDependente.Name = "groupBoxDependente";
+            groupBoxDependente.Size = new Size(766, 92);
+            groupBoxDependente.TabIndex = 14;
+            groupBoxDependente.TabStop = false;
+            groupBoxDependente.Text = "DEPENDENTES";
             // 
             // label15
             // 
@@ -515,6 +504,19 @@
             MBCPFDependente.Name = "MBCPFDependente";
             MBCPFDependente.Size = new Size(93, 23);
             MBCPFDependente.TabIndex = 1;
+            // 
+            // checkBoxDependente
+            // 
+            checkBoxDependente.AutoSize = true;
+            checkBoxDependente.Checked = true;
+            checkBoxDependente.CheckState = CheckState.Checked;
+            checkBoxDependente.Location = new Point(670, 97);
+            checkBoxDependente.Name = "checkBoxDependente";
+            checkBoxDependente.Size = new Size(103, 19);
+            checkBoxDependente.TabIndex = 14;
+            checkBoxDependente.Text = "Dependentes ?";
+            checkBoxDependente.UseVisualStyleBackColor = true;
+            checkBoxDependente.CheckedChanged += checkBoxDependente_CheckedChanged;
             // 
             // groupBox4
             // 
@@ -680,6 +682,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(837, 657);
+            Controls.Add(checkBoxDependente);
             Controls.Add(Situacao);
             Controls.Add(button2);
             Controls.Add(pictureBox4);
@@ -687,7 +690,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
+            Controls.Add(groupBoxDependente);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox2);
@@ -698,8 +701,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            groupBoxDependente.ResumeLayout(false);
+            groupBoxDependente.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -742,7 +745,7 @@
         private TextBox TXTLogradouro;
         private Label label14;
         private ComboBox CBEstadoCivil;
-        private GroupBox groupBox3;
+        private GroupBox groupBoxDependente;
         private Label label16;
         private Label label17;
         private TextBox txtNome2;
@@ -770,7 +773,7 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Button button2;
-        private CheckBox checkBox1;
+        private CheckBox checkBoxDependente;
         private CheckBox Situacao;
     }
 }

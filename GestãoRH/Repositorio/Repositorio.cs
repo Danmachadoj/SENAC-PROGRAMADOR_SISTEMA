@@ -126,35 +126,35 @@ namespace GestaoRH
             }
         }
 
-        public static void AtualizarFuncionario(Funcionario  idfuncionario, Endereco endereco, Funcao funcao)
+        public static void AtualizarFuncionario(Funcionario  funcionario, Endereco endereco, Funcao funcao)
         {
             using(var con = new MySqlConnection(_conexao))
             {
                 con.Open();
 
                 string sqlFuncionario = @"
-    UPDATE funcionario 
-    SET 
-        Nomecompleto = @NomeCompleto,
-        Cpf = @Cpf,
-        Rg = @Rg,
-        DataNascimento = @DataNascimento,
-        Genero = @Genero,
-        EstadoCivil = @EstadoCivil,
-        Situacao = @Situacao 
-    WHERE Id = @Id";
+                            UPDATE funcionario 
+                            SET 
+                                Nomecompleto = @NomeCompleto,
+                                Cpf = @Cpf,
+                                Rg = @Rg,
+                                DataNascimento = @DataNascimento,
+                                Genero = @Genero,
+                                EstadoCivil = @EstadoCivil,
+                                Situacao = @Situacao 
+                            WHERE Id = @Id";
 
                 using (var cmd = new MySqlCommand( sqlFuncionario, con))
                 {
                     
-                    cmd.Parameters.AddWithValue("@NomeCompleto", idfuncionario.NomeCompleto);
-                    cmd.Parameters.AddWithValue("@Cpf", idfuncionario.CPF);
-                    cmd.Parameters.AddWithValue("@Rg", idfuncionario.RG);
-                    cmd.Parameters.AddWithValue("@DataNascimento", idfuncionario.DataNascimento);
-                    cmd.Parameters.AddWithValue("@Genero", idfuncionario.Genero);
-                    cmd.Parameters.AddWithValue("@EstadoCivil", idfuncionario.EstadoCivil);
-                    cmd.Parameters.AddWithValue("@Situacao", idfuncionario.Situacao);
-                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.Parameters.AddWithValue("@NomeCompleto", funcionario.NomeCompleto);
+                    cmd.Parameters.AddWithValue("@Cpf", funcionario.CPF);
+                    cmd.Parameters.AddWithValue("@Rg", funcionario.RG);
+                    cmd.Parameters.AddWithValue("@DataNascimento", funcionario.DataNascimento);
+                    cmd.Parameters.AddWithValue("@Genero", funcionario.Genero);
+                    cmd.Parameters.AddWithValue("@EstadoCivil", funcionario.EstadoCivil);
+                    cmd.Parameters.AddWithValue("@Situacao", funcionario.Situacao);
+                    cmd.Parameters.AddWithValue("@Id", funcionario.Id);
                     cmd.ExecuteNonQuery();
                 }
                 string SqlEndereco = "UPDATE endereco" +
@@ -173,7 +173,7 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@Bairro", endereco.Bairro);
                     cmd.Parameters.AddWithValue("@Cidade", endereco.Cidade);
                     cmd.Parameters.AddWithValue("@estado", endereco.Estado);
-                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.Parameters.AddWithValue("@Id", endereco.Id);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -187,7 +187,7 @@ namespace GestaoRH
                     cmd.Parameters.AddWithValue("@departamento", funcao.Departamento);
                     cmd.Parameters.AddWithValue("@DataAdmissao", funcao.DataAdmissao);
                     cmd.Parameters.AddWithValue("@Salario", funcao.Salario);
-                    cmd.Parameters.AddWithValue("@Id", idfuncionario.Id);
+                    cmd.Parameters.AddWithValue("@Id", funcao.Id);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -322,7 +322,7 @@ namespace GestaoRH
             using (var con = new MySqlConnection(_conexao))
             {
                 con.Open();
-                string sql = "SELECT \r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM\r\n    funcionario f\r\n        INNER JOIN\r\n    endereco e ON f.Id = e.FuncionarioId;";
+                string sql = "SELECT\r\n    f.Id,\r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    f.Rg,\r\n    f.DataNascimento,\r\n    f.Genero,\r\n    f.EstadoCivil,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM funcionario f\r\nINNER JOIN endereco e ON f.Id = e.FuncionarioId;\r\n";
                 using (var cmd = new MySqlCommand(sql, con))
 
                 using (var reader = cmd.ExecuteReader())
@@ -350,6 +350,17 @@ namespace GestaoRH
                             Genero = reader["Genero"].ToString(),
 
                             EstadoCivil = reader["EstadoCivil"].ToString()
+
+                        };
+
+                        var Endereco = new Endereco
+                        {
+                            CEP = reader["Cep"].ToString(),
+                            Logradouro = reader["Logradouro"].ToString(),
+                            Numero = reader["Numero"].ToString(),
+                            Bairro = reader["Bairro"].ToString(),
+                            Cidade = reader["Cidade"].ToString(),
+                            Estado = reader["Estado"].ToString(),
 
                         };
 

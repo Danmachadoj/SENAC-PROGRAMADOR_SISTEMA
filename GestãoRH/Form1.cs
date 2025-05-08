@@ -1,9 +1,6 @@
 using GestaoRH;
 using GestaoRH.BancoDados.Dominio;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Cmp;
-using System;
-using System.DirectoryServices.ActiveDirectory;
 using System.Text.RegularExpressions;
 
 
@@ -12,6 +9,10 @@ namespace GestãoRH
     public partial class Form1 : Form
     {
         private int? funcionarioId;
+        private int? enderecoId;
+        private int? dependenteId;
+        private int? funcaoId;
+
         public Form1()
         {
             InitializeComponent();
@@ -94,7 +95,7 @@ namespace GestãoRH
             }
 
             string status;
-            if(Situacao.Checked)
+            if (Situacao.Checked)
             {
                 status = "Ativo";
             }
@@ -102,33 +103,17 @@ namespace GestãoRH
             {
                 status = "Inativo";
             }
-            
-
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             return false;
         }
         private bool ValidarDependentes()
         {
+
+
+
+
+
+
             // Nome Dependente
             var nomeDependentes = txtNome2.Text;
             if (string.IsNullOrEmpty(txtNome2.Text) || Regex.IsMatch(textNome.Text, @"[^a-zA-Z0-9\s]") || nomeDependentes.Split(' ').Length < 2)
@@ -271,11 +256,7 @@ namespace GestãoRH
         private void InserirSql()
         {
             DateTime DataNascimento;
-
-            if (DateTime.TryParse(MBDataNascimento.Text, out DataNascimento))
-            {
-
-            }
+            DateTime.TryParse(MBDataNascimento.Text, out DataNascimento);
 
             var funcionario = new Funcionario
             {
@@ -286,16 +267,10 @@ namespace GestãoRH
                 Genero = CBGenero.Text,
                 EstadoCivil = CBEstadoCivil.Text,
                 Situacao = Situacao.Checked ? "Ativo" : "Inativo",
-
             };
 
             DateTime DataDependente;
-            if (DateTime.TryParse(MBDataDependente.Text, out DataDependente))
-            {
-
-            }
-
-
+            DateTime.TryParse(MBDataDependente.Text, out DataDependente);
 
             var dependente = new Dependente
             {
@@ -305,15 +280,7 @@ namespace GestãoRH
                 DataNascimentoDependente = DataDependente,
                 GeneroDependente = CBGeneroDependente.Text,
                 Parentesco = CBParentesco.Text,
-
             };
-
-
-
-
-
-
-
 
             var endereco = new Endereco
             {
@@ -328,10 +295,7 @@ namespace GestãoRH
             };
 
             DateTime DataAdimissao;
-            if (DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao))
-            {
-
-            }
+            DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao);
 
             var funcao = new Funcao
             {
@@ -339,13 +303,7 @@ namespace GestãoRH
                 Departamento = TXTDepartamento.Text,
                 DataAdmissao = DataAdimissao,
                 Salario = decimal.Parse(MBSalario.Text.Replace("R$", ""))
-
-
-
             };
-
-
-
 
             try
             {
@@ -353,105 +311,85 @@ namespace GestãoRH
                 Repositorio.InserirDependente(dependente, idFuncionario);
                 Repositorio.InserirEndereco(endereco, idFuncionario);
                 Repositorio.InserirFuncao(funcao, idFuncionario);
-
-
-
-
                 MessageBox.Show("Usuário salvo com sucesso!");
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Erro ao salvar: ");
             }
-
-
-
-
         }
 
         private void AtualizarSql()
         {
             DateTime DataAdimissao;
-            if (DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao))
-            {
+            DateTime.TryParse(MBDataAdimissao.Text, out DataAdimissao);
 
-            }
             DateTime DataNascimento;
+            DateTime.TryParse(MBDataNascimento.Text, out DataNascimento);
 
-            if (DateTime.TryParse(MBDataNascimento.Text, out DataNascimento))
+            if (funcionarioId == null || funcionarioId <= 0)
             {
-
+                return;
             }
 
-            if (!string.IsNullOrWhiteSpace(textBoxID.Text))
+            if (enderecoId == null || enderecoId <= 0)
             {
-                {
-                    int id = int.Parse(textBoxID.Text);
-
-
-                    Funcionario funcionario = new Funcionario
-                    {
-
-                        NomeCompleto = textNome.Text,
-                        CPF = MBCpf.Text,
-                        RG = MBRG.Text,
-                        DataNascimento = DataNascimento,
-                        Genero = CBGenero.Text,
-                        EstadoCivil = CBEstadoCivil.Text,
-                        Situacao = Situacao.Checked ? "Ativo" : "Inativo",
-                    };
-
-
-
-                    Endereco Endereco = new Endereco
-                    {
-                        CEP = MBCEP.Text,
-                        Logradouro = TXTLogradouro.Text,
-                        Numero = TXTNumero.Text,
-                        Complemento = TXTComplemento.Text,
-                        Bairro = TXTBairro.Text,
-                        Cidade = TXTCidade.Text,
-                        Estado = CBEstado.Text,
-                    };
-
-
-                    Funcao Funcao = new Funcao
-                    {
-                        Cargo = TXTCargo.Text,
-                        Departamento = TXTDepartamento.Text,
-                        DataAdmissao = DataAdimissao,
-                        Salario = decimal.Parse(MBSalario.Text.Replace("R$", ""))
-                    };
-                        
-
-                           
-                        
-                    
-                    
-
-                       
-
-                    try
-                    {
-                        Repositorio.AtualizarFuncionario(funcionario,Endereco,Funcao);
-                        MessageBox.Show("Funcionário atualizado com sucesso!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao atualizar: " + ex.Message);
-                    }
-                }
-                
+                return;
             }
-               
-            
 
+            if (funcaoId == null || funcaoId <= 0)
+            {
+                return;
+            }
+
+
+            Funcionario funcionario = new Funcionario()
+            {
+                Id = (int)funcionarioId,
+                NomeCompleto = textNome.Text,
+                CPF = MBCpf.Text,
+                RG = MBRG.Text,
+                DataNascimento = DataNascimento,
+                Genero = CBGenero.Text,
+                EstadoCivil = CBEstadoCivil.Text,
+                Situacao = Situacao.Checked ? "Ativo" : "Inativo",
+            };
+
+            Endereco Endereco = new Endereco()
+            {
+                Id = (int)enderecoId,
+                CEP = MBCEP.Text,
+                Logradouro = TXTLogradouro.Text,
+                Numero = TXTNumero.Text,
+                Complemento = TXTComplemento.Text,
+                Bairro = TXTBairro.Text,
+                Cidade = TXTCidade.Text,
+                Estado = CBEstado.Text,
+            };
+
+            Funcao Funcao = new Funcao()
+            {
+                Id = (int)funcaoId,
+                Cargo = TXTCargo.Text,
+                Departamento = TXTDepartamento.Text,
+                DataAdmissao = DataAdimissao,
+                Salario = decimal.Parse(MBSalario.Text.Replace("R$", ""))
+            };
+
+            try
+            {
+                Repositorio.AtualizarFuncionario(funcionario, Endereco, Funcao);
+                MessageBox.Show("Funcionário atualizado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar: " + ex.Message);
+            }
         }
 
         private void CarregarFuncionarioPorId(int funcionarioId)
         {
-            string connectionString = "server=localhost;user=root;password=;database=GestaoRH;"; 
+            string connectionString = "server=localhost;user=root;password=;database=GestaoRH;";
             string query = @"
         SELECT 
             f.id, f.NomeCompleto AS NomeFuncionario, f.Cpf, f.Rg, f.DataNascimento, f.Genero, f.EstadoCivil,
@@ -479,33 +417,37 @@ namespace GestãoRH
                         if (reader.Read())
                         {
                             // Funcionario
-
                             textNome.Text = reader["NomeFuncionario"].ToString();
                             MBCpf.Text = reader["Cpf"].ToString();
                             MBRG.Text = reader["Rg"].ToString();
                             string dataNascimentoStr = Convert.ToDateTime(reader["DataNascimento"]).ToString("dd/MM/yyyy");
                             MBDataNascimento.Text = dataNascimentoStr;
-                            CBGenero.SelectedItem = reader["Genero"].ToString();
-                            CBEstado.SelectedItem = reader["EstadoCivil"].ToString();
+                            CBGenero.Text = reader["Genero"] != DBNull.Value ? reader["Genero"].ToString() : "Não especificado";
+                            CBEstado.Text = reader["Estado"] != DBNull.Value ? reader["Estado"].ToString() : "Não especificado";
+                            CBEstadoCivil.Text = reader["EstadoCivil"] != DBNull.Value ? reader["EstadoCivil"].ToString() : "Não especificado";
+
+
+
+
 
                             // Endereço
-
+                            enderecoId = (int)reader["EnderecoId"];
                             MBCEP.Text = reader["Cep"].ToString();
                             TXTLogradouro.Text = reader["Logradouro"].ToString();
                             TXTNumero.Text = reader["Numero"].ToString();
-                            TXTComplemento.Text = reader["Complemento"].ToString();
+                            TXTComplemento.Text = reader["Complemento"] != DBNull.Value ? reader["Complemento"].ToString() : "Não especificado";
+
                             TXTBairro.Text = reader["Bairro"].ToString();
                             TXTCidade.Text = reader["Cidade"].ToString();
                             CBEstado.SelectedItem = reader["Estado"].ToString();
 
                             // Função
+                            funcaoId = (int)reader["FuncaoId"];
                             TXTCargo.Text = reader["Cargo"].ToString();
                             TXTDepartamento.Text = reader["Departamento"].ToString();
                             string dataAdmissão = Convert.ToDateTime(reader["DataNascimento"]).ToString("dd/MM/yyyy");
                             MBDataAdimissao.Text = dataAdmissão;
                             MBSalario.Text = reader["Salario"].ToString();
-
-
                         }
                         else
                         {
@@ -518,20 +460,7 @@ namespace GestãoRH
 
 
 
-        private void MBCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            MBCpf.Mask = "000.000.000-00";
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-        }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
@@ -540,10 +469,12 @@ namespace GestãoRH
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-          //  if (!ValidaçoesDadosPessoais() || ValidarDependentes() || ValidarEndereco() || ValidarFuncao()) { return; }
 
-            if (!string.IsNullOrWhiteSpace(textBoxID.Text))
-                AtualizarSql(); 
+
+            if (ValidaçoesDadosPessoais() ||  ValidarEndereco() || ValidarFuncao()) { return; }
+
+            if (!string.IsNullOrWhiteSpace(textBoxID.Text) || ValidaçoesDadosPessoais() || ValidaçoesDadosPessoais() || ValidarFuncao())
+                AtualizarSql();
             else
                 InserirSql();
 
@@ -555,6 +486,11 @@ namespace GestãoRH
             Interface_Inicial fomr2 = new Interface_Inicial();
             fomr2.Show();
             this.Close();
+        }
+
+        private void checkBoxDependente_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBoxDependente.Enabled = checkBoxDependente.Checked;
         }
     }
 }

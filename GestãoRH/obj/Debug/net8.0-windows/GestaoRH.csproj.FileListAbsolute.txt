@@ -41,3 +41,4 @@ C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\Gestã
 C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\GestãoRH\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\GestãoRH\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\GestãoRH\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\daniela.mjesus\Documents\programação\SENAC-PROGRAMADOR_SISTEMA\GestãoRH\obj\Debug\net8.0-windows\visualPI.Login.resources

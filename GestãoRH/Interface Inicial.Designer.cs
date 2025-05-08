@@ -74,6 +74,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(685, 370);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // pictureBox3
             // 
