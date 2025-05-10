@@ -87,5 +87,10 @@ namespace visualPI
         {
 
         }
+
+        private void Tela_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

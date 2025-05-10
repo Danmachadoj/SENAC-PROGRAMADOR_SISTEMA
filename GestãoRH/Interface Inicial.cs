@@ -89,5 +89,33 @@ namespace GestaoRH
         {
             AtualizarDataGrid();
         }
+
+        private void buttonAtualizar_Click_1(object sender, EventArgs e)
+        {
+           
+            
+            if (dataGridView1.CurrentRow != null)
+            {
+
+                var funcionarioId = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
+
+
+                Form1 form1 = new Form1(funcionarioId);
+                form1.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma linha para editar.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
+
+        private void ButtonNovo_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace GestãoRH
             CarregarFuncionarioPorId(funcionarioId);
         }
 
-        private bool ValidaçoesDadosPessoais()
+        private bool ValidarDadosPessoais()
         {
             // Painel 1
 
@@ -118,7 +118,7 @@ namespace GestãoRH
             var nomeDependentes = txtNome2.Text;
             if (string.IsNullOrEmpty(txtNome2.Text) || Regex.IsMatch(textNome.Text, @"[^a-zA-Z0-9\s]") || nomeDependentes.Split(' ').Length < 2)
             {
-                MessageBox.Show("Insira um Nome Valído");
+                MessageBox.Show("Insira o Nome dO Dependente");
                 return true;
             }
 
@@ -131,7 +131,7 @@ namespace GestãoRH
 
             if (string.IsNullOrWhiteSpace(CPFDependente) || CPFDependente.Length != 11)
             {
-                MessageBox.Show("Numero do CPF Invalido");
+                MessageBox.Show(" Insira o Numero do CPF do Dependente");
                 return true;
             }
 
@@ -142,7 +142,7 @@ namespace GestãoRH
 
             if (string.IsNullOrWhiteSpace(RGDependente) || RGDependente.Length != 9)
             {
-                MessageBox.Show("Numero do RG Invalido");
+                MessageBox.Show(" Insira o Numero do Rg do Dependente");
                 return true;
             }
 
@@ -192,11 +192,7 @@ namespace GestãoRH
                 MessageBox.Show("Informe O Numero");
                 return true;
             }
-            if (string.IsNullOrEmpty(TXTComplemento.Text))
-            {
-                MessageBox.Show("Informe O Complemento");
-                return true;
-            }
+
             if (string.IsNullOrEmpty(TXTBairro.Text))
             {
                 MessageBox.Show("Informe O Bairro");
@@ -469,15 +465,22 @@ namespace GestãoRH
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            bool update = !string.IsNullOrEmpty(textBoxID.Text);
 
-
-            if (ValidaçoesDadosPessoais() ||  ValidarEndereco() || ValidarFuncao()) { return; }
-
-            if (!string.IsNullOrWhiteSpace(textBoxID.Text) || ValidaçoesDadosPessoais() || ValidaçoesDadosPessoais() || ValidarFuncao())
+            if (update)
+            {
+                // UPDATE
                 AtualizarSql();
-            else
-                InserirSql();
+                return;
+            }
 
+            // INSERT
+            if (ValidarDadosPessoais() || ValidarEndereco() || ValidarFuncao() || (checkBox1.Checked && ValidarDependentes()))
+            {
+                return;
+            }
+
+            InserirSql();
         }
 
 
@@ -490,7 +493,45 @@ namespace GestãoRH
 
         private void checkBoxDependente_CheckedChanged(object sender, EventArgs e)
         {
-            groupBoxDependente.Enabled = checkBoxDependente.Checked;
+            groupBoxDadoPessoal.Enabled = checkBox1.Checked;
+        }
+
+        private void Tela_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Interface_Inicial fomr2 = new Interface_Inicial();
+            fomr2.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            bool update = !string.IsNullOrEmpty(textBoxID.Text);
+
+            if (update)
+            {
+                // UPDATE
+                AtualizarSql();
+                return;
+            }
+
+            // INSERT
+            if (ValidarDadosPessoais() || ValidarEndereco() || ValidarFuncao() || (checkBox1.Checked && ValidarDependentes()))
+            {
+                return;
+            }
+
+            InserirSql();
+        }
+
+        private void groupBoxDependente_Enter(object sender, EventArgs e)
+        {
+            groupBoxDependente.Enabled = checkBox1.Checked;
         }
     }
 }

@@ -29,23 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            label2 = new Label();
-            textNome = new TextBox();
-            label1 = new Label();
-            textBoxID = new TextBox();
-            groupBox1 = new GroupBox();
-            label14 = new Label();
-            CBEstadoCivil = new ComboBox();
-            label6 = new Label();
-            CBGenero = new ComboBox();
-            label5 = new Label();
-            MBDataNascimento = new MaskedTextBox();
-            label4 = new Label();
-            MBRG = new MaskedTextBox();
-            label3 = new Label();
-            MBCpf = new MaskedTextBox();
-            groupBox2 = new GroupBox();
-            label10 = new Label();
+            Situacao = new CheckBox();
+            button2 = new Button();
+            button1 = new Button();
+            groupBoxFuncao = new GroupBox();
+            MBSalario = new MaskedTextBox();
+            TXTCargo = new TextBox();
+            label24 = new Label();
+            TXTDepartamento = new TextBox();
+            label22 = new Label();
+            label18 = new Label();
+            label23 = new Label();
+            MBDataAdimissao = new MaskedTextBox();
+            groupBoxDependente = new GroupBox();
+            checkBox1 = new CheckBox();
+            label15 = new Label();
+            CBParentesco = new ComboBox();
+            label16 = new Label();
+            label17 = new Label();
+            txtNome2 = new TextBox();
+            CBGeneroDependente = new ComboBox();
+            label19 = new Label();
+            MBDataDependente = new MaskedTextBox();
+            label20 = new Label();
+            MBRgDependente = new MaskedTextBox();
+            label21 = new Label();
+            MBCPFDependente = new MaskedTextBox();
+            groupBoxEndereco = new GroupBox();
             TXTComplemento = new TextBox();
             label9 = new Label();
             TXTNumero = new TextBox();
@@ -59,329 +69,181 @@
             MBCEP = new MaskedTextBox();
             label7 = new Label();
             TXTLogradouro = new TextBox();
-            groupBoxDependente = new GroupBox();
-            label15 = new Label();
-            CBParentesco = new ComboBox();
-            label16 = new Label();
-            label17 = new Label();
-            txtNome2 = new TextBox();
-            CBGeneroDependente = new ComboBox();
-            label19 = new Label();
-            MBDataDependente = new MaskedTextBox();
-            label20 = new Label();
-            MBRgDependente = new MaskedTextBox();
-            label21 = new Label();
-            MBCPFDependente = new MaskedTextBox();
-            checkBoxDependente = new CheckBox();
-            groupBox4 = new GroupBox();
-            MBSalario = new MaskedTextBox();
-            label24 = new Label();
-            label23 = new Label();
-            MBDataAdimissao = new MaskedTextBox();
-            label22 = new Label();
-            TXTDepartamento = new TextBox();
-            label18 = new Label();
-            TXTCargo = new TextBox();
-            button1 = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            button2 = new Button();
-            Situacao = new CheckBox();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            label10 = new Label();
+            groupBoxDadoPessoal = new GroupBox();
+            label14 = new Label();
+            CBEstadoCivil = new ComboBox();
+            label6 = new Label();
+            label2 = new Label();
+            textNome = new TextBox();
+            CBGenero = new ComboBox();
+            label1 = new Label();
+            label5 = new Label();
+            textBoxID = new TextBox();
+            MBDataNascimento = new MaskedTextBox();
+            label4 = new Label();
+            MBRG = new MaskedTextBox();
+            label3 = new Label();
+            MBCpf = new MaskedTextBox();
+            Logo = new Panel();
+            panel1 = new Panel();
+            Background = new Panel();
+            Tela = new Panel();
+            lErro = new Label();
+            lSenha = new Label();
+            lUsuario = new Label();
+            btesquecisenha = new Label();
+            Mensagem = new Label();
+            groupBoxFuncao.SuspendLayout();
             groupBoxDependente.SuspendLayout();
-            groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            groupBoxEndereco.SuspendLayout();
+            groupBoxDadoPessoal.SuspendLayout();
+            panel1.SuspendLayout();
+            Background.SuspendLayout();
+            Tela.SuspendLayout();
             SuspendLayout();
             // 
-            // label2
+            // Situacao
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(47, 26);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 15);
-            label2.TabIndex = 11;
-            label2.Text = "NOME COMPLETO:";
+            Situacao.AutoSize = true;
+            Situacao.BackColor = Color.Transparent;
+            Situacao.Checked = true;
+            Situacao.CheckState = CheckState.Checked;
+            Situacao.Font = new Font("Arial Rounded MT Bold", 9F);
+            Situacao.ForeColor = Color.MidnightBlue;
+            Situacao.Location = new Point(18, 587);
+            Situacao.Name = "Situacao";
+            Situacao.Size = new Size(76, 18);
+            Situacao.TabIndex = 22;
+            Situacao.Text = "Situação";
+            Situacao.UseVisualStyleBackColor = false;
             // 
-            // textNome
+            // button2
             // 
-            textNome.Location = new Point(47, 44);
-            textNome.Name = "textNome";
-            textNome.Size = new Size(170, 23);
-            textNome.TabIndex = 10;
+            button2.BackColor = Color.MidnightBlue;
+            button2.Font = new Font("Arial Rounded MT Bold", 9F);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(18, 559);
+            button2.Name = "button2";
+            button2.Size = new Size(189, 22);
+            button2.TabIndex = 27;
+            button2.Text = "Voltar";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(11, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(21, 15);
-            label1.TabIndex = 9;
-            label1.Text = "ID:";
+            button1.BackColor = Color.MidnightBlue;
+            button1.Font = new Font("Arial Rounded MT Bold", 9F);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(182, 559);
+            button1.Name = "button1";
+            button1.Size = new Size(189, 22);
+            button1.TabIndex = 25;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // textBoxID
+            // groupBoxFuncao
             // 
-            textBoxID.Location = new Point(11, 44);
-            textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(30, 23);
-            textBoxID.TabIndex = 8;
+            groupBoxFuncao.BackColor = Color.Transparent;
+            groupBoxFuncao.Controls.Add(MBSalario);
+            groupBoxFuncao.Controls.Add(TXTCargo);
+            groupBoxFuncao.Controls.Add(label24);
+            groupBoxFuncao.Controls.Add(TXTDepartamento);
+            groupBoxFuncao.Controls.Add(label22);
+            groupBoxFuncao.Controls.Add(label18);
+            groupBoxFuncao.Controls.Add(label23);
+            groupBoxFuncao.Controls.Add(MBDataAdimissao);
+            groupBoxFuncao.Font = new Font("Arial Rounded MT Bold", 9F);
+            groupBoxFuncao.ForeColor = Color.MidnightBlue;
+            groupBoxFuncao.Location = new Point(18, 433);
+            groupBoxFuncao.Name = "groupBoxFuncao";
+            groupBoxFuncao.Size = new Size(353, 121);
+            groupBoxFuncao.TabIndex = 24;
+            groupBoxFuncao.TabStop = false;
+            groupBoxFuncao.Text = "FUNÇÃO";
             // 
-            // groupBox1
+            // MBSalario
             // 
-            groupBox1.Controls.Add(label14);
-            groupBox1.Controls.Add(CBEstadoCivil);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textNome);
-            groupBox1.Controls.Add(CBGenero);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBoxID);
-            groupBox1.Controls.Add(MBDataNascimento);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(MBRG);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(MBCpf);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(766, 92);
-            groupBox1.TabIndex = 12;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "DADOS PESSOAIS";
+            MBSalario.BorderStyle = BorderStyle.None;
+            MBSalario.Location = new Point(151, 72);
+            MBSalario.Mask = "$000000000000000000";
+            MBSalario.Name = "MBSalario";
+            MBSalario.Size = new Size(138, 14);
+            MBSalario.TabIndex = 20;
             // 
-            // label14
+            // TXTCargo
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(642, 26);
-            label14.Name = "label14";
-            label14.Size = new Size(82, 15);
-            label14.TabIndex = 13;
-            label14.Text = "ESTADO CIVIL:";
+            TXTCargo.BorderStyle = BorderStyle.None;
+            TXTCargo.Location = new Point(6, 72);
+            TXTCargo.Name = "TXTCargo";
+            TXTCargo.Size = new Size(138, 14);
+            TXTCargo.TabIndex = 12;
             // 
-            // CBEstadoCivil
+            // label24
             // 
-            CBEstadoCivil.FormattingEnabled = true;
-            CBEstadoCivil.Items.AddRange(new object[] { "SOLTEIRO(a)", "CASADO(a)", "DIVORCIADO(a)", "VIUVO(a)" });
-            CBEstadoCivil.Location = new Point(642, 42);
-            CBEstadoCivil.Name = "CBEstadoCivil";
-            CBEstadoCivil.Size = new Size(102, 23);
-            CBEstadoCivil.TabIndex = 12;
+            label24.AutoSize = true;
+            label24.Font = new Font("Arial Rounded MT Bold", 9F);
+            label24.Location = new Point(151, 57);
+            label24.Name = "label24";
+            label24.Size = new Size(67, 14);
+            label24.TabIndex = 19;
+            label24.Text = "SALARIO:";
             // 
-            // label6
+            // TXTDepartamento
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(534, 26);
-            label6.Name = "label6";
-            label6.Size = new Size(55, 15);
-            label6.TabIndex = 8;
-            label6.Text = "GENERO:";
+            TXTDepartamento.BorderStyle = BorderStyle.None;
+            TXTDepartamento.Location = new Point(7, 33);
+            TXTDepartamento.Name = "TXTDepartamento";
+            TXTDepartamento.Size = new Size(138, 14);
+            TXTDepartamento.TabIndex = 14;
             // 
-            // CBGenero
+            // label22
             // 
-            CBGenero.FormattingEnabled = true;
-            CBGenero.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
-            CBGenero.Location = new Point(534, 42);
-            CBGenero.Name = "CBGenero";
-            CBGenero.Size = new Size(102, 23);
-            CBGenero.TabIndex = 7;
+            label22.AutoSize = true;
+            label22.Font = new Font("Arial Rounded MT Bold", 9F);
+            label22.Location = new Point(8, 16);
+            label22.Name = "label22";
+            label22.Size = new Size(116, 14);
+            label22.TabIndex = 15;
+            label22.Text = "DEPARTAMENTO:";
             // 
-            // label5
+            // label18
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(396, 26);
-            label5.Name = "label5";
-            label5.Size = new Size(132, 15);
-            label5.TabIndex = 6;
-            label5.Text = "DATA DE NASCIMENTO:";
+            label18.AutoSize = true;
+            label18.Font = new Font("Arial Rounded MT Bold", 9F);
+            label18.Location = new Point(7, 57);
+            label18.Name = "label18";
+            label18.Size = new Size(58, 14);
+            label18.TabIndex = 13;
+            label18.Text = "CARGO:";
             // 
-            // MBDataNascimento
+            // label23
             // 
-            MBDataNascimento.Location = new Point(398, 42);
-            MBDataNascimento.Mask = "00/00/0000";
-            MBDataNascimento.Name = "MBDataNascimento";
-            MBDataNascimento.Size = new Size(130, 23);
-            MBDataNascimento.TabIndex = 5;
-            MBDataNascimento.ValidatingType = typeof(DateTime);
+            label23.AutoSize = true;
+            label23.Font = new Font("Arial Rounded MT Bold", 9F);
+            label23.Location = new Point(152, 18);
+            label23.Name = "label23";
+            label23.RightToLeft = RightToLeft.No;
+            label23.Size = new Size(136, 14);
+            label23.TabIndex = 17;
+            label23.Text = "DATA DE ADMISSÃO:";
             // 
-            // label4
+            // MBDataAdimissao
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(321, 24);
-            label4.Name = "label4";
-            label4.Size = new Size(25, 15);
-            label4.TabIndex = 4;
-            label4.Text = "RG:";
-            // 
-            // MBRG
-            // 
-            MBRG.Location = new Point(321, 42);
-            MBRG.Mask = "00.000.000-0";
-            MBRG.Name = "MBRG";
-            MBRG.Size = new Size(71, 23);
-            MBRG.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(223, 26);
-            label3.Name = "label3";
-            label3.Size = new Size(31, 15);
-            label3.TabIndex = 2;
-            label3.Text = "CPF:";
-            // 
-            // MBCpf
-            // 
-            MBCpf.Location = new Point(222, 42);
-            MBCpf.Mask = "000.000.000-00";
-            MBCpf.Name = "MBCpf";
-            MBCpf.Size = new Size(93, 23);
-            MBCpf.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(label10);
-            groupBox2.Controls.Add(TXTComplemento);
-            groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(TXTNumero);
-            groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(CBEstado);
-            groupBox2.Controls.Add(label11);
-            groupBox2.Controls.Add(TXTCidade);
-            groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(TXTBairro);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(MBCEP);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(TXTLogradouro);
-            groupBox2.Location = new Point(12, 208);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(766, 147);
-            groupBox2.TabIndex = 13;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "ENDEREÇO";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(541, 25);
-            label10.Name = "label10";
-            label10.Size = new Size(97, 15);
-            label10.TabIndex = 39;
-            label10.Text = "COMPLEMENTO:";
-            // 
-            // TXTComplemento
-            // 
-            TXTComplemento.Location = new Point(541, 43);
-            TXTComplemento.Name = "TXTComplemento";
-            TXTComplemento.Size = new Size(97, 23);
-            TXTComplemento.TabIndex = 38;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(464, 25);
-            label9.Name = "label9";
-            label9.Size = new Size(60, 15);
-            label9.TabIndex = 37;
-            label9.Text = "NUMERO:";
-            // 
-            // TXTNumero
-            // 
-            TXTNumero.Location = new Point(464, 43);
-            TXTNumero.Name = "TXTNumero";
-            TXTNumero.Size = new Size(71, 23);
-            TXTNumero.TabIndex = 36;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(151, 83);
-            label13.Name = "label13";
-            label13.Size = new Size(52, 15);
-            label13.TabIndex = 35;
-            label13.Text = "ESTADO:";
-            // 
-            // CBEstado
-            // 
-            CBEstado.FormattingEnabled = true;
-            CBEstado.Items.AddRange(new object[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" });
-            CBEstado.Location = new Point(151, 101);
-            CBEstado.Name = "CBEstado";
-            CBEstado.Size = new Size(65, 23);
-            CBEstado.TabIndex = 34;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(11, 83);
-            label11.Name = "label11";
-            label11.Size = new Size(51, 15);
-            label11.TabIndex = 33;
-            label11.Text = "CIDADE:";
-            // 
-            // TXTCidade
-            // 
-            TXTCidade.Location = new Point(11, 101);
-            TXTCidade.Name = "TXTCidade";
-            TXTCidade.Size = new Size(134, 23);
-            TXTCidade.TabIndex = 32;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(644, 25);
-            label12.Name = "label12";
-            label12.Size = new Size(51, 15);
-            label12.TabIndex = 31;
-            label12.Text = "BAIRRO:";
-            // 
-            // TXTBairro
-            // 
-            TXTBairro.Location = new Point(644, 43);
-            TXTBairro.Name = "TXTBairro";
-            TXTBairro.Size = new Size(117, 23);
-            TXTBairro.TabIndex = 30;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(12, 27);
-            label8.Name = "label8";
-            label8.Size = new Size(31, 15);
-            label8.TabIndex = 29;
-            label8.Text = "CEP:";
-            // 
-            // MBCEP
-            // 
-            MBCEP.Location = new Point(11, 43);
-            MBCEP.Mask = "00000-000";
-            MBCEP.Name = "MBCEP";
-            MBCEP.Size = new Size(93, 23);
-            MBCEP.TabIndex = 28;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(113, 25);
-            label7.Name = "label7";
-            label7.Size = new Size(89, 15);
-            label7.TabIndex = 27;
-            label7.Text = "LOGRADOURO:";
-            // 
-            // TXTLogradouro
-            // 
-            TXTLogradouro.Location = new Point(113, 43);
-            TXTLogradouro.Name = "TXTLogradouro";
-            TXTLogradouro.Size = new Size(345, 23);
-            TXTLogradouro.TabIndex = 26;
+            MBDataAdimissao.BorderStyle = BorderStyle.None;
+            MBDataAdimissao.Location = new Point(152, 33);
+            MBDataAdimissao.Mask = "00/00/0000";
+            MBDataAdimissao.Name = "MBDataAdimissao";
+            MBDataAdimissao.Size = new Size(138, 14);
+            MBDataAdimissao.TabIndex = 16;
+            MBDataAdimissao.ValidatingType = typeof(DateTime);
             // 
             // groupBoxDependente
             // 
+            groupBoxDependente.BackColor = Color.Transparent;
+            groupBoxDependente.Controls.Add(checkBox1);
             groupBoxDependente.Controls.Add(label15);
             groupBoxDependente.Controls.Add(CBParentesco);
             groupBoxDependente.Controls.Add(label16);
@@ -394,19 +256,33 @@
             groupBoxDependente.Controls.Add(MBRgDependente);
             groupBoxDependente.Controls.Add(label21);
             groupBoxDependente.Controls.Add(MBCPFDependente);
-            groupBoxDependente.Location = new Point(12, 110);
+            groupBoxDependente.Font = new Font("Arial Rounded MT Bold", 9F);
+            groupBoxDependente.ForeColor = Color.MidnightBlue;
+            groupBoxDependente.Location = new Point(18, 307);
             groupBoxDependente.Name = "groupBoxDependente";
-            groupBoxDependente.Size = new Size(766, 92);
-            groupBoxDependente.TabIndex = 14;
+            groupBoxDependente.Size = new Size(646, 121);
+            groupBoxDependente.TabIndex = 23;
             groupBoxDependente.TabStop = false;
             groupBoxDependente.Text = "DEPENDENTES";
+            groupBoxDependente.Enter += groupBoxDependente_Enter;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(442, 102);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(161, 18);
+            checkBox1.TabIndex = 14;
+            checkBox1.Text = "adicionar Dependentes";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(601, 19);
+            label15.Font = new Font("Arial Rounded MT Bold", 9F);
+            label15.Location = new Point(159, 59);
             label15.Name = "label15";
-            label15.Size = new Size(81, 15);
+            label15.Size = new Size(97, 14);
             label15.TabIndex = 13;
             label15.Text = "PARENTESCO:";
             // 
@@ -414,321 +290,578 @@
             // 
             CBParentesco.FormattingEnabled = true;
             CBParentesco.Items.AddRange(new object[] { "CÔNJUGE", "FILHO(A)" });
-            CBParentesco.Location = new Point(601, 35);
+            CBParentesco.Location = new Point(159, 76);
             CBParentesco.Name = "CBParentesco";
-            CBParentesco.Size = new Size(102, 23);
+            CBParentesco.Size = new Size(121, 22);
             CBParentesco.TabIndex = 12;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(493, 19);
+            label16.Font = new Font("Arial Rounded MT Bold", 9F);
+            label16.Location = new Point(287, 59);
             label16.Name = "label16";
-            label16.Size = new Size(55, 15);
+            label16.Size = new Size(65, 14);
             label16.TabIndex = 8;
             label16.Text = "GENERO:";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(6, 19);
+            label17.Font = new Font("Arial Rounded MT Bold", 9F);
+            label17.Location = new Point(7, 18);
             label17.Name = "label17";
-            label17.Size = new Size(109, 15);
+            label17.Size = new Size(121, 14);
             label17.TabIndex = 11;
             label17.Text = "NOME COMPLETO:";
             // 
             // txtNome2
             // 
-            txtNome2.Location = new Point(6, 37);
+            txtNome2.BorderStyle = BorderStyle.None;
+            txtNome2.Location = new Point(7, 35);
             txtNome2.Name = "txtNome2";
-            txtNome2.Size = new Size(170, 23);
+            txtNome2.Size = new Size(596, 14);
             txtNome2.TabIndex = 10;
             // 
             // CBGeneroDependente
             // 
             CBGeneroDependente.FormattingEnabled = true;
             CBGeneroDependente.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
-            CBGeneroDependente.Location = new Point(493, 35);
+            CBGeneroDependente.Location = new Point(287, 76);
             CBGeneroDependente.Name = "CBGeneroDependente";
-            CBGeneroDependente.Size = new Size(102, 23);
+            CBGeneroDependente.Size = new Size(116, 22);
             CBGeneroDependente.TabIndex = 7;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(355, 19);
+            label19.Font = new Font("Arial Rounded MT Bold", 9F);
+            label19.Location = new Point(7, 59);
             label19.Name = "label19";
-            label19.Size = new Size(132, 15);
+            label19.Size = new Size(153, 14);
             label19.TabIndex = 6;
             label19.Text = "DATA DE NASCIMENTO:";
             // 
             // MBDataDependente
             // 
-            MBDataDependente.Location = new Point(357, 35);
+            MBDataDependente.BorderStyle = BorderStyle.None;
+            MBDataDependente.Location = new Point(6, 76);
             MBDataDependente.Mask = "00/00/0000";
             MBDataDependente.Name = "MBDataDependente";
-            MBDataDependente.Size = new Size(130, 23);
+            MBDataDependente.Size = new Size(146, 14);
             MBDataDependente.TabIndex = 5;
             MBDataDependente.ValidatingType = typeof(DateTime);
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(280, 17);
+            label20.Font = new Font("Arial Rounded MT Bold", 9F);
+            label20.Location = new Point(510, 59);
             label20.Name = "label20";
-            label20.Size = new Size(25, 15);
+            label20.Size = new Size(30, 14);
             label20.TabIndex = 4;
             label20.Text = "RG:";
             // 
             // MBRgDependente
             // 
-            MBRgDependente.Location = new Point(280, 35);
+            MBRgDependente.BorderStyle = BorderStyle.None;
+            MBRgDependente.Location = new Point(510, 76);
             MBRgDependente.Mask = "00.000.000-0";
             MBRgDependente.Name = "MBRgDependente";
-            MBRgDependente.Size = new Size(71, 23);
+            MBRgDependente.Size = new Size(92, 14);
             MBRgDependente.TabIndex = 3;
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(182, 19);
+            label21.Font = new Font("Arial Rounded MT Bold", 9F);
+            label21.Location = new Point(410, 59);
             label21.Name = "label21";
-            label21.Size = new Size(31, 15);
+            label21.Size = new Size(35, 14);
             label21.TabIndex = 2;
             label21.Text = "CPF:";
             // 
             // MBCPFDependente
             // 
-            MBCPFDependente.Location = new Point(181, 35);
+            MBCPFDependente.BorderStyle = BorderStyle.None;
+            MBCPFDependente.Location = new Point(410, 76);
             MBCPFDependente.Mask = "000.000.000-00";
             MBCPFDependente.Name = "MBCPFDependente";
-            MBCPFDependente.Size = new Size(93, 23);
+            MBCPFDependente.Size = new Size(92, 14);
             MBCPFDependente.TabIndex = 1;
             // 
-            // checkBoxDependente
+            // groupBoxEndereco
             // 
-            checkBoxDependente.AutoSize = true;
-            checkBoxDependente.Checked = true;
-            checkBoxDependente.CheckState = CheckState.Checked;
-            checkBoxDependente.Location = new Point(670, 97);
-            checkBoxDependente.Name = "checkBoxDependente";
-            checkBoxDependente.Size = new Size(103, 19);
-            checkBoxDependente.TabIndex = 14;
-            checkBoxDependente.Text = "Dependentes ?";
-            checkBoxDependente.UseVisualStyleBackColor = true;
-            checkBoxDependente.CheckedChanged += checkBoxDependente_CheckedChanged;
+            groupBoxEndereco.BackColor = Color.Transparent;
+            groupBoxEndereco.Controls.Add(TXTComplemento);
+            groupBoxEndereco.Controls.Add(label9);
+            groupBoxEndereco.Controls.Add(TXTNumero);
+            groupBoxEndereco.Controls.Add(label13);
+            groupBoxEndereco.Controls.Add(CBEstado);
+            groupBoxEndereco.Controls.Add(label11);
+            groupBoxEndereco.Controls.Add(TXTCidade);
+            groupBoxEndereco.Controls.Add(label12);
+            groupBoxEndereco.Controls.Add(TXTBairro);
+            groupBoxEndereco.Controls.Add(label8);
+            groupBoxEndereco.Controls.Add(MBCEP);
+            groupBoxEndereco.Controls.Add(label7);
+            groupBoxEndereco.Controls.Add(TXTLogradouro);
+            groupBoxEndereco.Controls.Add(label10);
+            groupBoxEndereco.Font = new Font("Arial Rounded MT Bold", 9F);
+            groupBoxEndereco.ForeColor = Color.MidnightBlue;
+            groupBoxEndereco.Location = new Point(18, 177);
+            groupBoxEndereco.Name = "groupBoxEndereco";
+            groupBoxEndereco.Size = new Size(646, 125);
+            groupBoxEndereco.TabIndex = 21;
+            groupBoxEndereco.TabStop = false;
+            groupBoxEndereco.Text = "ENDEREÇO";
             // 
-            // groupBox4
+            // TXTComplemento
             // 
-            groupBox4.Controls.Add(MBSalario);
-            groupBox4.Controls.Add(label24);
-            groupBox4.Controls.Add(label23);
-            groupBox4.Controls.Add(MBDataAdimissao);
-            groupBox4.Controls.Add(label22);
-            groupBox4.Controls.Add(TXTDepartamento);
-            groupBox4.Controls.Add(label18);
-            groupBox4.Controls.Add(TXTCargo);
-            groupBox4.Location = new Point(12, 361);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(305, 112);
-            groupBox4.TabIndex = 15;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "FUNÇÃO";
+            TXTComplemento.BorderStyle = BorderStyle.None;
+            TXTComplemento.Location = new Point(86, 76);
+            TXTComplemento.Name = "TXTComplemento";
+            TXTComplemento.Size = new Size(236, 14);
+            TXTComplemento.TabIndex = 38;
             // 
-            // MBSalario
+            // label9
             // 
-            MBSalario.Location = new Point(134, 83);
-            MBSalario.Mask = "$000000000000000000";
-            MBSalario.Name = "MBSalario";
-            MBSalario.Size = new Size(93, 23);
-            MBSalario.TabIndex = 20;
+            label9.AutoSize = true;
+            label9.Font = new Font("Arial Rounded MT Bold", 9F);
+            label9.Location = new Point(6, 59);
+            label9.Name = "label9";
+            label9.Size = new Size(66, 14);
+            label9.TabIndex = 37;
+            label9.Text = "NUMERO:";
             // 
-            // label24
+            // TXTNumero
             // 
-            label24.AutoSize = true;
-            label24.Location = new Point(134, 67);
-            label24.Name = "label24";
-            label24.Size = new Size(57, 15);
-            label24.TabIndex = 19;
-            label24.Text = "SALARIO:";
+            TXTNumero.BorderStyle = BorderStyle.None;
+            TXTNumero.Location = new Point(6, 76);
+            TXTNumero.Name = "TXTNumero";
+            TXTNumero.Size = new Size(75, 14);
+            TXTNumero.TabIndex = 36;
             // 
-            // label23
+            // label13
             // 
-            label23.AutoSize = true;
-            label23.Location = new Point(4, 67);
-            label23.Name = "label23";
-            label23.RightToLeft = RightToLeft.No;
-            label23.Size = new Size(117, 15);
-            label23.TabIndex = 17;
-            label23.Text = "DATA DE ADMISSÃO:";
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial Rounded MT Bold", 9F);
+            label13.Location = new Point(464, 59);
+            label13.Name = "label13";
+            label13.Size = new Size(63, 14);
+            label13.TabIndex = 35;
+            label13.Text = "ESTADO:";
             // 
-            // MBDataAdimissao
+            // CBEstado
             // 
-            MBDataAdimissao.Location = new Point(4, 83);
-            MBDataAdimissao.Mask = "00/00/0000";
-            MBDataAdimissao.Name = "MBDataAdimissao";
-            MBDataAdimissao.Size = new Size(117, 23);
-            MBDataAdimissao.TabIndex = 16;
-            MBDataAdimissao.ValidatingType = typeof(DateTime);
+            CBEstado.FormattingEnabled = true;
+            CBEstado.Items.AddRange(new object[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" });
+            CBEstado.Location = new Point(464, 76);
+            CBEstado.Name = "CBEstado";
+            CBEstado.Size = new Size(138, 22);
+            CBEstado.TabIndex = 34;
             // 
-            // label22
+            // label11
             // 
-            label22.AutoSize = true;
-            label22.Location = new Point(134, 19);
-            label22.Name = "label22";
-            label22.Size = new Size(97, 15);
-            label22.TabIndex = 15;
-            label22.Text = "DEPARTAMENTO:";
+            label11.AutoSize = true;
+            label11.Font = new Font("Arial Rounded MT Bold", 9F);
+            label11.Location = new Point(329, 59);
+            label11.Name = "label11";
+            label11.Size = new Size(59, 14);
+            label11.TabIndex = 33;
+            label11.Text = "CIDADE:";
             // 
-            // TXTDepartamento
+            // TXTCidade
             // 
-            TXTDepartamento.Location = new Point(134, 37);
-            TXTDepartamento.Name = "TXTDepartamento";
-            TXTDepartamento.Size = new Size(120, 23);
-            TXTDepartamento.TabIndex = 14;
+            TXTCidade.BorderStyle = BorderStyle.None;
+            TXTCidade.Location = new Point(329, 76);
+            TXTCidade.Name = "TXTCidade";
+            TXTCidade.Size = new Size(127, 14);
+            TXTCidade.TabIndex = 32;
             // 
-            // label18
+            // label12
             // 
-            label18.AutoSize = true;
-            label18.Location = new Point(6, 19);
-            label18.Name = "label18";
-            label18.Size = new Size(50, 15);
-            label18.TabIndex = 13;
-            label18.Text = "CARGO:";
+            label12.AutoSize = true;
+            label12.Font = new Font("Arial Rounded MT Bold", 9F);
+            label12.Location = new Point(347, 18);
+            label12.Name = "label12";
+            label12.Size = new Size(61, 14);
+            label12.TabIndex = 31;
+            label12.Text = "BAIRRO:";
             // 
-            // TXTCargo
+            // TXTBairro
             // 
-            TXTCargo.Location = new Point(6, 37);
-            TXTCargo.Name = "TXTCargo";
-            TXTCargo.Size = new Size(120, 23);
-            TXTCargo.TabIndex = 12;
+            TXTBairro.BorderStyle = BorderStyle.None;
+            TXTBairro.Location = new Point(347, 35);
+            TXTBairro.Name = "TXTBairro";
+            TXTBairro.Size = new Size(253, 14);
+            TXTBairro.TabIndex = 30;
             // 
-            // button1
+            // label8
             // 
-            button1.Location = new Point(33, 540);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 23);
-            button1.TabIndex = 16;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Rounded MT Bold", 9F);
+            label8.Location = new Point(5, 18);
+            label8.Name = "label8";
+            label8.Size = new Size(36, 14);
+            label8.TabIndex = 29;
+            label8.Text = "CEP:";
             // 
-            // pictureBox1
+            // MBCEP
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 586);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(840, 68);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
+            MBCEP.BorderStyle = BorderStyle.None;
+            MBCEP.Location = new Point(5, 35);
+            MBCEP.Mask = "00000-000";
+            MBCEP.Name = "MBCEP";
+            MBCEP.Size = new Size(75, 14);
+            MBCEP.TabIndex = 28;
             // 
-            // pictureBox2
+            // label7
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, -2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(840, 37);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 17;
-            pictureBox2.TabStop = false;
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Rounded MT Bold", 9F);
+            label7.Location = new Point(87, 18);
+            label7.Name = "label7";
+            label7.Size = new Size(103, 14);
+            label7.TabIndex = 27;
+            label7.Text = "LOGRADOURO:";
             // 
-            // pictureBox3
+            // TXTLogradouro
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(779, 46);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(61, 534);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 17;
-            pictureBox3.TabStop = false;
+            TXTLogradouro.BorderStyle = BorderStyle.None;
+            TXTLogradouro.Location = new Point(87, 35);
+            TXTLogradouro.Name = "TXTLogradouro";
+            TXTLogradouro.Size = new Size(253, 14);
+            TXTLogradouro.TabIndex = 26;
             // 
-            // pictureBox4
+            // label10
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(588, 415);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(168, 165);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 18;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            label10.AutoSize = true;
+            label10.Font = new Font("Arial Rounded MT Bold", 9F);
+            label10.Location = new Point(86, 59);
+            label10.Name = "label10";
+            label10.Size = new Size(108, 14);
+            label10.TabIndex = 39;
+            label10.Text = "COMPLEMENTO:";
             // 
-            // button2
+            // groupBoxDadoPessoal
             // 
-            button2.Location = new Point(474, 533);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 19;
-            button2.Text = "Voltar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            groupBoxDadoPessoal.BackColor = Color.Transparent;
+            groupBoxDadoPessoal.Controls.Add(label14);
+            groupBoxDadoPessoal.Controls.Add(CBEstadoCivil);
+            groupBoxDadoPessoal.Controls.Add(label6);
+            groupBoxDadoPessoal.Controls.Add(label2);
+            groupBoxDadoPessoal.Controls.Add(textNome);
+            groupBoxDadoPessoal.Controls.Add(CBGenero);
+            groupBoxDadoPessoal.Controls.Add(label1);
+            groupBoxDadoPessoal.Controls.Add(label5);
+            groupBoxDadoPessoal.Controls.Add(textBoxID);
+            groupBoxDadoPessoal.Controls.Add(MBDataNascimento);
+            groupBoxDadoPessoal.Controls.Add(label4);
+            groupBoxDadoPessoal.Controls.Add(MBRG);
+            groupBoxDadoPessoal.Controls.Add(label3);
+            groupBoxDadoPessoal.Controls.Add(MBCpf);
+            groupBoxDadoPessoal.Font = new Font("Arial Rounded MT Bold", 9F);
+            groupBoxDadoPessoal.ForeColor = Color.MidnightBlue;
+            groupBoxDadoPessoal.Location = new Point(18, 47);
+            groupBoxDadoPessoal.Name = "groupBoxDadoPessoal";
+            groupBoxDadoPessoal.Size = new Size(646, 125);
+            groupBoxDadoPessoal.TabIndex = 20;
+            groupBoxDadoPessoal.TabStop = false;
+            groupBoxDadoPessoal.Text = "DADOS PESSOAIS";
             // 
-            // Situacao
+            // label14
             // 
-            Situacao.AutoSize = true;
-            Situacao.Checked = true;
-            Situacao.CheckState = CheckState.Checked;
-            Situacao.Location = new Point(212, 533);
-            Situacao.Name = "Situacao";
-            Situacao.Size = new Size(71, 19);
-            Situacao.TabIndex = 14;
-            Situacao.Text = "Situação";
-            Situacao.UseVisualStyleBackColor = true;
+            label14.AutoSize = true;
+            label14.Font = new Font("Arial Rounded MT Bold", 9F);
+            label14.Location = new Point(163, 59);
+            label14.Name = "label14";
+            label14.Size = new Size(98, 14);
+            label14.TabIndex = 13;
+            label14.Text = "ESTADO CIVIL:";
+            // 
+            // CBEstadoCivil
+            // 
+            CBEstadoCivil.FormattingEnabled = true;
+            CBEstadoCivil.Items.AddRange(new object[] { "SOLTEIRO(a)", "CASADO(a)", "DIVORCIADO(a)", "VIUVO(a)" });
+            CBEstadoCivil.Location = new Point(165, 76);
+            CBEstadoCivil.Name = "CBEstadoCivil";
+            CBEstadoCivil.Size = new Size(116, 22);
+            CBEstadoCivil.TabIndex = 12;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 9F);
+            label6.Location = new Point(288, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 14);
+            label6.TabIndex = 8;
+            label6.Text = "GENERO:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 9F);
+            label2.Location = new Point(71, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(121, 14);
+            label2.TabIndex = 11;
+            label2.Text = "NOME COMPLETO:";
+            // 
+            // textNome
+            // 
+            textNome.BorderStyle = BorderStyle.None;
+            textNome.Location = new Point(71, 35);
+            textNome.Name = "textNome";
+            textNome.Size = new Size(532, 14);
+            textNome.TabIndex = 10;
+            // 
+            // CBGenero
+            // 
+            CBGenero.FormattingEnabled = true;
+            CBGenero.Items.AddRange(new object[] { "MASCULINO", "FEMININO", "OUTROS" });
+            CBGenero.Location = new Point(288, 76);
+            CBGenero.Name = "CBGenero";
+            CBGenero.Size = new Size(116, 22);
+            CBGenero.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial Rounded MT Bold", 9F);
+            label1.Location = new Point(7, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(24, 14);
+            label1.TabIndex = 9;
+            label1.Text = "ID:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial Rounded MT Bold", 9F);
+            label5.Location = new Point(7, 59);
+            label5.Name = "label5";
+            label5.Size = new Size(153, 14);
+            label5.TabIndex = 6;
+            label5.Text = "DATA DE NASCIMENTO:";
+            // 
+            // textBoxID
+            // 
+            textBoxID.BorderStyle = BorderStyle.None;
+            textBoxID.Location = new Point(7, 35);
+            textBoxID.Name = "textBoxID";
+            textBoxID.Size = new Size(57, 14);
+            textBoxID.TabIndex = 8;
+            // 
+            // MBDataNascimento
+            // 
+            MBDataNascimento.BorderStyle = BorderStyle.None;
+            MBDataNascimento.Location = new Point(7, 76);
+            MBDataNascimento.Mask = "00/00/0000";
+            MBDataNascimento.Name = "MBDataNascimento";
+            MBDataNascimento.Size = new Size(150, 14);
+            MBDataNascimento.TabIndex = 5;
+            MBDataNascimento.ValidatingType = typeof(DateTime);
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial Rounded MT Bold", 9F);
+            label4.Location = new Point(511, 59);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 14);
+            label4.TabIndex = 4;
+            label4.Text = "RG:";
+            // 
+            // MBRG
+            // 
+            MBRG.BorderStyle = BorderStyle.None;
+            MBRG.Location = new Point(511, 76);
+            MBRG.Mask = "00.000.000-0";
+            MBRG.Name = "MBRG";
+            MBRG.Size = new Size(92, 14);
+            MBRG.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Rounded MT Bold", 9F);
+            label3.Location = new Point(411, 59);
+            label3.Name = "label3";
+            label3.Size = new Size(35, 14);
+            label3.TabIndex = 2;
+            label3.Text = "CPF:";
+            // 
+            // MBCpf
+            // 
+            MBCpf.BorderStyle = BorderStyle.None;
+            MBCpf.Location = new Point(411, 76);
+            MBCpf.Mask = "000.000.000-00";
+            MBCpf.Name = "MBCpf";
+            MBCpf.Size = new Size(92, 14);
+            MBCpf.TabIndex = 1;
+            // 
+            // Logo
+            // 
+            Logo.BackColor = Color.Transparent;
+            Logo.BackgroundImage = (Image)resources.GetObject("Logo.BackgroundImage");
+            Logo.BackgroundImageLayout = ImageLayout.Zoom;
+            Logo.Location = new Point(377, 434);
+            Logo.Margin = new Padding(3, 4, 3, 4);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(287, 171);
+            Logo.TabIndex = 28;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Controls.Add(Background);
+            panel1.Location = new Point(12, 13);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1465, 697);
+            panel1.TabIndex = 29;
+            // 
+            // Background
+            // 
+            Background.BackColor = Color.Transparent;
+            Background.BackgroundImage = (Image)resources.GetObject("Background.BackgroundImage");
+            Background.Controls.Add(Tela);
+            Background.Controls.Add(Mensagem);
+            Background.Location = new Point(-69, -62);
+            Background.Margin = new Padding(3, 4, 3, 4);
+            Background.Name = "Background";
+            Background.Size = new Size(1603, 821);
+            Background.TabIndex = 5;
+            // 
+            // Tela
+            // 
+            Tela.BackColor = Color.Transparent;
+            Tela.BackgroundImage = (Image)resources.GetObject("Tela.BackgroundImage");
+            Tela.BackgroundImageLayout = ImageLayout.Stretch;
+            Tela.Controls.Add(Logo);
+            Tela.Controls.Add(lErro);
+            Tela.Controls.Add(Situacao);
+            Tela.Controls.Add(lSenha);
+            Tela.Controls.Add(button2);
+            Tela.Controls.Add(lUsuario);
+            Tela.Controls.Add(button1);
+            Tela.Controls.Add(btesquecisenha);
+            Tela.Controls.Add(groupBoxFuncao);
+            Tela.Controls.Add(groupBoxDadoPessoal);
+            Tela.Controls.Add(groupBoxDependente);
+            Tela.Controls.Add(groupBoxEndereco);
+            Tela.Location = new Point(88, 90);
+            Tela.Margin = new Padding(3, 4, 3, 4);
+            Tela.Name = "Tela";
+            Tela.Size = new Size(703, 646);
+            Tela.TabIndex = 5;
+            // 
+            // lErro
+            // 
+            lErro.AutoSize = true;
+            lErro.Location = new Point(389, 497);
+            lErro.Name = "lErro";
+            lErro.Size = new Size(0, 15);
+            lErro.TabIndex = 14;
+            // 
+            // lSenha
+            // 
+            lSenha.AutoSize = true;
+            lSenha.Location = new Point(389, 495);
+            lSenha.Name = "lSenha";
+            lSenha.Size = new Size(0, 15);
+            lSenha.TabIndex = 13;
+            // 
+            // lUsuario
+            // 
+            lUsuario.AutoSize = true;
+            lUsuario.Location = new Point(389, 442);
+            lUsuario.Name = "lUsuario";
+            lUsuario.Size = new Size(0, 15);
+            lUsuario.TabIndex = 12;
+            // 
+            // btesquecisenha
+            // 
+            btesquecisenha.AutoSize = true;
+            btesquecisenha.Cursor = Cursors.Hand;
+            btesquecisenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btesquecisenha.Location = new Point(64, 425);
+            btesquecisenha.Name = "btesquecisenha";
+            btesquecisenha.Size = new Size(0, 21);
+            btesquecisenha.TabIndex = 8;
+            // 
+            // Mensagem
+            // 
+            Mensagem.AutoSize = true;
+            Mensagem.BackColor = Color.Transparent;
+            Mensagem.Font = new Font("Verdana", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Mensagem.ForeColor = SystemColors.Window;
+            Mensagem.Location = new Point(157, 162);
+            Mensagem.Name = "Mensagem";
+            Mensagem.Size = new Size(408, 42);
+            Mensagem.TabIndex = 1;
+            Mensagem.Text = "Bem vindo de volta!";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Window;
-            ClientSize = new Size(837, 657);
-            Controls.Add(checkBoxDependente);
-            Controls.Add(Situacao);
-            Controls.Add(button2);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox1);
-            Controls.Add(button1);
-            Controls.Add(groupBox4);
-            Controls.Add(groupBoxDependente);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(pictureBox2);
+            BackColor = Color.Linen;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1462, 691);
+            Controls.Add(panel1);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "CADASTRO DE  COLABORADORES";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            groupBoxFuncao.ResumeLayout(false);
+            groupBoxFuncao.PerformLayout();
             groupBoxDependente.ResumeLayout(false);
             groupBoxDependente.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            groupBoxEndereco.ResumeLayout(false);
+            groupBoxEndereco.PerformLayout();
+            groupBoxDadoPessoal.ResumeLayout(false);
+            groupBoxDadoPessoal.PerformLayout();
+            panel1.ResumeLayout(false);
+            Background.ResumeLayout(false);
+            Background.PerformLayout();
+            Tela.ResumeLayout(false);
+            Tela.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label2;
-        private TextBox textNome;
-        private Label label1;
-        private TextBox textBoxID;
-        private GroupBox groupBox1;
-        private Label label3;
-        private MaskedTextBox MBCpf;
-        private ComboBox CBGenero;
-        private Label label5;
-        private MaskedTextBox MBDataNascimento;
-        private Label label4;
-        private MaskedTextBox MBRG;
-        private Label label6;
-        private GroupBox groupBox2;
+        private CheckBox Situacao;
+        private Button button2;
+        private Button button1;
+        private GroupBox groupBoxFuncao;
+        private MaskedTextBox MBSalario;
+        private TextBox TXTCargo;
+        private Label label24;
+        private TextBox TXTDepartamento;
+        private Label label22;
+        private Label label18;
+        private Label label23;
+        private MaskedTextBox MBDataAdimissao;
+        private GroupBox groupBoxDependente;
+        private CheckBox checkBox1;
+        private Label label15;
+        private ComboBox CBParentesco;
+        private Label label16;
+        private Label label17;
+        private TextBox txtNome2;
+        private ComboBox CBGeneroDependente;
+        private Label label19;
+        private MaskedTextBox MBDataDependente;
+        private Label label20;
+        private MaskedTextBox MBRgDependente;
+        private Label label21;
+        private MaskedTextBox MBCPFDependente;
+        private GroupBox groupBoxEndereco;
         private Label label10;
         private TextBox TXTComplemento;
         private Label label9;
@@ -743,37 +876,29 @@
         private MaskedTextBox MBCEP;
         private Label label7;
         private TextBox TXTLogradouro;
+        private GroupBox groupBoxDadoPessoal;
         private Label label14;
         private ComboBox CBEstadoCivil;
-        private GroupBox groupBoxDependente;
-        private Label label16;
-        private Label label17;
-        private TextBox txtNome2;
-        private ComboBox CBGeneroDependente;
-        private Label label19;
-        private MaskedTextBox MBDataDependente;
-        private Label label20;
-        private MaskedTextBox MBRgDependente;
-        private Label label21;
-        private MaskedTextBox MBCPFDependente;
-        private Label label15;
-        private ComboBox CBParentesco;
-        private GroupBox groupBox4;
-        private Label label18;
-        private TextBox TXTCargo;
-        private Label label24;
-        private Label label23;
-        private MaskedTextBox MBDataAdimissao;
-        private Label label22;
-        private TextBox TXTDepartamento;
-        private MaskedTextBox MBSalario;
-        private Button button1;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private Button button2;
-        private CheckBox checkBoxDependente;
-        private CheckBox Situacao;
+        private Label label6;
+        private Label label2;
+        private TextBox textNome;
+        private ComboBox CBGenero;
+        private Label label1;
+        private Label label5;
+        private TextBox textBoxID;
+        private MaskedTextBox MBDataNascimento;
+        private Label label4;
+        private MaskedTextBox MBRG;
+        private Label label3;
+        private MaskedTextBox MBCpf;
+        private Panel Logo;
+        private Panel panel1;
+        private Panel Background;
+        private Panel Tela;
+        private Label lErro;
+        private Label lSenha;
+        private Label lUsuario;
+        private Label btesquecisenha;
+        private Label Mensagem;
     }
 }

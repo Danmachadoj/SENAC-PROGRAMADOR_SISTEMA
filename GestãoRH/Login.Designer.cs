@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            Background = new Panel();
             Tela = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
             txtUsuario = new TextBox();
             lErro = new Label();
             lSenha = new Label();
@@ -38,20 +41,31 @@
             btesquecisenha = new Label();
             label1 = new Label();
             Logo = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
             btnEntrar = new Button();
             Mensagem = new Label();
-            Background = new Panel();
-            Tela.SuspendLayout();
             Background.SuspendLayout();
+            Tela.SuspendLayout();
             SuspendLayout();
+            // 
+            // Background
+            // 
+            Background.BackColor = Color.Transparent;
+            Background.BackgroundImage = (Image)resources.GetObject("Background.BackgroundImage");
+            Background.Controls.Add(Tela);
+            Background.Controls.Add(Mensagem);
+            Background.Location = new Point(-4, -7);
+            Background.Margin = new Padding(3, 4, 3, 4);
+            Background.Name = "Background";
+            Background.Size = new Size(1603, 821);
+            Background.TabIndex = 4;
             // 
             // Tela
             // 
             Tela.BackColor = Color.Transparent;
             Tela.BackgroundImage = (Image)resources.GetObject("Tela.BackgroundImage");
             Tela.BackgroundImageLayout = ImageLayout.Stretch;
+            Tela.Controls.Add(panel3);
+            Tela.Controls.Add(panel4);
             Tela.Controls.Add(txtUsuario);
             Tela.Controls.Add(lErro);
             Tela.Controls.Add(lSenha);
@@ -60,28 +74,52 @@
             Tela.Controls.Add(btesquecisenha);
             Tela.Controls.Add(label1);
             Tela.Controls.Add(Logo);
-            Tela.Controls.Add(panel3);
-            Tela.Controls.Add(panel4);
             Tela.Controls.Add(btnEntrar);
-            Tela.Controls.Add(Mensagem);
-            Tela.Location = new Point(92, 147);
+            Tela.Location = new Point(686, 20);
             Tela.Margin = new Padding(3, 4, 3, 4);
             Tela.Name = "Tela";
-            Tela.Size = new Size(557, 523);
+            Tela.Size = new Size(889, 747);
             Tela.TabIndex = 5;
+            Tela.Paint += Tela_Paint;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.BackgroundImage = GestaoRH.Properties.Resources.ChatGPT_Image_9_de_mai__de_2025__03_11_49;
+            panel3.BackgroundImageLayout = ImageLayout.Zoom;
+            panel3.Location = new Point(219, 442);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(82, 52);
+            panel3.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
+            panel4.BackgroundImageLayout = ImageLayout.Zoom;
+            panel4.Location = new Point(219, 362);
+            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(82, 52);
+            panel4.TabIndex = 6;
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(129, 269);
+            txtUsuario.BorderStyle = BorderStyle.None;
+            txtUsuario.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            txtUsuario.ForeColor = Color.Black;
+            txtUsuario.Location = new Point(265, 365);
+            txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(318, 23);
+            txtUsuario.Size = new Size(358, 49);
             txtUsuario.TabIndex = 15;
             txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // lErro
             // 
             lErro.AutoSize = true;
-            lErro.Location = new Point(224, 365);
+            lErro.Location = new Point(388, 481);
             lErro.Name = "lErro";
             lErro.Size = new Size(0, 15);
             lErro.TabIndex = 14;
@@ -89,7 +127,7 @@
             // lSenha
             // 
             lSenha.AutoSize = true;
-            lSenha.Location = new Point(145, 363);
+            lSenha.Location = new Point(388, 479);
             lSenha.Name = "lSenha";
             lSenha.Size = new Size(0, 15);
             lSenha.TabIndex = 13;
@@ -97,16 +135,20 @@
             // lUsuario
             // 
             lUsuario.AutoSize = true;
-            lUsuario.Location = new Point(129, 310);
+            lUsuario.Location = new Point(388, 426);
             lUsuario.Name = "lUsuario";
             lUsuario.Size = new Size(0, 15);
             lUsuario.TabIndex = 12;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(129, 333);
+            txtSenha.BorderStyle = BorderStyle.None;
+            txtSenha.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            txtSenha.ForeColor = Color.Black;
+            txtSenha.Location = new Point(265, 445);
+            txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(318, 23);
+            txtSenha.Size = new Size(358, 49);
             txtSenha.TabIndex = 11;
             txtSenha.TextChanged += txtSenha_TextChanged_1;
             // 
@@ -123,50 +165,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(237, 229);
+            label1.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.RoyalBlue;
+            label1.Location = new Point(342, 291);
             label1.Name = "label1";
-            label1.Size = new Size(57, 21);
+            label1.Size = new Size(204, 40);
             label1.TabIndex = 7;
-            label1.Text = "Login:";
+            label1.Text = "Faça Login";
             // 
             // Logo
             // 
             Logo.BackColor = Color.Transparent;
             Logo.BackgroundImage = (Image)resources.GetObject("Logo.BackgroundImage");
             Logo.BackgroundImageLayout = ImageLayout.Zoom;
-            Logo.Location = new Point(3, 4);
+            Logo.Location = new Point(0, 4);
             Logo.Margin = new Padding(3, 4, 3, 4);
             Logo.Name = "Logo";
-            Logo.Size = new Size(549, 161);
+            Logo.Size = new Size(889, 256);
             Logo.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.BackgroundImageLayout = ImageLayout.Zoom;
-            panel3.Location = new Point(88, 324);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(35, 36);
-            panel3.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
-            panel4.BackgroundImageLayout = ImageLayout.Zoom;
-            panel4.Location = new Point(88, 256);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(35, 36);
-            panel4.TabIndex = 6;
             // 
             // btnEntrar
             // 
             btnEntrar.AutoEllipsis = true;
+            btnEntrar.FlatStyle = FlatStyle.System;
             btnEntrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEntrar.Location = new Point(224, 384);
+            btnEntrar.Location = new Point(379, 542);
             btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(130, 36);
@@ -179,29 +202,19 @@
             // 
             Mensagem.AutoSize = true;
             Mensagem.BackColor = Color.Transparent;
-            Mensagem.Font = new Font("Segoe UI", 27F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Mensagem.Location = new Point(167, 172);
+            Mensagem.Font = new Font("Verdana", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Mensagem.ForeColor = SystemColors.Window;
+            Mensagem.Location = new Point(157, 162);
             Mensagem.Name = "Mensagem";
-            Mensagem.Size = new Size(213, 48);
+            Mensagem.Size = new Size(408, 42);
             Mensagem.TabIndex = 1;
-            Mensagem.Text = "Bem vindo!";
-            // 
-            // Background
-            // 
-            Background.BackColor = Color.Transparent;
-            Background.BackgroundImage = (Image)resources.GetObject("Background.BackgroundImage");
-            Background.Controls.Add(Tela);
-            Background.Location = new Point(-4, -7);
-            Background.Margin = new Padding(3, 4, 3, 4);
-            Background.Name = "Background";
-            Background.Size = new Size(799, 821);
-            Background.TabIndex = 4;
+            Mensagem.Text = "Bem vindo de volta!";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(738, 766);
+            ClientSize = new Size(1583, 766);
             Controls.Add(Background);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
@@ -211,28 +224,28 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestão de Recursos Humanos";
+            Background.ResumeLayout(false);
+            Background.PerformLayout();
             Tela.ResumeLayout(false);
             Tela.PerformLayout();
-            Background.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel Tela;
-        private Button btnEntrar;
-        private Label Mensagem;
-        private Panel Logo;
         private Panel Background;
+        private Label lblWorkBridge;
+        private Panel Tela;
+        private TextBox txtUsuario;
+        private Label lErro;
+        private Label lSenha;
+        private Label lUsuario;
+        private TextBox txtSenha;
+        private Label btesquecisenha;
+        private Label label1;
+        private Panel Logo;
         private Panel panel3;
         private Panel panel4;
-        private Label lblWorkBridge;
-        private Label label1;
-        private Label btesquecisenha;
-        private TextBox txtSenha;
-        private Label lUsuario;
-        private Label lSenha;
-        private Label lErro;
-        private TextBox txtUsuario;
+        private Button btnEntrar;
+        private Label Mensagem;
     }
 }
