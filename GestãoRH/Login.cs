@@ -92,5 +92,10 @@ namespace visualPI
         {
 
         }
+
+        private void Background_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

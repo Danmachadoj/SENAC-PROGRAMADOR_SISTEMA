@@ -8,7 +8,7 @@ namespace GestaoRH
 {
     internal class Repositorio
     {
-        public static string _conexao = "server=localhost;user=root;password=;database=GestaoRH;";
+        public static string _conexao = "server=localhost;user=root;password=;database=gestaorh;";
 
 
 

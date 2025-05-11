@@ -10,7 +10,7 @@ namespace GestaoRH
         {
             DataTable dt = new DataTable();
 
-            using (MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=gestaoRH;"))
+            using (MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=Dexter1010;database=gestaoRH;"))
             {
                 conn.Open();
 

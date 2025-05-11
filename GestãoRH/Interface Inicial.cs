@@ -1,6 +1,7 @@
 ﻿using GestãoRH;
 using MySql.Data.MySqlClient;
 using System.Data;
+using visualPI;
 
 
 namespace GestaoRH
@@ -92,8 +93,8 @@ namespace GestaoRH
 
         private void buttonAtualizar_Click_1(object sender, EventArgs e)
         {
-           
-            
+
+
             if (dataGridView1.CurrentRow != null)
             {
 
@@ -116,6 +117,18 @@ namespace GestaoRH
         {
             Form1 form1 = new Form1();
             form1.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
