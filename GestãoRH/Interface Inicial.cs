@@ -40,7 +40,7 @@ namespace GestaoRH
             using (var conexao = new MySqlConnection(conexaoString))
             {
                 conexao.Open();
-                string query = "SELECT * FROM Funcionario";
+                string query = "SELECT\r\n    f.Id,\r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    f.Rg,\r\n    f.DataNascimento,\r\n    f.Genero,\r\n    f.EstadoCivil,\r\n    fu.Cargo,\r\n    fu.Salario,\r\n    fu.Departamento,\r\n    fu.DataAdmissao,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM funcionario f\r\nINNER JOIN endereco e ON f.Id = e.FuncionarioId\r\nINNER JOIN funcao fu ON f.id = fu.Id;\r\n";
                 var comando = new MySqlCommand(query, conexao);
                 var adaptador = new MySqlDataAdapter(comando);
                 var tabela = new DataTable();

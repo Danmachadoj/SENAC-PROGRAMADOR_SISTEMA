@@ -454,51 +454,11 @@ namespace GestãoRH
             }
         }
 
-
-
-
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            bool update = !string.IsNullOrEmpty(textBoxID.Text);
-
-            if (update)
-            {
-                // UPDATE
-                AtualizarSql();
-                return;
-            }
-
-            // INSERT
-            if (ValidarDadosPessoais() || ValidarEndereco() || ValidarFuncao() || (checkBox1.Checked && ValidarDependentes()))
-            {
-                return;
-            }
-
-            InserirSql();
-        }
-
-
         private void button2_Click(object sender, EventArgs e)
         {
             Interface_Inicial fomr2 = new Interface_Inicial();
             fomr2.Show();
             this.Close();
-        }
-
-        private void checkBoxDependente_CheckedChanged(object sender, EventArgs e)
-        {
-            groupBoxDadoPessoal.Enabled = checkBox1.Checked;
-        }
-
-        private void Tela_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -529,19 +489,9 @@ namespace GestãoRH
             InserirSql();
         }
 
-        private void groupBoxDependente_Enter(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             groupBoxDependente.Enabled = checkBox1.Checked;
-        }
-
-        private void Situacao_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNome2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

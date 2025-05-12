@@ -11,7 +11,7 @@ namespace GestaoRH.BancoDados.Dominio
     {
         public static MySqlConnection GetConnection()
         {
-            return new MySqlConnection("server=localhost;user=root;password=;database=GestaoRH;");
+            return new MySqlConnection("server=localhost;user=root;password=;database=gestaorh;");
         }
     }
 }

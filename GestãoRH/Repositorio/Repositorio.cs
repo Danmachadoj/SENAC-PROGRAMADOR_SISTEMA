@@ -322,7 +322,7 @@ namespace GestaoRH
             using (var con = new MySqlConnection(_conexao))
             {
                 con.Open();
-                string sql = "SELECT\r\n    f.Id,\r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    f.Rg,\r\n    f.DataNascimento,\r\n    f.Genero,\r\n    f.EstadoCivil,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM funcionario f\r\nINNER JOIN endereco e ON f.Id = e.FuncionarioId;\r\n";
+                string sql = "SELECT\r\n    f.Id,\r\n    f.NomeCompleto,\r\n    f.Cpf,\r\n    f.Rg,\r\n    f.DataNascimento,\r\n    f.Genero,\r\n    f.EstadoCivil,\r\n    fu.Cargo,\r\n    fu.Salario,\r\n    fu.Departamento,\r\n    fu.DataAdmissao,\r\n    e.Cep,\r\n    e.Logradouro,\r\n    e.Numero,\r\n    e.Complemento,\r\n    e.Bairro,\r\n    e.Cidade,\r\n    e.Estado\r\nFROM funcionario f\r\nINNER JOIN endereco e ON f.Id = e.FuncionarioId\r\nINNER JOIN funcao fu ON f.id = fu.Id;\r\n";
                 using (var cmd = new MySqlCommand(sql, con))
 
                 using (var reader = cmd.ExecuteReader())
@@ -362,6 +362,13 @@ namespace GestaoRH
                             Cidade = reader["Cidade"].ToString(),
                             Estado = reader["Estado"].ToString(),
 
+                        };
+
+                        var funcao = new Funcao
+                        {
+                            DataAdmissao = Convert.ToDateTime(reader["DataAdmissao"]),
+                            Salario = Convert.ToDecimal(reader["Salario"]),
+                            Cargo = reader["Cargo"].ToString(),
                         };
 
 
